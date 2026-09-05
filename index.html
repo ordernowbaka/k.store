@@ -1082,16 +1082,38 @@ textarea{
 
 /* ================= REVIEWS ================= */
 
-.review-grid{
-  display:grid;
+.review-slider{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+}
 
-  grid-template-columns:
-    repeat(3,1fr);
-
+.review-track{
+  display:flex;
   gap:20px;
+
+  overflow-x:auto;
+
+  scroll-snap-type:x mandatory;
+
+  scrollbar-width:none;
+
+  padding:5px 2px 15px;
+
+  cursor:grab;
+
+  direction:rtl;
+}
+
+.review-track::-webkit-scrollbar{
+  display:none;
 }
 
 .review{
+  flex:0 0 calc((100% - 40px) / 3);
+
+  scroll-snap-align:start;
+
   background:var(--card);
 
   border:1px solid var(--border);
@@ -1101,6 +1123,8 @@ textarea{
   padding:25px;
 
   box-shadow:var(--shadow);
+
+  min-height:190px;
 }
 
 .stars{
@@ -1119,6 +1143,16 @@ textarea{
   display:block;
 
   margin-top:15px;
+}
+
+.review-hint{
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:13px;
+
+  margin-top:5px;
 }
 
 /* ================= FAQ ================= */
@@ -1362,10 +1396,50 @@ footer p{
 
   .nav-inner{
     min-height:65px;
+
+    gap:7px;
+  }
+
+  .logo{
+    font-size:23px;
   }
 
   .nav-links{
+    display:flex;
+
+    flex:1;
+
+    justify-content:flex-end;
+
+    gap:3px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+    white-space:nowrap;
+  }
+
+  .nav-links::-webkit-scrollbar{
     display:none;
+  }
+
+  .nav-links a,
+  .nav-links button{
+    font-size:11px;
+
+    padding:7px 7px;
+
+    flex-shrink:0;
+  }
+
+  .mode-btn{
+    width:38px;
+    height:38px;
+
+    flex-shrink:0;
+
+    font-size:16px;
   }
 
   .hero{
@@ -1382,9 +1456,12 @@ footer p{
   }
 
   .stationery-grid,
-  .steps,
-  .review-grid{
+  .steps{
     grid-template-columns:1fr;
+  }
+
+  .review{
+    flex:0 0 85%;
   }
 
   .form-grid{
@@ -1409,6 +1486,30 @@ footer p{
 }
 
 @media(max-width:480px){
+
+  .nav-inner{
+    width:96%;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .nav-links{
+    gap:1px;
+  }
+
+  .nav-links a,
+  .nav-links button{
+    font-size:10px;
+
+    padding:6px 5px;
+  }
+
+  .mode-btn{
+    width:36px;
+    height:36px;
+  }
 
   .price-grid{
     grid-template-columns:
@@ -1488,19 +1589,33 @@ footer p{
     <div class="nav-links">
 
       <a href="#cases">
-        📱 جرابات
+        📱 الجرابات
       </a>
 
       <button onclick="showStationery()">
-        ✏️ أدوات مكتبية
+        ✏️ الأدوات المكتبية
       </button>
 
       <a href="#how">
-        ✨ إزاي تطلبي؟
+        ✨ إزاي تطلب؟
       </a>
 
       <a href="#order">
-        💗 اطلبي
+        💗 اعمل طلب
+      </a>
+
+      <a
+        href="https://linktr.ee/K.store188"
+        target="_blank"
+      >
+        🔗 لينكاتنا
+      </a>
+
+      <a
+        href="https://wa.me/201096056450"
+        target="_blank"
+      >
+        💬 WhatsApp
       </a>
 
     </div>
@@ -1532,9 +1647,9 @@ footer p{
     </h1>
 
     <p>
-      اختاري التصميم اللي يعبر عنك،
+      اختار التصميم اللي يعبر عنك،
       وخلي كل تفصيلة في موبايلك شبه شخصيتك.
-      وكمان استنينا في حاجات كيوت جديدة جاية قريب ✨
+      وكمان استنى حاجات كيوت جديدة جاية قريب ✨
     </p>
 
     <div class="hero-buttons">
@@ -1543,7 +1658,7 @@ footer p{
         href="#cases"
         class="btn btn-primary"
       >
-        📱 شوفي الجرابات
+        📱 شوف الجرابات
       </a>
 
       <button
@@ -1572,7 +1687,7 @@ footer p{
       </h2>
 
       <p>
-        كل ما تاخدي أكتر، الباكدج يبقى أوفر 💗
+        كل ما تاخد أكتر، الباكدج يبقى أوفر 💗
       </p>
 
     </div>
@@ -1814,7 +1929,7 @@ footer p{
         </h3>
 
         <p>
-          كتب تلوين عشان تفصلي شوية وتطلعي إبداعك.
+          كتب تلوين عشان تفصل شوية وتطلع إبداعك.
         </p>
 
         <span class="coming">
@@ -1854,7 +1969,7 @@ footer p{
         </h3>
 
         <p>
-          بوتش كيوت تشيل حاجتك وتكمل الـK.Store vibe.
+          بوتش كيوت يشيل حاجتك ويكمل الـK.Store vibe.
         </p>
 
         <span class="coming">
@@ -1878,11 +1993,11 @@ footer p{
     <div class="section-title">
 
       <h2>
-        ✨ إزاي تطلبي؟
+        ✨ إزاي تطلب؟
       </h2>
 
       <p>
-        الموضوع أسهل مما تتخيلي 💗
+        الموضوع أسهل مما تتخيل 💗
       </p>
 
     </div>
@@ -1896,12 +2011,12 @@ footer p{
         </div>
 
         <h3>
-          اختاري الباكدج
+          اختار الباكدج
         </h3>
 
         <p>
-          اختاري عدد الجرابات اللي عايزاها
-          وحددي لو الموديل Motorola أو التصميم Custom.
+          اختار عدد الجرابات اللي عايزها
+          وحدد لو الموديل Motorola أو التصميم Custom.
         </p>
 
       </div>
@@ -1913,11 +2028,11 @@ footer p{
         </div>
 
         <h3>
-          اكتبي التفاصيل
+          اكتب التفاصيل
         </h3>
 
         <p>
-          اكتبي بياناتك وموديل موبايلك
+          اكتب بياناتك وموديل موبايلك
           وتفاصيل التصميم والعنوان.
         </p>
 
@@ -1930,11 +2045,11 @@ footer p{
         </div>
 
         <h3>
-          ابعتي الطلب 💗
+          ابعت الطلب 💗
         </h3>
 
         <p>
-          دوسي على إرسال الطلب،
+          دوس على إرسال الطلب،
           وهيفتح WhatsApp برسالة الطلب جاهزة.
         </p>
 
@@ -1955,11 +2070,11 @@ footer p{
     <div class="section-title">
 
       <h2>
-        💗 اعملي طلبك
+        💗 اعمل طلبك
       </h2>
 
       <p>
-        املئي البيانات وهنتواصل معاكي على WhatsApp
+        املأ البيانات وهنكلمك على WhatsApp
       </p>
 
     </div>
@@ -1979,7 +2094,7 @@ footer p{
             <input
               type="text"
               id="name"
-              placeholder="اكتبي اسمك"
+              placeholder="اكتب اسمك"
               required
             >
 
@@ -2027,7 +2142,7 @@ footer p{
             >
 
               <option value="">
-                اختاري الباكدج
+                اختار الباكدج
               </option>
 
               <option value="1">
@@ -2098,7 +2213,7 @@ footer p{
 
             <textarea
               id="designDetails"
-              placeholder="اكتبي عايزة التصميم يكون عامل إزاي..."
+              placeholder="اكتب عايز التصميم يكون عامل إزاي..."
             ></textarea>
 
           </div>
@@ -2141,7 +2256,7 @@ footer p{
 
             <textarea
               id="address"
-              placeholder="اكتبي العنوان بالتفصيل"
+              placeholder="اكتب العنوان بالتفصيل"
               required
             ></textarea>
 
@@ -2200,61 +2315,83 @@ footer p{
       </h2>
 
       <p>
-        كل أوردر بيفرق معانا.
+        كلهم من K.Store 🎀
       </p>
 
     </div>
 
-    <div class="review-grid">
+    <div class="review-slider">
 
-      <div class="review">
+      <div class="review-track">
 
-        <div class="stars">
-          ★★★★★
+        <div class="review">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            الحاجات تحفهههه I like 😍❤️
+          </p>
+
+          <strong>
+            — K.Store Customer 💗
+          </strong>
+
         </div>
 
-        <p>
-          الجراب طلع أحلى بكتير من الصورة 😭🎀
-          والخامة حلوة جدًا.
-        </p>
+        <div class="review">
 
-        <strong>
-          — Customer 💗
-        </strong>
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            جميل يا حبيبتي تسلم إيدك ❤️❤️
+          </p>
+
+          <strong>
+            — K.Store Customer 🎀
+          </strong>
+
+        </div>
+
+        <div class="review">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            تسلم إيديكم والله جميل 😍
+          </p>
+
+          <strong>
+            — K.Store Customer 💕
+          </strong>
+
+        </div>
+
+        <div class="review">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            تحفة حبيبة قلبي تسلم إيدك 🥹❤️
+          </p>
+
+          <strong>
+            — K.Store Customer 🎀
+          </strong>
+
+        </div>
 
       </div>
 
-      <div class="review">
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <p>
-          التفاصيل والطباعة جميلة جدًا،
-          أكيد مش آخر أوردر.
-        </p>
-
-        <strong>
-          — Happy Customer 🎀
-        </strong>
-
-      </div>
-
-      <div class="review">
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <p>
-          أكتر حاجة حبيتها إن التصميم طلع زي ما كنت متخيلاه.
-        </p>
-
-        <strong>
-          — K.Store girl 💕
-        </strong>
-
+      <div class="review-hint">
+        اسحب يمين أو شمال عشان تشوف باقي الآراء ← ✨ →
       </div>
 
     </div>
@@ -2299,8 +2436,8 @@ footer p{
         </summary>
 
         <p>
-          أيوه طبعًا 💗 اكتبي تفاصيل التصميم
-          في الفورم وهنراجع معاكي التفاصيل.
+          أيوه طبعًا 💗 اكتب تفاصيل التصميم
+          في الفورم وهنراجع معاك التفاصيل.
         </p>
 
       </details>
@@ -2313,7 +2450,7 @@ footer p{
 
         <p>
           التوفر بيختلف حسب الموديل،
-          اكتبي موديل موبايلك في الطلب وهنتأكد منه.
+          اكتب موديل موبايلك في الطلب وهنتأكد منه.
         </p>
 
       </details>
@@ -2360,7 +2497,7 @@ footer p{
         href="#order"
         class="btn btn-primary"
       >
-        💗 اطلبي دلوقتي
+        💗 اطلب دلوقتي
       </a>
 
     </div>
@@ -2418,7 +2555,7 @@ footer p{
   💬
 </a>
 
-<!-- ================= POPUP ================= -->
+<!-- ================= STATIONERY POPUP ================= -->
 
 <div
   class="popup-overlay"
@@ -2457,6 +2594,46 @@ footer p{
       onclick="hideStationery()"
     >
       تمام 🎀
+    </button>
+
+  </div>
+
+</div>
+
+<!-- ================= ORDER SUCCESS POPUP ================= -->
+
+<div
+  class="popup-overlay"
+  id="successPopup"
+  onclick="closeSuccessPopup(event)"
+>
+
+  <div class="popup">
+
+    <div class="popup-icon">
+      💗🎀✨
+    </div>
+
+    <h2>
+      شكرًا لطلبك! 🥹
+    </h2>
+
+    <p>
+      طلبك اتبعت بنجاح لـ K.Store 💗
+      <br><br>
+      نورتنا جدًا، ومستنيين نجهزهولك
+      بحب عشان يوصل ليك زي ما تتمنى 🎀✨
+      <br><br>
+      <strong>
+        شكرًا إنك اخترت K.Store 🤍
+      </strong>
+    </p>
+
+    <button
+      class="btn btn-primary close-popup"
+      onclick="hideSuccessPopup()"
+    >
+      تمام يا K.Store 🎀
     </button>
 
   </div>
@@ -2525,6 +2702,35 @@ function closePopup(event){
   if(event.target === popup){
 
     hideStationery();
+
+  }
+
+}
+
+/* ================= SUCCESS POPUP ================= */
+
+const successPopup =
+  document.getElementById(
+    "successPopup"
+  );
+
+function showSuccessPopup(){
+
+  successPopup.classList.add("show");
+
+}
+
+function hideSuccessPopup(){
+
+  successPopup.classList.remove("show");
+
+}
+
+function closeSuccessPopup(event){
+
+  if(event.target === successPopup){
+
+    hideSuccessPopup();
 
   }
 
@@ -2743,6 +2949,8 @@ ${notes || "لا يوجد"}
         whatsappURL,
         "_blank"
       );
+
+      showSuccessPopup();
 
     }
   );
