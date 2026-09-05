@@ -4,153 +4,1976 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f7d7e4">
+
 <title>K Store 🎀 | Custom Phone Cases</title>
+
 <meta name="description" content="K Store — جرابات موبايل مخصصة بتصميمك، لأن موبايلك يستاهل حاجة شبهك.">
-<meta property="og:title" content="K Store 🎀 | Custom Phone Cases">
-<meta property="og:description" content="صممي جرابك وخلي موبايلك يشبهك.">
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-:root{--pink:#f7d7e4;--rose:#c87f9b;--deep:#513846;--cream:#fffafc;--gold:#b58b56;--line:#ead9e0;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--deep);font-family:Cairo,sans-serif;line-height:1.8}
-a{text-decoration:none;color:inherit}.wrap{max-width:1120px;margin:auto;padding:0 20px}
-.top{background:#513846;color:#fff;text-align:center;padding:8px;font-size:13px;letter-spacing:.2px}
-nav{position:sticky;top:0;z-index:20;background:rgba(255,250,252,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:"Playfair Display",serif;font-size:30px;font-weight:700;color:#513846}.logo span{color:#c87f9b}
-.links{display:flex;gap:22px;font-size:14px;font-weight:600}.links a:hover{color:var(--rose)}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:12px 21px;background:var(--deep);color:#fff;font-family:inherit;font-weight:700;cursor:pointer;transition:.2s;box-shadow:0 8px 22px #51384622}
-.btn:hover{transform:translateY(-2px)}.btn.light{background:#fff;color:var(--deep);border:1px solid var(--line);box-shadow:none}.btn.pink{background:var(--rose)}
-.hero{padding:76px 0 64px;background:radial-gradient(circle at 80% 20%,#f5d5e1 0,transparent 34%),linear-gradient(135deg,#fffafc,#fdf1f6)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
-.badge{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:12px;margin-bottom:14px;color:var(--rose);font-weight:700}
-h1{font-family:"Playfair Display",serif;font-size:clamp(46px,7vw,78px);line-height:1.05;margin:0 0 18px;color:#4d3541;direction:ltr;text-align:right}
-h1 em{font-style:normal;color:var(--rose)}.hero p{font-size:18px;max-width:620px;color:#735c68}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.hero-card{min-height:390px;border-radius:35px;background:linear-gradient(145deg,#fff,#f4d4e1);border:1px solid #edd8e1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 25px 60px #8b526520}
-.phone{width:190px;height:345px;border:7px solid #3d3035;border-radius:30px;background:linear-gradient(160deg,#fff,#f5e0e7);box-shadow:12px 20px 40px #51384633;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;position:relative}
-.phone:before{content:"K";font-family:"Playfair Display";font-size:82px;color:#c87f9b;border:2px solid #c87f9b;width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.spark{position:absolute;font-size:25px;color:#fff}.s1{top:45px;right:55px}.s2{bottom:55px;left:45px}.s3{top:120px;left:35px}
-section{padding:75px 0}.section-head{text-align:center;margin-bottom:35px}.eyebrow{color:var(--rose);font-weight:800;font-size:13px}.section-head h2{font-family:"Playfair Display";font-size:39px;margin:3px 0}.section-head p{margin:0;color:#806b74}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.price{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px;text-align:center;box-shadow:0 10px 30px #5138460b}.price.featured{border:2px solid var(--pink);transform:translateY(-5px)}.price h3{margin:0;font-size:18px}.price .num{font-size:34px;font-weight:800;margin:9px 0;color:#513846}.old{text-decoration:line-through;color:#ad99a2;font-size:13px;margin-right:4px}.price small{color:#8d7881}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{background:#fff;border:1px solid var(--line);border-radius:24px;padding:25px}.numcircle{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--pink);font-weight:800;margin-bottom:10px}
-.formbox{background:#fff;border:1px solid var(--line);border-radius:30px;padding:30px;box-shadow:0 18px 50px #5138460b}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:700}input,select,textarea{font:inherit;border:1px solid #e5d6dd;border-radius:14px;padding:12px 13px;background:#fff;color:var(--deep);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px #f7d7e455}textarea{min-height:90px;resize:vertical}.total{margin:18px 0;padding:15px 18px;border-radius:16px;background:#fff5f8;border:1px dashed #ddb6c6;font-weight:800;display:flex;justify-content:space-between}.hint{font-size:12px;color:#8a737d}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px}.stars{color:#c48b38;letter-spacing:2px}.review p{color:#705d66}.review b{font-size:13px}
-.faq{max-width:800px;margin:auto}.faq details{background:#fff;border:1px solid var(--line);border-radius:18px;margin:10px 0;padding:15px 18px}.faq summary{cursor:pointer;font-weight:700}.faq p{color:#745f69;font-size:14px}
-.cta{background:#513846;color:#fff;border-radius:34px;padding:45px;text-align:center}.cta h2{font-family:"Playfair Display";font-size:38px;margin:0 0 8px}.cta p{color:#eadce2}.cta .btn{background:#f7d7e4;color:#513846}
-footer{padding:45px 0 75px;border-top:1px solid var(--line);margin-top:50px}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.social{display:flex;gap:10px;flex-wrap:wrap}.social a{padding:8px 13px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:13px}
-.wa{position:fixed;bottom:20px;left:20px;z-index:30;background:#513846;color:#fff;border-radius:999px;padding:13px 18px;box-shadow:0 12px 35px #0003;font-weight:800}
-.confirm{display:none;text-align:center;padding:35px;background:#fff5f8;border:1px solid #e5c6d2;border-radius:24px;margin-top:18px}.confirm.show{display:block}.orderid{font-size:25px;font-weight:800}
-@media(max-width:800px){.links{display:none}.hero-grid{grid-template-columns:1fr}.hero{padding-top:45px}.hero-card{min-height:310px}.grid{grid-template-columns:1fr 1fr}.steps,.review-grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.foot{flex-direction:column;text-align:center}h1{font-size:56px}}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.hero-card{min-height:270px}.phone{transform:scale(.78)}section{padding:55px 0}}
+
+:root{
+  --pink:#f7d7e4;
+  --pink2:#f2bfd2;
+  --rose:#c87f9b;
+  --deep:#513846;
+  --cream:#fff8fb;
+  --white:#fff;
+  --line:#ead9e0;
+  --text:#513846;
+  --muted:#806b74;
+  --shadow:rgba(81,56,70,.10);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--text);
+  font-family:Cairo,sans-serif;
+  line-height:1.8;
+  transition:background .4s,color .4s;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.wrap{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* ================= TOP ================= */
+
+.top{
+  background:var(--deep);
+  color:#fff;
+  text-align:center;
+  padding:8px;
+  font-size:13px;
+}
+
+/* ================= NAV ================= */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,248,251,.88);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+  transition:.4s;
+}
+
+.navin{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  font-weight:700;
+  color:var(--deep);
+  transition:.3s;
+}
+
+.logo span{
+  color:var(--rose);
+}
+
+.logo:hover{
+  transform:scale(1.04);
+}
+
+.links{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+  font-weight:600;
+}
+
+.links a{
+  position:relative;
+}
+
+.links a:after{
+  content:"";
+  position:absolute;
+  bottom:-5px;
+  right:0;
+  width:0;
+  height:2px;
+  background:var(--rose);
+  transition:.3s;
+}
+
+.links a:hover:after{
+  width:100%;
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  border-radius:999px;
+  padding:12px 21px;
+  background:var(--deep);
+  color:#fff;
+  font-family:inherit;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 8px 22px rgba(81,56,70,.14);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(81,56,70,.20);
+}
+
+.btn.light{
+  background:var(--white);
+  color:var(--deep);
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+
+.btn.pink{
+  background:var(--rose);
+}
+
+.mode-btn{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--white);
+  cursor:pointer;
+  font-size:18px;
+  transition:.3s;
+}
+
+.mode-btn:hover{
+  transform:rotate(15deg) scale(1.08);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  padding:76px 0 64px;
+  background:
+    radial-gradient(circle at 80% 20%,#f5d5e1 0,transparent 34%),
+    linear-gradient(135deg,#fff8fb,#fdf1f6);
+  overflow:hidden;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:50px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:5px 13px;
+  font-size:12px;
+  margin-bottom:14px;
+  color:var(--rose);
+  font-weight:700;
+  animation:fadeUp .7s ease both;
+}
+
+h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(46px,7vw,78px);
+  line-height:1.05;
+  margin:0 0 18px;
+  color:#4d3541;
+  direction:ltr;
+  text-align:right;
+  animation:fadeUp .8s .1s ease both;
+}
+
+h1 em{
+  font-style:normal;
+  color:var(--rose);
+}
+
+.hero p{
+  font-size:18px;
+  max-width:620px;
+  color:#735c68;
+  animation:fadeUp .8s .2s ease both;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:24px;
+  animation:fadeUp .8s .3s ease both;
+}
+
+.hero-card{
+  min-height:390px;
+  border-radius:35px;
+  background:linear-gradient(145deg,#fff,#f4d4e1);
+  border:1px solid #edd8e1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(139,82,101,.14);
+  animation:floatCard 5s ease-in-out infinite;
+}
+
+.phone{
+  width:190px;
+  height:345px;
+  border:7px solid #3d3035;
+  border-radius:30px;
+  background:linear-gradient(160deg,#fff,#f5e0e7);
+  box-shadow:12px 20px 40px rgba(81,56,70,.20);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  position:relative;
+  transition:.4s;
+}
+
+.phone:hover{
+  transform:rotate(-3deg) scale(1.04);
+}
+
+.phone:before{
+  content:"K";
+  font-family:"Playfair Display";
+  font-size:82px;
+  color:var(--rose);
+  border:2px solid var(--rose);
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.spark{
+  position:absolute;
+  font-size:25px;
+  color:#fff;
+  animation:sparkle 2s ease-in-out infinite;
+}
+
+.s1{top:45px;right:55px}
+.s2{bottom:55px;left:45px;animation-delay:.5s}
+.s3{top:120px;left:35px;animation-delay:1s}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:75px 0;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.eyebrow{
+  color:var(--rose);
+  font-weight:800;
+  font-size:13px;
+}
+
+.section-head h2{
+  font-family:"Playfair Display";
+  font-size:39px;
+  margin:3px 0;
+}
+
+.section-head p{
+  margin:0;
+  color:var(--muted);
+}
+
+/* ================= PRICES ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.price{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 10px 30px var(--shadow);
+  transition:.3s;
+}
+
+.price:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 35px rgba(81,56,70,.14);
+}
+
+.price.featured{
+  border:2px solid var(--pink2);
+  transform:translateY(-5px);
+}
+
+.price.featured:hover{
+  transform:translateY(-10px);
+}
+
+.price h3{
+  margin:0;
+  font-size:18px;
+}
+
+.price .num{
+  font-size:34px;
+  font-weight:800;
+  margin:9px 0;
+  color:var(--deep);
+}
+
+.old{
+  text-decoration:line-through;
+  color:#ad99a2;
+  font-size:13px;
+  margin-right:4px;
+}
+
+.price small{
+  color:#8d7881;
+}
+
+/* ================= STEPS ================= */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.step{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:25px;
+  transition:.3s;
+}
+
+.step:hover{
+  transform:translateY(-5px);
+}
+
+.numcircle{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--pink);
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+/* ================= FORM ================= */
+
+.formbox{
+  background:linear-gradient(145deg,#fff0f6,#ffe7f0);
+  border:1px solid #e9bfd0;
+  border-radius:30px;
+  padding:30px;
+  box-shadow:0 20px 55px rgba(81,56,70,.12);
+}
+
+.formgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+label{
+  font-size:13px;
+  font-weight:700;
+}
+
+input,
+select,
+textarea{
+  font:inherit;
+  border:1px solid #e3bdcd;
+  border-radius:14px;
+  padding:12px 13px;
+  background:rgba(255,255,255,.82);
+  color:var(--deep);
+  outline:none;
+  transition:.25s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--rose);
+  box-shadow:0 0 0 4px rgba(247,215,228,.7);
+  transform:translateY(-1px);
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.total{
+  margin:18px 0;
+  padding:15px 18px;
+  border-radius:16px;
+  background:rgba(255,255,255,.72);
+  border:1px dashed #d79ab2;
+  font-weight:800;
+  display:flex;
+  justify-content:space-between;
+}
+
+.hint{
+  font-size:12px;
+  color:#8a737d;
+}
+
+.submit-btn{
+  position:relative;
+  overflow:hidden;
+}
+
+.submit-btn:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:60%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+  transition:.6s;
+}
+
+.submit-btn:hover:after{
+  left:120%;
+}
+
+.confirm{
+  display:none;
+  text-align:center;
+  padding:35px;
+  background:rgba(255,255,255,.7);
+  border:1px solid #e5c6d2;
+  border-radius:24px;
+  margin-top:18px;
+}
+
+.confirm.show{
+  display:block;
+  animation:pop .5s ease;
+}
+
+.orderid{
+  font-size:25px;
+  font-weight:800;
+  color:var(--rose);
+  margin:10px 0;
+}
+
+/* ================= REVIEWS ================= */
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.review{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:22px;
+  transition:.3s;
+}
+
+.review:hover{
+  transform:translateY(-5px);
+}
+
+.stars{
+  color:#c48b38;
+  letter-spacing:2px;
+}
+
+.review p{
+  color:#705d66;
+}
+
+.review b{
+  font-size:13px;
+}
+
+/* ================= FAQ ================= */
+
+.faq{
+  max-width:800px;
+  margin:auto;
+}
+
+.faq details{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:18px;
+  margin:10px 0;
+  padding:15px 18px;
+  transition:.3s;
+}
+
+.faq details:hover{
+  border-color:var(--rose);
+}
+
+.faq summary{
+  cursor:pointer;
+  font-weight:700;
+}
+
+.faq p{
+  color:#745f69;
+  font-size:14px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+  background:var(--deep);
+  color:#fff;
+  border-radius:34px;
+  padding:45px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(81,56,70,.18);
+}
+
+.cta h2{
+  font-family:"Playfair Display";
+  font-size:38px;
+  margin:0 0 8px;
+}
+
+.cta p{
+  color:#eadce2;
+}
+
+.cta .btn{
+  background:var(--pink);
+  color:var(--deep);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  padding:45px 0 75px;
+  border-top:1px solid var(--line);
+  margin-top:50px;
+}
+
+.foot{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+
+.social{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.social a{
+  padding:8px 13px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:13px;
+  transition:.3s;
+}
+
+.social a:hover{
+  transform:translateY(-3px);
+}
+
+/* ================= WHATSAPP ================= */
+
+.wa{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  z-index:30;
+  background:var(--deep);
+  color:#fff;
+  border-radius:999px;
+  padding:13px 18px;
+  box-shadow:0 12px 35px rgba(0,0,0,.18);
+  font-weight:800;
+  transition:.3s;
+}
+
+.wa:hover{
+  transform:translateY(-4px) scale(1.03);
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark{
+  --cream:#1d171b;
+  --white:#292126;
+  --deep:#f4d9e4;
+  --text:#f8eaf0;
+  --muted:#cdb7c0;
+  --line:#493640;
+  --shadow:rgba(0,0,0,.25);
+  --pink:#4c303e;
+  --pink2:#815169;
+  --rose:#e5a6bd;
+  background:#1d171b;
+  color:#f8eaf0;
+}
+
+body.dark nav{
+  background:rgba(29,23,27,.9);
+}
+
+body.dark .hero{
+  background:
+    radial-gradient(circle at 80% 20%,#4c303e 0,transparent 34%),
+    linear-gradient(135deg,#1d171b,#2a2025);
+}
+
+body.dark h1,
+body.dark .section-head h2,
+body.dark .logo,
+body.dark .price .num{
+  color:#f8eaf0;
+}
+
+body.dark .hero p,
+body.dark .section-head p,
+body.dark .hint,
+body.dark .review p,
+body.dark .faq p{
+  color:#cdb7c0;
+}
+
+body.dark .hero-card{
+  background:linear-gradient(145deg,#30242a,#4a303d);
+  border-color:#593c49;
+}
+
+body.dark .phone{
+  background:linear-gradient(160deg,#30242a,#4a303d);
+  border-color:#eadce2;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea{
+  background:#211a1f;
+  color:#f8eaf0;
+  border-color:#59404b;
+}
+
+body.dark .formbox{
+  background:linear-gradient(145deg,#3b252f,#2c2026);
+  border-color:#60404d;
+}
+
+body.dark .total,
+body.dark .confirm{
+  background:rgba(40,30,35,.8);
+  border-color:#765062;
+}
+
+body.dark .btn{
+  background:#f0d4df;
+  color:#3b2931;
+}
+
+body.dark .btn.light{
+  background:#292126;
+  color:#f4d9e4;
+  border-color:#59404b;
+}
+
+body.dark .mode-btn{
+  background:#292126;
+  color:#fff;
+  border-color:#59404b;
+}
+
+body.dark .wa{
+  background:#f0d4df;
+  color:#3b2931;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes floatCard{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+@keyframes sparkle{
+  0%,100%{
+    opacity:.5;
+    transform:scale(.8) rotate(0);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.2) rotate(15deg);
+  }
+}
+
+@keyframes pop{
+  0%{
+    opacity:0;
+    transform:scale(.92);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  .links{
+    display:none;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:45px;
+  }
+
+  .hero-card{
+    min-height:310px;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .steps,
+  .review-grid{
+    grid-template-columns:1fr;
+  }
+
+  .formgrid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .foot{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  h1{
+    font-size:56px;
+  }
+
+  .navin{
+    height:65px;
+  }
+}
+
+@media(max-width:480px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-card{
+    min-height:270px;
+  }
+
+  .phone{
+    transform:scale(.78);
+  }
+
+  section{
+    padding:55px 0;
+  }
+
+  .formbox{
+    padding:20px;
+  }
+
+  .cta{
+    padding:32px 20px;
+  }
+
+  .wa{
+    bottom:14px;
+    left:14px;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="top">🎀 الطلبات حاليًا تستغرق تقريبًا 2–3 أسابيع • الشحن يُحسب حسب المنطقة</div>
-<nav><div class="wrap navin">
-<a class="logo" href="#">K <span>Store</span> 🎀</a>
-<div class="links"><a href="#prices">الأسعار</a><a href="#order">اطلبي</a><a href="#reviews">آراء العملاء</a><a href="#faq">FAQ</a></div>
-<a class="btn pink" href="#order">اعملي جرابك</a>
-</div></nav>
 
-<header class="hero"><div class="wrap hero-grid">
+<div class="top">
+🎀 الطلبات حاليًا تستغرق تقريبًا 2–3 أسابيع • الشحن يُحسب حسب المنطقة
+</div>
+
+<nav>
+<div class="wrap navin">
+
+<a class="logo" href="#">
+K <span>Store</span> 🎀
+</a>
+
+<div class="links">
+<a href="#prices">الأسعار</a>
+<a href="#order">اطلبي</a>
+<a href="#reviews">آراء العملاء</a>
+<a href="#faq">FAQ</a>
+</div>
+
+<div class="nav-actions">
+
+<button class="mode-btn" id="modeBtn" aria-label="تغيير الوضع">
+🌙
+</button>
+
+<a class="btn pink" href="#order">
+اعملي جرابك
+</a>
+
+</div>
+
+</div>
+</nav>
+
+
+<header class="hero">
+
+<div class="wrap hero-grid">
+
 <div>
-<span class="badge">CUSTOM • CUTE • MADE FOR YOU</span>
-<h1>Your phone,<br><em>your vibe.</em></h1>
-<p>جرابك مش مجرد حماية للموبايل… خليه قطعة شبهك. اختاري موديلك، اختاري فكرتك، وسيبي الباقي علينا 🎀</p>
-<div class="actions"><a class="btn" href="#order">ابدئي طلبك ✨</a><a class="btn light" href="https://linktr.ee/K.store188" target="_blank">كل حساباتنا ↗</a></div>
-</div>
-<div class="hero-card"><span class="spark s1">✦</span><span class="spark s2">♡</span><span class="spark s3">✧</span><div class="phone"></div></div>
-</div></header>
 
-<section id="prices"><div class="wrap">
-<div class="section-head"><div class="eyebrow">SIMPLE & PRETTY</div><h2>الأسعار 🎀</h2><p>اختاري الباكدج اللي يناسبك — والشحن حسب منطقتك.</p></div>
+<span class="badge">
+CUSTOM • CUTE • MADE FOR YOU
+</span>
+
+<h1>
+Your phone,<br>
+<em>your vibe.</em>
+</h1>
+
+<p>
+جرابك مش مجرد حماية للموبايل…
+خليه قطعة شبهك. اختاري موديلك، اختاري فكرتك، وسيبي الباقي علينا 🎀
+</p>
+
+<div class="actions">
+
+<a class="btn" href="#order">
+ابدئي طلبك ✨
+</a>
+
+<a class="btn light" href="https://linktr.ee/K.store188" target="_blank">
+كل حساباتنا ↗
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<span class="spark s1">✦</span>
+<span class="spark s2">♡</span>
+<span class="spark s3">✧</span>
+
+<div class="phone"></div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section id="prices">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<div class="eyebrow">
+SIMPLE & PRETTY
+</div>
+
+<h2>
+الأسعار 🎀
+</h2>
+
+<p>
+اختاري الباكدج اللي يناسبك — والشحن حسب منطقتك.
+</p>
+
+</div>
+
+
 <div class="grid">
-<div class="price featured"><h3>جراب واحد</h3><div class="num">160 ج</div><small>تصميم عادي</small></div>
-<div class="price"><h3>جرابين</h3><div class="num">305 ج</div><small><span class="old">320 ج</span> عرض</small></div>
-<div class="price"><h3>3 جرابات</h3><div class="num">460 ج</div><small><span class="old">480 ج</span> عرض</small></div>
-<div class="price"><h3>4 جرابات</h3><div class="num">610 ج</div><small><span class="old">640 ج</span> عرض</small></div>
-</div>
-<p class="hint" style="text-align:center;margin-top:18px">Motorola: 175 ج للجراب • تصميم مخصص/يحتاج تعديل: +20 ج</p>
-</div></section>
 
-<section><div class="wrap">
-<div class="section-head"><div class="eyebrow">HOW IT WORKS</div><h2>طلبك في 3 خطوات</h2></div>
+<div class="price featured">
+
+<h3>
+جراب واحد
+</h3>
+
+<div class="num">
+160 ج
+</div>
+
+<small>
+تصميم عادي
+</small>
+
+</div>
+
+
+<div class="price">
+
+<h3>
+جرابين
+</h3>
+
+<div class="num">
+305 ج
+</div>
+
+<small>
+<span class="old">320 ج</span>
+عرض
+</small>
+
+</div>
+
+
+<div class="price">
+
+<h3>
+3 جرابات
+</h3>
+
+<div class="num">
+460 ج
+</div>
+
+<small>
+<span class="old">480 ج</span>
+عرض
+</small>
+
+</div>
+
+
+<div class="price">
+
+<h3>
+4 جرابات
+</h3>
+
+<div class="num">
+610 ج
+</div>
+
+<small>
+<span class="old">640 ج</span>
+عرض
+</small>
+
+</div>
+
+</div>
+
+
+<p class="hint" style="text-align:center;margin-top:18px">
+Motorola: 175 ج للجراب • تصميم مخصص/يحتاج تعديل: +20 ج
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="wrap">
+
+<div class="section-head">
+
+<div class="eyebrow">
+HOW IT WORKS
+</div>
+
+<h2>
+طلبك في 3 خطوات
+</h2>
+
+</div>
+
+
 <div class="steps">
-<div class="step"><div class="numcircle">01</div><h3>اختاري الباكدج</h3><p>حددي عدد الجرابات والموديلات اللي عايزاها.</p></div>
-<div class="step"><div class="numcircle">02</div><h3>ابعتي فكرتك</h3><p>اكتبي تفاصيل التصميم أو ابعتيه على واتساب لو حبيتي.</p></div>
-<div class="step"><div class="numcircle">03</div><h3>إحنا نكمل الباقي</h3><p>نتواصل معاكي لتأكيد التفاصيل قبل تنفيذ الطلب.</p></div>
-</div></div></section>
 
-<section id="order"><div class="wrap">
-<div class="section-head"><div class="eyebrow">LET'S MAKE IT YOURS</div><h2>اعملي طلبك 💌</h2><p>املئي البيانات، وهنوصلك بتأكيد الطلب.</p></div>
+<div class="step">
+
+<div class="numcircle">
+01
+</div>
+
+<h3>
+اختاري الباكدج
+</h3>
+
+<p>
+حددي عدد الجرابات والموديلات اللي عايزاها.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="numcircle">
+02
+</div>
+
+<h3>
+ابعتي فكرتك
+</h3>
+
+<p>
+اكتبي تفاصيل التصميم أو ابعتيه على واتساب لو حبيتي.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="numcircle">
+03
+</div>
+
+<h3>
+إحنا نكمل الباقي
+</h3>
+
+<p>
+نتواصل معاكي لتأكيد التفاصيل قبل تنفيذ الطلب.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="order">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<div class="eyebrow">
+LET'S MAKE IT YOURS
+</div>
+
+<h2>
+اعملي طلبك 💌
+</h2>
+
+<p>
+املئي البيانات، وهنوصلك بتأكيد الطلب.
+</p>
+
+</div>
+
+
 <div class="formbox">
-<form id="orderForm" action="https://formsubmit.co/somaamgad1@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="New K Store Phone Case Order 🎀">
-<input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table">
-<input type="hidden" id="estimatedTotal" name="Estimated total">
+
+<form id="orderForm">
+
 <div class="formgrid">
-<div class="field"><label>الاسم *</label><input required name="Name" placeholder="اسمك"></div>
-<div class="field"><label>رقم الموبايل *</label><input required name="Phone" inputmode="tel" placeholder="01xxxxxxxxx"></div>
-<div class="field"><label>موديل الموبايل *</label><input required name="Phone model" placeholder="مثال: iPhone 15 Pro"></div>
-<div class="field"><label>الباكدج *</label><select name="Package" id="package" required><option value="1">جراب واحد — 160 ج</option><option value="2">جرابين — 305 ج</option><option value="3">3 جرابات — 460 ج</option><option value="4">4 جرابات — 610 ج</option></select></div>
-<div class="field"><label>هل الموديل Motorola؟</label><select name="Motorola" id="motorola"><option value="No">لا</option><option value="Yes">نعم (+15 ج لكل جراب)</option></select></div>
-<div class="field"><label>هل التصميم Custom أو يحتاج تعديل؟</label><select name="Custom design" id="custom"><option value="No">لا</option><option value="Yes">نعم (+20 ج)</option></select></div>
-<div class="field full"><label>تفاصيل التصميم</label><textarea name="Design details" placeholder="اكتبي اللون/الاسم/الصورة/أي تعديل عايزاه..."></textarea></div>
-<div class="field"><label>المحافظة *</label><input required name="Governorate" placeholder="مثال: الدقهلية"></div>
-<div class="field"><label>المنطقة *</label><input required name="Area" placeholder="مثال: المنصورة"></div>
-<div class="field full"><label>العنوان بالتفصيل *</label><textarea required name="Address" placeholder="الشارع + رقم العقار + الدور + علامة مميزة"></textarea></div>
-<div class="field full"><label>ملاحظات للطلب</label><textarea name="Notes" placeholder="أي حاجة تحبي تضيفيها..."></textarea></div>
+
+
+<div class="field">
+
+<label>
+الاسم *
+</label>
+
+<input
+id="name"
+required
+placeholder="اسمك"
+>
+
 </div>
-<div class="total"><span>الإجمالي التقريبي قبل الشحن</span><span id="total">160 ج</span></div>
-<p class="hint">الشحن غير شامل وسيتم تحديده حسب المنطقة. السعر النهائي يتأكد قبل التنفيذ.</p>
-<button class="btn pink" style="width:100%;margin-top:12px" type="submit">تأكيد وإرسال الطلب ✨</button>
+
+
+<div class="field">
+
+<label>
+رقم الموبايل *
+</label>
+
+<input
+id="phone"
+required
+inputmode="tel"
+placeholder="01xxxxxxxxx"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+موديل الموبايل *
+</label>
+
+<input
+id="model"
+required
+placeholder="مثال: iPhone 15 Pro"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+الباكدج *
+</label>
+
+<select id="package" required>
+
+<option value="1">
+جراب واحد — 160 ج
+</option>
+
+<option value="2">
+جرابين — 305 ج
+</option>
+
+<option value="3">
+3 جرابات — 460 ج
+</option>
+
+<option value="4">
+4 جرابات — 610 ج
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+هل الموديل Motorola؟
+</label>
+
+<select id="motorola">
+
+<option value="No">
+لا
+</option>
+
+<option value="Yes">
+نعم (+15 ج لكل جراب)
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+هل التصميم Custom أو يحتاج تعديل؟
+</label>
+
+<select id="custom">
+
+<option value="No">
+لا
+</option>
+
+<option value="Yes">
+نعم (+20 ج)
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+تفاصيل التصميم
+</label>
+
+<textarea
+id="designDetails"
+placeholder="اكتبي اللون/الاسم/الصورة/أي تعديل عايزاه..."
+></textarea>
+
+</div>
+
+
+<div class="field">
+
+<label>
+المحافظة *
+</label>
+
+<input
+id="governorate"
+required
+placeholder="مثال: الدقهلية"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+المنطقة *
+</label>
+
+<input
+id="area"
+required
+placeholder="مثال: المنصورة"
+>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+العنوان بالتفصيل *
+</label>
+
+<textarea
+id="address"
+required
+placeholder="الشارع + رقم العقار + الدور + علامة مميزة"
+></textarea>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+ملاحظات للطلب
+</label>
+
+<textarea
+id="notes"
+placeholder="أي حاجة تحبي تضيفيها..."
+></textarea>
+
+</div>
+
+</div>
+
+
+<div class="total">
+
+<span>
+الإجمالي التقريبي قبل الشحن
+</span>
+
+<span id="total">
+160 ج
+</span>
+
+</div>
+
+
+<p class="hint">
+الشحن غير شامل وسيتم تحديده حسب المنطقة.
+السعر النهائي يتأكد قبل التنفيذ.
+</p>
+
+
+<button
+class="btn pink submit-btn"
+style="width:100%;margin-top:12px"
+type="submit"
+id="submitBtn"
+>
+تأكيد وإرسال الطلب ✨
+</button>
+
 </form>
-<div class="confirm" id="confirm"><div style="font-size:35px">🎀</div><h3>تم تجهيز طلبك!</h3><p>رقم الطلب الخاص بيكي:</p><div class="orderid" id="orderId"></div><p>احتفظي بالرقم، ولو حبيتي تتواصلي معانا مباشرة استخدمي واتساب.</p><a class="btn" id="waConfirm" target="_blank">التواصل على واتساب 💬</a></div>
-</div></div></section>
 
-<section id="reviews"><div class="wrap">
-<div class="section-head"><div class="eyebrow">REAL LOVE FROM REAL CUSTOMERS</div><h2>آراء عملائنا ⭐</h2><p>هنضيف هنا تقييمات العملاء الحقيقية وتصاوير الجرابات بعد موافقتهم.</p></div>
-<div class="review-grid">
-<div class="review"><div class="stars">★★★★★</div><p>“مبسوطة جدًا بالنتيجة! الجراب طلع ألطف من اللي كنت متخيلاه 🎀”</p><b>عميلة K Store</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>“التفاصيل والطباعة تحفة، وكل حاجة وصلتني متأكدة قبل التنفيذ.”</p><b>عميلة K Store</b></div>
-<div class="review"><div class="stars">★★★★★</div><p>“أحلى حاجة إن التصميم بقى معمول مخصوص ليا.”</p><b>عميلة K Store</b></div>
+
+<div class="confirm" id="confirm">
+
+<div style="font-size:35px">
+🎀
 </div>
-<div style="text-align:center;margin-top:22px"><a class="btn light" href="https://wa.me/201096056450?text=مرحبًا%20K%20Store%20🎀%20عايزة%20أبعت%20ريفيو%20وصورة%20للجراب" target="_blank">ابعتيلنا ريفيوك 💗</a></div>
-</div></section>
 
-<section id="faq"><div class="wrap">
-<div class="section-head"><div class="eyebrow">NEED TO KNOW</div><h2>أسئلة بتتكرر</h2></div>
+<h3>
+تم إرسال طلبك بنجاح! 💗
+</h3>
+
+<p>
+رقم الطلب الخاص بيكي:
+</p>
+
+<div
+class="orderid"
+id="orderId"
+>
+</div>
+
+<p>
+احتفظي بالرقم، ولو حبيتي تتواصلي معانا مباشرة استخدمي واتساب.
+</p>
+
+<a
+class="btn"
+id="waConfirm"
+target="_blank"
+>
+التواصل على واتساب 💬
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="reviews">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<div class="eyebrow">
+REAL LOVE FROM REAL CUSTOMERS
+</div>
+
+<h2>
+آراء عملائنا ⭐
+</h2>
+
+<p>
+هنضيف هنا تقييمات العملاء الحقيقية وتصاوير الجرابات بعد موافقتهم.
+</p>
+
+</div>
+
+
+<div class="review-grid">
+
+<div class="review">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“مبسوطة جدًا بالنتيجة! الجراب طلع ألطف من اللي كنت متخيلاه 🎀”
+</p>
+
+<b>
+عميلة K Store
+</b>
+
+</div>
+
+
+<div class="review">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“التفاصيل والطباعة تحفة، وكل حاجة وصلتني متأكدة قبل التنفيذ.”
+</p>
+
+<b>
+عميلة K Store
+</b>
+
+</div>
+
+
+<div class="review">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+“أحلى حاجة إن التصميم بقى معمول مخصوص ليا.”
+</p>
+
+<b>
+عميلة K Store
+</b>
+
+</div>
+
+</div>
+
+
+<div style="text-align:center;margin-top:22px">
+
+<a
+class="btn light"
+href="https://wa.me/201096056450?text=مرحبًا%20K%20Store%20🎀%20عايزة%20أبعت%20ريفيو%20وصورة%20للجراب"
+target="_blank"
+>
+ابعتيلنا ريفيوك 💗
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="faq">
+
+<div class="wrap">
+
+<div class="section-head">
+
+<div class="eyebrow">
+NEED TO KNOW
+</div>
+
+<h2>
+أسئلة بتتكرر
+</h2>
+
+</div>
+
+
 <div class="faq">
-<details><summary>الطلب بياخد قد إيه؟</summary><p>المدة المتوقعة حاليًا حوالي 2–3 أسابيع.</p></details>
-<details><summary>الشحن بكام؟</summary><p>الشحن بيختلف حسب المنطقة، لذلك بيتحدد مع تأكيد الطلب.</p></details>
-<details><summary>أقدر أعمل تصميم من عندي؟</summary><p>أيوه 💗 اكتبي تفاصيل التصميم في الطلب، ولو محتاج تعديل بيضاف 20 ج.</p></details>
-<details><summary>هل السعر شامل الشحن؟</summary><p>لا، الأسعار المعروضة للجرابات فقط والشحن حسب المنطقة.</p></details>
-<details><summary>لو موديل موبايلي مش موجود أعمل إيه؟</summary><p>اكتبيه في خانة الموديل، وهنأكد معاكي إمكانية توفيره قبل التنفيذ.</p></details>
-</div></div></section>
 
-<section><div class="wrap"><div class="cta">
-<h2>خلي موبايلك يشبهك 🎀</h2><p>تصميمك، ذوقك، وجراب معمول مخصوص ليكي.</p><a class="btn" href="#order">اطلبي دلوقتي ✨</a>
-</div></div></section>
+<details>
 
-<footer><div class="wrap foot">
-<div><div class="logo">K <span>Store</span> 🎀</div><div class="hint">Custom phone cases • Made with love</div></div>
-<div class="social"><a href="https://linktr.ee/K.store188" target="_blank">Instagram • Facebook • Threads • WhatsApp</a></div>
-</div></footer>
-<a class="wa" href="https://wa.me/201096056450?text=مرحبًا%20K%20Store%20🎀%20عايزة%20أستفسر%20عن%20جراب" target="_blank">واتساب 💬</a>
+<summary>
+الطلب بياخد قد إيه؟
+</summary>
+
+<p>
+المدة المتوقعة حاليًا حوالي 2–3 أسابيع.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+الشحن بكام؟
+</summary>
+
+<p>
+الشحن بيختلف حسب المنطقة، لذلك بيتحدد مع تأكيد الطلب.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+أقدر أعمل تصميم من عندي؟
+</summary>
+
+<p>
+أيوه 💗 اكتبي تفاصيل التصميم في الطلب، ولو محتاج تعديل بيضاف 20 ج.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل السعر شامل الشحن؟
+</summary>
+
+<p>
+لا، الأسعار المعروضة للجرابات فقط والشحن حسب المنطقة.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+لو موديل موبايلي مش موجود أعمل إيه؟
+</summary>
+
+<p>
+اكتبيه في خانة الموديل، وهنأكد معاكي إمكانية توفيره قبل التنفيذ.
+</p>
+
+</details>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="wrap">
+
+<div class="cta">
+
+<h2>
+خلي موبايلك يشبهك 🎀
+</h2>
+
+<p>
+تصميمك، ذوقك، وجراب معمول مخصوص ليكي.
+</p>
+
+<a
+class="btn"
+href="#order"
+>
+اطلبي دلوقتي ✨
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="wrap foot">
+
+<div>
+
+<div class="logo">
+K <span>Store</span> 🎀
+</div>
+
+<div class="hint">
+Custom phone cases • Made with love
+</div>
+
+</div>
+
+
+<div class="social">
+
+<a
+href="https://linktr.ee/K.store188"
+target="_blank"
+>
+Instagram • Facebook • Threads • WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<a
+class="wa"
+href="https://wa.me/201096056450?text=مرحبًا%20K%20Store%20🎀%20عايزة%20أستفسر%20عن%20جراب"
+target="_blank"
+>
+واتساب 💬
+</a>
+
 
 <script>
-const pkg=document.getElementById('package'), mot=document.getElementById('motorola'), custom=document.getElementById('custom'), total=document.getElementById('total'), hidden=document.getElementById('estimatedTotal');
-function calc(){
- let n=+pkg.value, base={1:160,2:305,3:460,4:610}[n];
- let extra=(mot.value==='Yes'?15*n:0)+(custom.value==='Yes'?20:0);
- let t=base+extra; total.textContent=t+' ج'; hidden.value=t+' EGP before shipping';
+
+/* ================= DARK / PINK MODE ================= */
+
+const modeBtn = document.getElementById("modeBtn");
+
+const savedMode = localStorage.getItem("kstoreMode");
+
+if(savedMode === "dark"){
+  document.body.classList.add("dark");
+  modeBtn.textContent = "☀️";
 }
-[pkg,mot,custom].forEach(x=>x.addEventListener('change',calc));calc();
-document.getElementById('orderForm').addEventListener('submit',function(){
- const id='K'+new Date().getFullYear().toString().slice(-2)+Math.random().toString(36).slice(2,7).toUpperCase();
- sessionStorage.setItem('kstoreOrderId',id);
- document.getElementById('orderId').textContent=id;
- document.getElementById('waConfirm').href='https://wa.me/201096056450?text='+encodeURIComponent('مرحبًا K Store 🎀 أنا عملت أوردر من الموقع، رقم الطلب: '+id);
- setTimeout(()=>document.getElementById('confirm').classList.add('show'),250);
+
+modeBtn.addEventListener("click", () => {
+
+  document.body.classList.toggle("dark");
+
+  const dark = document.body.classList.contains("dark");
+
+  modeBtn.textContent = dark ? "☀️" : "🌙";
+
+  localStorage.setItem(
+    "kstoreMode",
+    dark ? "dark" : "pink"
+  );
+
 });
+
+
+/* ================= PRICE CALCULATOR ================= */
+
+const pkg = document.getElementById("package");
+const mot = document.getElementById("motorola");
+const custom = document.getElementById("custom");
+const total = document.getElementById("total");
+
+function calc(){
+
+  const n = Number(pkg.value);
+
+  const base = {
+    1:160,
+    2:305,
+    3:460,
+    4:610
+  }[n];
+
+  const motorolaExtra =
+    mot.value === "Yes"
+      ? 15 * n
+      : 0;
+
+  const customExtra =
+    custom.value === "Yes"
+      ? 20
+      : 0;
+
+  const finalPrice =
+    base + motorolaExtra + customExtra;
+
+  total.textContent =
+    finalPrice + " ج";
+
+}
+
+[pkg,mot,custom].forEach(element => {
+
+  element.addEventListener(
+    "change",
+    calc
+  );
+
+});
+
+calc();
+
+
+/* ================= GOOGLE SHEETS ================= */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyG-6w-AItSxHOS1Gd2bE4Ocof6bzpYMbndyaZaGdYd0qrWkAwdur3YZmAqziI-WeXGcg/exec";
+
+
+/* ================= ORDER FORM ================= */
+
+const orderForm =
+document.getElementById("orderForm");
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const confirmBox =
+document.getElementById("confirm");
+
+
+orderForm.addEventListener(
+"submit",
+async function(event){
+
+  event.preventDefault();
+
+
+  submitBtn.disabled = true;
+
+  submitBtn.textContent =
+  "جاري إرسال الطلب... 💗";
+
+
+  const n =
+  Number(pkg.value);
+
+  const base = {
+    1:160,
+    2:305,
+    3:460,
+    4:610
+  }[n];
+
+  const motorolaExtra =
+  mot.value === "Yes"
+    ? 15 * n
+    : 0;
+
+  const customExtra =
+  custom.value === "Yes"
+    ? 20
+    : 0;
+
+  const finalPrice =
+  base +
+  motorolaExtra +
+  customExtra;
+
+
+  /* رقم الطلب */
+
+  const orderId =
+  "K" +
+  new Date()
+    .getFullYear()
+    .toString()
+    .slice(-2) +
+  Math.random()
+    .toString(36)
+    .slice(2,7)
+    .toUpperCase();
+
+
+  /* البيانات */
+
+  const data = {
+
+    name:
+      document.getElementById("name").value.trim(),
+
+    phone:
+      document.getElementById("phone").value.trim(),
+
+    model:
+      document.getElementById("model").value.trim(),
+
+    package:
+      n,
+
+    motorola:
+      mot.value,
+
+    custom:
+      custom.value,
+
+    designDetails:
+      document.getElementById("designDetails").value.trim(),
+
+    governorate:
+      document.getElementById("governorate").value.trim(),
+
+    area:
+      document.getElementById("area").value.trim(),
+
+    address:
+      document.getElementById("address").value.trim(),
+
+    notes:
+      document.getElementById("notes").value.trim(),
+
+    finalPrice:
+      finalPrice + " ج قبل الشحن"
+
+  };
+
+
+  try{
+
+    await fetch(
+      SCRIPT_URL,
+      {
+        method:"POST",
+
+        mode:"no-cors",
+
+        headers:{
+          "Content-Type":
+          "text/plain;charset=utf-8"
+        },
+
+        body:
+        JSON.stringify(data)
+      }
+    );
+
+
+    /* حفظ رقم الطلب */
+
+    sessionStorage.setItem(
+      "kstoreOrderId",
+      orderId
+    );
+
+
+    /* إظهار التأكيد */
+
+    document.getElementById(
+      "orderId"
+    ).textContent = orderId;
+
+
+    document.getElementById(
+      "waConfirm"
+    ).href =
+      "https://wa.me/201096056450?text=" +
+      encodeURIComponent(
+        "مرحبًا K Store 🎀 عملت أوردر من الموقع، رقم الطلب: " +
+        orderId
+      );
+
+
+    orderForm.style.display =
+      "none";
+
+    confirmBox.classList.add(
+      "show"
+    );
+
+
+    window.scrollTo({
+      top:
+        document.getElementById("order")
+          .offsetTop - 80,
+      behavior:"smooth"
+    });
+
+
+  }catch(error){
+
+    submitBtn.disabled = false;
+
+    submitBtn.textContent =
+      "تأكيد وإرسال الطلب ✨";
+
+    alert(
+      "حصلت مشكلة بسيطة أثناء إرسال الطلب، جربي تاني 💗"
+    );
+
+  }
+
+});
+
 </script>
-</body></html>
+
+</body>
+</html>
