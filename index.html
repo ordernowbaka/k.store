@@ -80,6 +80,7 @@ html{
 body{
   font-family:'Cairo',sans-serif;
   color:var(--text);
+
   background:
     radial-gradient(
       circle at 8% 10%,
@@ -96,14 +97,14 @@ body{
       var(--soft-pink),
       var(--cream)
     );
+
   min-height:100vh;
   overflow-x:hidden;
+
   transition:.4s ease;
 }
 
-/* =========================================
-   STARS
-========================================= */
+/* ================= STARS ================= */
 
 .sky{
   position:fixed;
@@ -115,13 +116,18 @@ body{
 
 .star{
   position:absolute;
+
   width:4px;
   height:4px;
+
   border-radius:50%;
+
   background:var(--star);
+
   box-shadow:
     0 0 6px var(--star-glow),
     0 0 13px var(--star-glow);
+
   animation:twinkle 3s ease-in-out infinite;
 }
 
@@ -148,42 +154,46 @@ body{
   }
 }
 
-/* شهاب حقيقي: رأس + ذيل ناعم */
+/* ================= SHOOTING STARS ================= */
 
 .shooting-star{
   position:absolute;
-  width:150px;
-  height:3px;
+
+  width:145px;
+  height:2px;
+
+  border-radius:999px;
+
   opacity:0;
 
   background:
     linear-gradient(
       90deg,
       var(--shoot-tail) 0%,
-      var(--shoot-tail) 18%,
-      var(--shoot-mid) 60%,
+      var(--shoot-tail) 20%,
+      var(--shoot-mid) 68%,
       var(--shoot-head) 100%
     );
 
-  border-radius:999px;
-
-  transform:rotate(-30deg);
-
   filter:
     drop-shadow(0 0 5px var(--star-glow))
-    drop-shadow(0 0 9px var(--star-glow));
+    drop-shadow(0 0 10px var(--star-glow));
 
-  animation:shooting 7s ease-in infinite;
+  transform:rotate(-28deg);
+
+  animation:shooting 8s ease-in infinite;
 }
 
 .shooting-star::after{
   content:"";
+
   position:absolute;
+
   right:-2px;
   top:50%;
 
-  width:7px;
-  height:7px;
+  width:6px;
+  height:6px;
 
   transform:translateY(-50%);
 
@@ -193,24 +203,24 @@ body{
 
   box-shadow:
     0 0 7px var(--shoot-head),
-    0 0 15px var(--star-glow);
+    0 0 16px var(--star-glow);
 }
 
 .shooting-star.one{
-  top:13%;
-  left:-180px;
+  top:12%;
+  left:-170px;
   animation-delay:0s;
 }
 
 .shooting-star.two{
-  top:45%;
-  left:-180px;
+  top:44%;
+  left:-170px;
   animation-delay:3s;
 }
 
 .shooting-star.three{
-  top:73%;
-  left:-180px;
+  top:72%;
+  left:-170px;
   animation-delay:6s;
 }
 
@@ -218,20 +228,20 @@ body{
 
   0%{
     opacity:0;
-    transform:translate(-50px,-20px) rotate(-30deg);
+    transform:translate(-40px,-20px) rotate(-28deg);
   }
 
-  7%{
+  8%{
     opacity:1;
   }
 
   25%{
-    opacity:.95;
+    opacity:.9;
   }
 
   38%{
     opacity:0;
-    transform:translate(125vw,70vh) rotate(-30deg);
+    transform:translate(125vw,70vh) rotate(-28deg);
   }
 
   100%{
@@ -239,9 +249,7 @@ body{
   }
 }
 
-/* =========================================
-   NAVBAR
-========================================= */
+/* ================= NAVBAR ================= */
 
 .navbar{
   position:sticky;
@@ -262,20 +270,27 @@ body.dark .navbar{
 .nav-inner{
   width:min(1150px,92%);
   min-height:72px;
+
   margin:auto;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:20px;
 }
 
 .logo{
   font-family:'Playfair Display',serif;
+
   font-size:28px;
   font-weight:700;
+
   color:var(--dark-pink);
+
   text-decoration:none;
+
+  white-space:nowrap;
 }
 
 .nav-links{
@@ -328,9 +343,7 @@ body.dark .navbar{
   font-size:18px;
 }
 
-/* =========================================
-   GENERAL
-========================================= */
+/* ================= GENERAL ================= */
 
 .container{
   width:min(1100px,92%);
@@ -348,7 +361,9 @@ section{
 
 .section-title h2{
   font-family:'Playfair Display',serif;
+
   font-size:38px;
+
   margin-bottom:10px;
 }
 
@@ -356,9 +371,7 @@ section{
   color:var(--muted);
 }
 
-/* =========================================
-   HERO
-========================================= */
+/* ================= HERO ================= */
 
 .hero{
   min-height:calc(100vh - 72px);
@@ -371,6 +384,7 @@ section{
 
 .hero-content{
   width:min(850px,100%);
+
   margin:auto;
 
   text-align:center;
@@ -411,6 +425,7 @@ section{
 
 .hero p{
   max-width:650px;
+
   margin:auto;
 
   font-size:18px;
@@ -424,6 +439,7 @@ section{
   margin-top:32px;
 
   display:flex;
+
   justify-content:center;
 
   flex-wrap:wrap;
@@ -441,6 +457,7 @@ section{
   border:1px solid transparent;
 
   display:inline-flex;
+
   align-items:center;
   justify-content:center;
 
@@ -458,6 +475,7 @@ section{
 
 .btn-primary{
   background:var(--dark-pink);
+
   color:white;
 
   box-shadow:
@@ -467,6 +485,7 @@ section{
 
 .btn-primary:hover{
   transform:translateY(-3px);
+
   background:var(--deep-pink);
 }
 
@@ -484,9 +503,7 @@ section{
   background:var(--light-pink);
 }
 
-/* =========================================
-   PRICES
-========================================= */
+/* ================= PRICE CARDS ================= */
 
 .price-grid{
   display:grid;
@@ -521,12 +538,13 @@ section{
   transform:translateY(-7px);
 }
 
-/* الديكور */
+/* ================= DECORATIONS ================= */
 
 .price-decoration{
   height:70px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -535,7 +553,7 @@ section{
   position:relative;
 }
 
-/* فيونكة */
+/* BOW */
 
 .bow{
   position:relative;
@@ -591,7 +609,7 @@ section{
   z-index:2;
 }
 
-/* توليب */
+/* TULIP */
 
 .tulip{
   position:relative;
@@ -617,7 +635,8 @@ section{
     50% 50% 45% 45%;
 
   box-shadow:
-    inset 7px 0 0 rgba(255,255,255,.16);
+    inset 7px 0 0
+    rgba(255,255,255,.16);
 }
 
 .tulip-head::before,
@@ -633,17 +652,22 @@ section{
 
   background:var(--dark-pink);
 
-  border-radius:50% 50% 0 50%;
+  border-radius:
+    50% 50% 0 50%;
 }
 
 .tulip-head::before{
   left:1px;
+
   transform:rotate(-20deg);
 }
 
 .tulip-head::after{
   right:1px;
-  transform:rotate(20deg) scaleX(-1);
+
+  transform:
+    rotate(20deg)
+    scaleX(-1);
 }
 
 .tulip-stem{
@@ -671,7 +695,8 @@ section{
 
   background:#91ad7c;
 
-  border-radius:100% 0 100% 0;
+  border-radius:
+    100% 0 100% 0;
 
   transform:rotate(-25deg);
 }
@@ -690,6 +715,18 @@ section{
 
 .price-card small{
   color:var(--muted);
+
+  display:block;
+}
+
+.old-price{
+  text-decoration:line-through;
+
+  opacity:.65;
+
+  font-size:13px;
+
+  margin-top:3px;
 }
 
 .discount{
@@ -710,7 +747,7 @@ section{
   font-weight:800;
 }
 
-/* BEST DEAL */
+/* BEST DEAL = 4 */
 
 .best-deal{
   border:2px solid var(--dark-pink);
@@ -747,13 +784,6 @@ section{
   letter-spacing:.3px;
 }
 
-.big-saving{
-  background:
-    rgba(201,111,150,.14);
-
-  color:var(--deep-pink);
-}
-
 .extra-info{
   margin-top:20px;
 
@@ -770,9 +800,7 @@ section{
   font-size:14px;
 }
 
-/* =========================================
-   STATIONERY
-========================================= */
+/* ================= STATIONERY ================= */
 
 .stationery-grid{
   display:grid;
@@ -816,6 +844,7 @@ section{
   border-radius:25px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -826,6 +855,7 @@ section{
 
 .product-card h3{
   font-size:21px;
+
   margin-bottom:6px;
 }
 
@@ -855,9 +885,7 @@ section{
   font-weight:800;
 }
 
-/* =========================================
-   HOW
-========================================= */
+/* ================= HOW ================= */
 
 .steps{
   display:grid;
@@ -891,6 +919,7 @@ section{
   color:white;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -909,9 +938,7 @@ section{
   line-height:1.8;
 }
 
-/* =========================================
-   FORM
-========================================= */
+/* ================= FORM ================= */
 
 .form-box{
   max-width:850px;
@@ -954,6 +981,7 @@ section{
 
 .form-group label{
   font-size:14px;
+
   font-weight:700;
 }
 
@@ -1052,9 +1080,7 @@ textarea{
   margin-top:18px;
 }
 
-/* =========================================
-   REVIEWS
-========================================= */
+/* ================= REVIEWS ================= */
 
 .review-grid{
   display:grid;
@@ -1095,9 +1121,7 @@ textarea{
   margin-top:15px;
 }
 
-/* =========================================
-   FAQ
-========================================= */
+/* ================= FAQ ================= */
 
 .faq{
   max-width:800px;
@@ -1133,9 +1157,7 @@ details p{
   line-height:1.8;
 }
 
-/* =========================================
-   CTA
-========================================= */
+/* ================= CTA ================= */
 
 .cta{
   background:
@@ -1168,9 +1190,7 @@ details p{
   margin-bottom:25px;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* ================= FOOTER ================= */
 
 footer{
   padding:50px 0 90px;
@@ -1208,9 +1228,7 @@ footer p{
   text-decoration:none;
 }
 
-/* =========================================
-   WHATSAPP
-========================================= */
+/* ================= WHATSAPP ================= */
 
 .whatsapp-float{
   position:fixed;
@@ -1249,9 +1267,7 @@ footer p{
   transform:scale(1.08);
 }
 
-/* =========================================
-   POPUP
-========================================= */
+/* ================= POPUP ================= */
 
 .popup-overlay{
   position:fixed;
@@ -1299,15 +1315,21 @@ footer p{
 }
 
 @keyframes popupIn{
+
   from{
     opacity:0;
-    transform:scale(.85) translateY(20px);
+    transform:
+      scale(.85)
+      translateY(20px);
   }
 
   to{
     opacity:1;
-    transform:scale(1) translateY(0);
+    transform:
+      scale(1)
+      translateY(0);
   }
+
 }
 
 .popup-icon{
@@ -1334,9 +1356,7 @@ footer p{
   margin-top:22px;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:800px){
 
@@ -1434,7 +1454,7 @@ footer p{
 
 <body>
 
-<!-- STARS -->
+<!-- ================= STARS ================= -->
 
 <div class="sky">
 
@@ -1455,7 +1475,7 @@ footer p{
 
 </div>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
 
@@ -1496,7 +1516,7 @@ footer p{
 
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <header class="hero">
 
@@ -1539,7 +1559,7 @@ footer p{
 
 </header>
 
-<!-- CASES -->
+<!-- ================= CASES ================= -->
 
 <section id="cases">
 
@@ -1552,23 +1572,21 @@ footer p{
       </h2>
 
       <p>
-        كل ما تاخدي أكتر، التوفير بيزيد 💗
+        كل ما تاخدي أكتر، الباكدج يبقى أوفر 💗
       </p>
 
     </div>
 
     <div class="price-grid">
 
-      <!-- 1 -->
+      <!-- 1 CASE -->
 
       <div class="price-card">
 
         <div class="price-decoration">
 
           <div class="bow">
-
             <span class="bow-center"></span>
-
           </div>
 
         </div>
@@ -1587,7 +1605,7 @@ footer p{
 
       </div>
 
-      <!-- 2 -->
+      <!-- 2 CASES -->
 
       <div class="price-card">
 
@@ -1596,9 +1614,7 @@ footer p{
           <div class="tulip">
 
             <span class="tulip-head"></span>
-
             <span class="tulip-stem"></span>
-
             <span class="tulip-leaf"></span>
 
           </div>
@@ -1614,29 +1630,23 @@ footer p{
         </div>
 
         <small>
-          بدل 320 ج
+          قبل الشحن
         </small>
 
-        <div class="discount">
-          وفري 15 ج 💗
+        <div class="old-price">
+          بدل 320 ج
         </div>
 
       </div>
 
-      <!-- 3 BEST DEAL -->
+      <!-- 3 CASES -->
 
-      <div class="price-card best-deal">
-
-        <div class="best-badge">
-          ⭐ BEST DEAL
-        </div>
+      <div class="price-card">
 
         <div class="price-decoration">
 
           <div class="bow">
-
             <span class="bow-center"></span>
-
           </div>
 
         </div>
@@ -1650,27 +1660,29 @@ footer p{
         </div>
 
         <small>
-          بدل 480 ج
+          قبل الشحن
         </small>
 
-        <div class="discount">
-          وفري 20 ج ✨
+        <div class="old-price">
+          بدل 480 ج
         </div>
 
       </div>
 
-      <!-- 4 -->
+      <!-- 4 CASES BEST DEAL -->
 
-      <div class="price-card">
+      <div class="price-card best-deal">
+
+        <div class="best-badge">
+          ⭐ BEST DEAL
+        </div>
 
         <div class="price-decoration">
 
           <div class="tulip">
 
             <span class="tulip-head"></span>
-
             <span class="tulip-stem"></span>
-
             <span class="tulip-leaf"></span>
 
           </div>
@@ -1686,11 +1698,11 @@ footer p{
         </div>
 
         <small>
-          بدل 640 ج
+          قبل الشحن
         </small>
 
-        <div class="discount big-saving">
-          🔥 أكبر توفير — 30 ج
+        <div class="old-price">
+          بدل 640 ج
         </div>
 
       </div>
@@ -1711,7 +1723,7 @@ footer p{
 
 </section>
 
-<!-- STATIONERY -->
+<!-- ================= STATIONERY ================= -->
 
 <section id="stationery">
 
@@ -1857,7 +1869,7 @@ footer p{
 
 </section>
 
-<!-- HOW -->
+<!-- ================= HOW ================= -->
 
 <section id="how">
 
@@ -1934,7 +1946,7 @@ footer p{
 
 </section>
 
-<!-- ORDER -->
+<!-- ================= ORDER FORM ================= -->
 
 <section id="order">
 
@@ -2027,11 +2039,11 @@ footer p{
               </option>
 
               <option value="3">
-                3 جرابات — 460 ج ⭐ BEST DEAL
+                3 جرابات — 460 ج
               </option>
 
               <option value="4">
-                4 جرابات — 610 ج 🔥 أكبر توفير
+                4 جرابات — 610 ج ⭐ BEST DEAL
               </option>
 
             </select>
@@ -2175,7 +2187,7 @@ footer p{
 
 </section>
 
-<!-- REVIEWS -->
+<!-- ================= REVIEWS ================= -->
 
 <section>
 
@@ -2251,7 +2263,7 @@ footer p{
 
 </section>
 
-<!-- FAQ -->
+<!-- ================= FAQ ================= -->
 
 <section>
 
@@ -2327,7 +2339,7 @@ footer p{
 
 </section>
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 
 <section>
 
@@ -2357,7 +2369,7 @@ footer p{
 
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -2395,7 +2407,7 @@ footer p{
 
 </footer>
 
-<!-- WHATSAPP -->
+<!-- ================= WHATSAPP ================= -->
 
 <a
   class="whatsapp-float"
@@ -2406,7 +2418,7 @@ footer p{
   💬
 </a>
 
-<!-- POPUP -->
+<!-- ================= POPUP ================= -->
 
 <div
   class="popup-overlay"
@@ -2425,8 +2437,10 @@ footer p{
     </h2>
 
     <p>
-      الـStationery collection بتاعت K.Store
-      جاية بحاجات كيوت تستاهل تستنيها 💗
+
+      الـStationery collection
+      بتاعت K.Store جاية بحاجات كيوت
+      تستاهل تستنيها 💗
 
       <br><br>
 
@@ -2435,6 +2449,7 @@ footer p{
       <br>
 
       Coloring Books • Stickers • Pouches
+
     </p>
 
     <button
@@ -2450,9 +2465,7 @@ footer p{
 
 <script>
 
-/* =========================================
-   DARK MODE
-========================================= */
+/* ================= DARK MODE ================= */
 
 const modeBtn =
   document.getElementById("modeBtn");
@@ -2471,7 +2484,7 @@ if(savedMode === "dark"){
 modeBtn.addEventListener(
   "click",
   ()=>{
-    
+
     document.body.classList.toggle("dark");
 
     const dark =
@@ -2488,9 +2501,7 @@ modeBtn.addEventListener(
   }
 );
 
-/* =========================================
-   STATIONERY POPUP
-========================================= */
+/* ================= STATIONERY POPUP ================= */
 
 const popup =
   document.getElementById(
@@ -2519,9 +2530,7 @@ function closePopup(event){
 
 }
 
-/* =========================================
-   PRICE CALCULATOR
-========================================= */
+/* ================= PRICE CALCULATOR ================= */
 
 const packageSelect =
   document.getElementById("package");
@@ -2593,9 +2602,7 @@ custom.addEventListener(
   calculatePrice
 );
 
-/* =========================================
-   ORDER → WHATSAPP
-========================================= */
+/* ================= ORDER → WHATSAPP ================= */
 
 document
   .getElementById("orderForm")
@@ -2632,9 +2639,9 @@ document
 
         2:"جرابين",
 
-        3:"3 جرابات — BEST DEAL",
+        3:"3 جرابات",
 
-        4:"4 جرابات — أكبر توفير"
+        4:"4 جرابات — BEST DEAL"
 
       };
 
