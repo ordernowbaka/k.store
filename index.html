@@ -1,32 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f7d7e4">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>K Store 🎀 | Custom Phone Cases</title>
-
-<meta name="description" content="K Store — جرابات موبايل مخصصة بتصميمك، لأن موبايلك يستاهل حاجة شبهك.">
+<title>K Store 🎀</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
 :root{
-  --pink:#f7d7e4;
-  --pink2:#f2bfd2;
-  --rose:#c87f9b;
-  --deep:#513846;
-  --cream:#fff8fb;
-  --white:#fff;
-  --line:#ead9e0;
-  --text:#513846;
-  --muted:#806b74;
-  --shadow:rgba(81,56,70,.10);
+  --pink:#ff8fbd;
+  --dark-pink:#ff5c9a;
+  --light-pink:#fff0f6;
+  --cream:#fff9fc;
+  --text:#3b2630;
+  --card:#ffffff;
+  --shadow:0 10px 30px rgba(255,92,154,.15);
 }
 
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
@@ -34,751 +28,276 @@ html{
 }
 
 body{
-  margin:0;
-  background:var(--cream);
+  font-family:Arial, sans-serif;
+  background:linear-gradient(180deg,#fff8fb,#ffeef6);
   color:var(--text);
-  font-family:Cairo,sans-serif;
-  line-height:1.8;
-  transition:background .4s,color .4s;
+  overflow-x:hidden;
+  transition:.4s;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark{
+  --light-pink:#241b20;
+  --cream:#171316;
+  --text:#fff3f8;
+  --card:#241d21;
+
+  background:linear-gradient(180deg,#171316,#261c22);
 }
 
-.wrap{
-  max-width:1120px;
-  margin:auto;
-  padding:0 20px;
+/* =========================
+   STARS + SHOOTING STARS
+========================= */
+
+.sky{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
 }
 
-/* ================= TOP ================= */
-
-.top{
-  background:var(--deep);
-  color:#fff;
-  text-align:center;
-  padding:8px;
-  font-size:13px;
+.star{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:white;
+  border-radius:50%;
+  box-shadow:
+    0 0 6px white,
+    0 0 12px rgba(255,255,255,.8);
+  animation:twinkle 2.5s infinite ease-in-out;
+  opacity:.7;
 }
 
-/* ================= NAV ================= */
+.star.big{
+  width:6px;
+  height:6px;
+}
+
+@keyframes twinkle{
+  0%,100%{
+    opacity:.15;
+    transform:scale(.7);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.3);
+  }
+}
+
+.shooting-star{
+  position:absolute;
+  width:110px;
+  height:2px;
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,.9),
+    white
+  );
+  border-radius:50%;
+  transform:rotate(-35deg);
+  filter:drop-shadow(0 0 6px white);
+  opacity:0;
+  animation:shoot 6s linear infinite;
+}
+
+.shooting-star::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:-3px;
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  box-shadow:0 0 12px white;
+}
+
+@keyframes shoot{
+  0%{
+    transform:translate(0,0) rotate(-35deg);
+    opacity:0;
+  }
+
+  5%{
+    opacity:1;
+  }
+
+  15%{
+    transform:translate(-350px,250px) rotate(-35deg);
+    opacity:0;
+  }
+
+  100%{
+    opacity:0;
+  }
+}
+
+.s1{
+  top:18%;
+  right:5%;
+  animation-delay:1s;
+}
+
+.s2{
+  top:48%;
+  right:75%;
+  animation-delay:4s;
+}
+
+.s3{
+  top:75%;
+  right:30%;
+  animation-delay:7s;
+}
+
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(255,248,251,.88);
+  z-index:20;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:15px 7%;
+
+  background:rgba(255,255,255,.75);
   backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--line);
-  transition:.4s;
+
+  border-bottom:1px solid rgba(255,143,189,.2);
 }
 
-.navin{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+body.dark nav{
+  background:rgba(23,19,22,.75);
 }
 
 .logo{
-  font-family:"Playfair Display",serif;
-  font-size:30px;
-  font-weight:700;
-  color:var(--deep);
-  transition:.3s;
+  font-size:24px;
+  font-weight:bold;
+  color:var(--dark-pink);
 }
 
-.logo span{
-  color:var(--rose);
-}
-
-.logo:hover{
-  transform:scale(1.04);
-}
-
-.links{
-  display:flex;
-  gap:22px;
-  font-size:14px;
-  font-weight:600;
-}
-
-.links a{
-  position:relative;
-}
-
-.links a:after{
-  content:"";
-  position:absolute;
-  bottom:-5px;
-  right:0;
-  width:0;
-  height:2px;
-  background:var(--rose);
-  transition:.3s;
-}
-
-.links a:hover:after{
-  width:100%;
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-/* ================= BUTTONS ================= */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border:0;
-  border-radius:999px;
-  padding:12px 21px;
-  background:var(--deep);
-  color:#fff;
-  font-family:inherit;
-  font-weight:700;
-  cursor:pointer;
-  transition:.25s;
-  box-shadow:0 8px 22px rgba(81,56,70,.14);
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 28px rgba(81,56,70,.20);
-}
-
-.btn.light{
-  background:var(--white);
-  color:var(--deep);
-  border:1px solid var(--line);
-  box-shadow:none;
-}
-
-.btn.pink{
-  background:var(--rose);
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  margin:0 8px;
+  font-weight:bold;
 }
 
 .mode-btn{
-  width:43px;
-  height:43px;
+  border:none;
+  background:var(--pink);
+  color:white;
+  width:40px;
+  height:40px;
   border-radius:50%;
-  border:1px solid var(--line);
-  background:var(--white);
   cursor:pointer;
   font-size:18px;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+section{
+  padding:80px 0;
+}
+
+h1,h2,h3{
+  line-height:1.3;
+}
+
+.section-title{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:40px;
+}
+
+.btn{
+  display:inline-block;
+  border:none;
+  text-decoration:none;
+  background:linear-gradient(135deg,var(--pink),var(--dark-pink));
+  color:white;
+  padding:14px 25px;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,92,154,.25);
   transition:.3s;
 }
 
-.mode-btn:hover{
-  transform:rotate(15deg) scale(1.08);
+.btn:hover{
+  transform:translateY(-3px) scale(1.02);
 }
 
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  padding:76px 0 64px;
-  background:
-    radial-gradient(circle at 80% 20%,#f5d5e1 0,transparent 34%),
-    linear-gradient(135deg,#fff8fb,#fdf1f6);
-  overflow:hidden;
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  text-align:center;
 }
 
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:50px;
-  align-items:center;
+.hero-content{
+  width:100%;
 }
 
 .badge{
   display:inline-block;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:999px;
-  padding:5px 13px;
-  font-size:12px;
-  margin-bottom:14px;
-  color:var(--rose);
-  font-weight:700;
-  animation:fadeUp .7s ease both;
+  background:rgba(255,255,255,.7);
+  color:var(--dark-pink);
+  padding:8px 16px;
+  border-radius:30px;
+  margin-bottom:20px;
+  font-weight:bold;
 }
 
-h1{
-  font-family:"Playfair Display",serif;
-  font-size:clamp(46px,7vw,78px);
-  line-height:1.05;
-  margin:0 0 18px;
-  color:#4d3541;
-  direction:ltr;
-  text-align:right;
-  animation:fadeUp .8s .1s ease both;
+body.dark .badge{
+  background:rgba(255,255,255,.08);
 }
 
-h1 em{
-  font-style:normal;
-  color:var(--rose);
+.hero h1{
+  font-size:clamp(42px,8vw,75px);
+  color:var(--dark-pink);
+  margin-bottom:15px;
 }
 
 .hero p{
-  font-size:18px;
-  max-width:620px;
-  color:#735c68;
-  animation:fadeUp .8s .2s ease both;
+  font-size:20px;
+  max-width:650px;
+  margin:0 auto 25px;
+  opacity:.85;
 }
 
-.actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:24px;
-  animation:fadeUp .8s .3s ease both;
+.hero-hearts{
+  font-size:30px;
+  margin-top:25px;
+  animation:float 3s infinite ease-in-out;
 }
 
-.hero-card{
-  min-height:390px;
-  border-radius:35px;
-  background:linear-gradient(145deg,#fff,#f4d4e1);
-  border:1px solid #edd8e1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 25px 60px rgba(139,82,101,.14);
-  animation:floatCard 5s ease-in-out infinite;
-}
-
-.phone{
-  width:190px;
-  height:345px;
-  border:7px solid #3d3035;
-  border-radius:30px;
-  background:linear-gradient(160deg,#fff,#f5e0e7);
-  box-shadow:12px 20px 40px rgba(81,56,70,.20);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:25px;
-  position:relative;
-  transition:.4s;
-}
-
-.phone:hover{
-  transform:rotate(-3deg) scale(1.04);
-}
-
-.phone:before{
-  content:"K";
-  font-family:"Playfair Display";
-  font-size:82px;
-  color:var(--rose);
-  border:2px solid var(--rose);
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.spark{
-  position:absolute;
-  font-size:25px;
-  color:#fff;
-  animation:sparkle 2s ease-in-out infinite;
-}
-
-.s1{top:45px;right:55px}
-.s2{bottom:55px;left:45px;animation-delay:.5s}
-.s3{top:120px;left:35px;animation-delay:1s}
-
-/* ================= SECTIONS ================= */
-
-section{
-  padding:75px 0;
-}
-
-.section-head{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.eyebrow{
-  color:var(--rose);
-  font-weight:800;
-  font-size:13px;
-}
-
-.section-head h2{
-  font-family:"Playfair Display";
-  font-size:39px;
-  margin:3px 0;
-}
-
-.section-head p{
-  margin:0;
-  color:var(--muted);
-}
-
-/* ================= PRICES ================= */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-
-.price{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 10px 30px var(--shadow);
-  transition:.3s;
-}
-
-.price:hover{
-  transform:translateY(-7px);
-  box-shadow:0 18px 35px rgba(81,56,70,.14);
-}
-
-.price.featured{
-  border:2px solid var(--pink2);
-  transform:translateY(-5px);
-}
-
-.price.featured:hover{
-  transform:translateY(-10px);
-}
-
-.price h3{
-  margin:0;
-  font-size:18px;
-}
-
-.price .num{
-  font-size:34px;
-  font-weight:800;
-  margin:9px 0;
-  color:var(--deep);
-}
-
-.old{
-  text-decoration:line-through;
-  color:#ad99a2;
-  font-size:13px;
-  margin-right:4px;
-}
-
-.price small{
-  color:#8d7881;
-}
-
-/* ================= STEPS ================= */
-
-.steps{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.step{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:25px;
-  transition:.3s;
-}
-
-.step:hover{
-  transform:translateY(-5px);
-}
-
-.numcircle{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:var(--pink);
-  font-weight:800;
-  margin-bottom:10px;
-}
-
-/* ================= FORM ================= */
-
-.formbox{
-  background:linear-gradient(145deg,#fff0f6,#ffe7f0);
-  border:1px solid #e9bfd0;
-  border-radius:30px;
-  padding:30px;
-  box-shadow:0 20px 55px rgba(81,56,70,.12);
-}
-
-.formgrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.field.full{
-  grid-column:1/-1;
-}
-
-label{
-  font-size:13px;
-  font-weight:700;
-}
-
-input,
-select,
-textarea{
-  font:inherit;
-  border:1px solid #e3bdcd;
-  border-radius:14px;
-  padding:12px 13px;
-  background:rgba(255,255,255,.82);
-  color:var(--deep);
-  outline:none;
-  transition:.25s;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:var(--rose);
-  box-shadow:0 0 0 4px rgba(247,215,228,.7);
-  transform:translateY(-1px);
-}
-
-textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.total{
-  margin:18px 0;
-  padding:15px 18px;
-  border-radius:16px;
-  background:rgba(255,255,255,.72);
-  border:1px dashed #d79ab2;
-  font-weight:800;
-  display:flex;
-  justify-content:space-between;
-}
-
-.hint{
-  font-size:12px;
-  color:#8a737d;
-}
-
-.submit-btn{
-  position:relative;
-  overflow:hidden;
-}
-
-.submit-btn:after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:60%;
-  height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
-  transition:.6s;
-}
-
-.submit-btn:hover:after{
-  left:120%;
-}
-
-.confirm{
-  display:none;
-  text-align:center;
-  padding:35px;
-  background:rgba(255,255,255,.7);
-  border:1px solid #e5c6d2;
-  border-radius:24px;
-  margin-top:18px;
-}
-
-.confirm.show{
-  display:block;
-  animation:pop .5s ease;
-}
-
-.orderid{
-  font-size:25px;
-  font-weight:800;
-  color:var(--rose);
-  margin:10px 0;
-}
-
-/* ================= REVIEWS ================= */
-
-.review-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.review{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:22px;
-  transition:.3s;
-}
-
-.review:hover{
-  transform:translateY(-5px);
-}
-
-.stars{
-  color:#c48b38;
-  letter-spacing:2px;
-}
-
-.review p{
-  color:#705d66;
-}
-
-.review b{
-  font-size:13px;
-}
-
-/* ================= FAQ ================= */
-
-.faq{
-  max-width:800px;
-  margin:auto;
-}
-
-.faq details{
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:18px;
-  margin:10px 0;
-  padding:15px 18px;
-  transition:.3s;
-}
-
-.faq details:hover{
-  border-color:var(--rose);
-}
-
-.faq summary{
-  cursor:pointer;
-  font-weight:700;
-}
-
-.faq p{
-  color:#745f69;
-  font-size:14px;
-}
-
-/* ================= CTA ================= */
-
-.cta{
-  background:var(--deep);
-  color:#fff;
-  border-radius:34px;
-  padding:45px;
-  text-align:center;
-  box-shadow:0 20px 50px rgba(81,56,70,.18);
-}
-
-.cta h2{
-  font-family:"Playfair Display";
-  font-size:38px;
-  margin:0 0 8px;
-}
-
-.cta p{
-  color:#eadce2;
-}
-
-.cta .btn{
-  background:var(--pink);
-  color:var(--deep);
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  padding:45px 0 75px;
-  border-top:1px solid var(--line);
-  margin-top:50px;
-}
-
-.foot{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:center;
-}
-
-.social{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.social a{
-  padding:8px 13px;
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:999px;
-  font-size:13px;
-  transition:.3s;
-}
-
-.social a:hover{
-  transform:translateY(-3px);
-}
-
-/* ================= WHATSAPP ================= */
-
-.wa{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  z-index:30;
-  background:var(--deep);
-  color:#fff;
-  border-radius:999px;
-  padding:13px 18px;
-  box-shadow:0 12px 35px rgba(0,0,0,.18);
-  font-weight:800;
-  transition:.3s;
-}
-
-.wa:hover{
-  transform:translateY(-4px) scale(1.03);
-}
-
-/* ================= DARK MODE ================= */
-
-body.dark{
-  --cream:#1d171b;
-  --white:#292126;
-  --deep:#f4d9e4;
-  --text:#f8eaf0;
-  --muted:#cdb7c0;
-  --line:#493640;
-  --shadow:rgba(0,0,0,.25);
-  --pink:#4c303e;
-  --pink2:#815169;
-  --rose:#e5a6bd;
-  background:#1d171b;
-  color:#f8eaf0;
-}
-
-body.dark nav{
-  background:rgba(29,23,27,.9);
-}
-
-body.dark .hero{
-  background:
-    radial-gradient(circle at 80% 20%,#4c303e 0,transparent 34%),
-    linear-gradient(135deg,#1d171b,#2a2025);
-}
-
-body.dark h1,
-body.dark .section-head h2,
-body.dark .logo,
-body.dark .price .num{
-  color:#f8eaf0;
-}
-
-body.dark .hero p,
-body.dark .section-head p,
-body.dark .hint,
-body.dark .review p,
-body.dark .faq p{
-  color:#cdb7c0;
-}
-
-body.dark .hero-card{
-  background:linear-gradient(145deg,#30242a,#4a303d);
-  border-color:#593c49;
-}
-
-body.dark .phone{
-  background:linear-gradient(160deg,#30242a,#4a303d);
-  border-color:#eadce2;
-}
-
-body.dark input,
-body.dark select,
-body.dark textarea{
-  background:#211a1f;
-  color:#f8eaf0;
-  border-color:#59404b;
-}
-
-body.dark .formbox{
-  background:linear-gradient(145deg,#3b252f,#2c2026);
-  border-color:#60404d;
-}
-
-body.dark .total,
-body.dark .confirm{
-  background:rgba(40,30,35,.8);
-  border-color:#765062;
-}
-
-body.dark .btn{
-  background:#f0d4df;
-  color:#3b2931;
-}
-
-body.dark .btn.light{
-  background:#292126;
-  color:#f4d9e4;
-  border-color:#59404b;
-}
-
-body.dark .mode-btn{
-  background:#292126;
-  color:#fff;
-  border-color:#59404b;
-}
-
-body.dark .wa{
-  background:#f0d4df;
-  color:#3b2931;
-}
-
-/* ================= ANIMATIONS ================= */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-@keyframes floatCard{
+@keyframes float{
   0%,100%{
     transform:translateY(0);
   }
@@ -787,945 +306,1085 @@ body.dark .wa{
   }
 }
 
-@keyframes sparkle{
-  0%,100%{
-    opacity:.5;
-    transform:scale(.8) rotate(0);
-  }
-  50%{
-    opacity:1;
-    transform:scale(1.2) rotate(15deg);
-  }
+/* =========================
+   PRICES
+========================= */
+
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-@keyframes pop{
-  0%{
-    opacity:0;
-    transform:scale(.92);
-  }
-  100%{
-    opacity:1;
-    transform:scale(1);
-  }
+.price-card{
+  background:var(--card);
+  padding:25px 15px;
+  text-align:center;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+  transition:.3s;
+  border:1px solid rgba(255,143,189,.15);
 }
 
-/* ================= MOBILE ================= */
+.price-card:hover{
+  transform:translateY(-8px);
+}
+
+.price-card h3{
+  color:var(--dark-pink);
+  font-size:23px;
+}
+
+.price{
+  font-size:30px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.price-card p{
+  opacity:.7;
+}
+
+/* =========================
+   STEPS
+========================= */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.step{
+  background:var(--card);
+  border-radius:25px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.step-number{
+  width:55px;
+  height:55px;
+  margin:0 auto 15px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+  background:var(--pink);
+  color:white;
+
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* =========================
+   ORDER FORM
+========================= */
+
+.order-section{
+  background:rgba(255,255,255,.25);
+}
+
+.form-box{
+  max-width:750px;
+  margin:auto;
+
+  background:var(--card);
+  padding:30px;
+
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:7px;
+  font-weight:bold;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:13px 15px;
+
+  border:2px solid #ffd3e3;
+  border-radius:15px;
+
+  background:transparent;
+  color:var(--text);
+
+  outline:none;
+  font-size:15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--pink);
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.price-result{
+  margin:20px 0;
+  padding:18px;
+
+  background:var(--light-pink);
+  border-radius:18px;
+
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  color:var(--dark-pink);
+}
+
+.confirmation{
+  display:none;
+  text-align:center;
+  padding:30px;
+}
+
+.confirmation .success{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.confirmation h3{
+  font-size:27px;
+  color:var(--dark-pink);
+  margin-bottom:10px;
+}
+
+.confirmation p{
+  margin-bottom:20px;
+  line-height:1.8;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.review{
+  background:var(--card);
+  padding:25px;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.stars{
+  color:#ffbf3f;
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+  max-width:800px;
+  margin:auto;
+}
+
+details{
+  background:var(--card);
+  margin-bottom:12px;
+  padding:18px 20px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+summary{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+  text-align:center;
+}
+
+.cta-box{
+  background:linear-gradient(
+    135deg,
+    rgba(255,143,189,.25),
+    rgba(255,255,255,.4)
+  );
+
+  padding:50px 25px;
+  border-radius:35px;
+}
+
+body.dark .cta-box{
+  background:rgba(255,143,189,.12);
+}
+
+.cta-box h2{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.cta-box p{
+  margin-bottom:25px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  position:relative;
+  z-index:2;
+}
+
+footer .logo{
+  margin-bottom:10px;
+}
+
+/* =========================
+   FLOATING WHATSAPP
+========================= */
+
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  background:#25D366;
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:27px;
+  text-decoration:none;
+
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+  z-index:30;
+
+  transition:.3s;
+}
+
+.whatsapp:hover{
+  transform:scale(1.1);
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
 
-  .links{
+  nav{
+    padding:12px 5%;
+  }
+
+  nav .links{
     display:none;
   }
 
-  .hero-grid{
+  section{
+    padding:60px 0;
+  }
+
+  .price-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps,
+  .reviews{
     grid-template-columns:1fr;
   }
 
   .hero{
-    padding-top:45px;
+    min-height:75vh;
   }
 
-  .hero-card{
-    min-height:310px;
+  .hero h1{
+    font-size:48px;
   }
 
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .steps,
-  .review-grid{
-    grid-template-columns:1fr;
-  }
-
-  .formgrid{
-    grid-template-columns:1fr;
-  }
-
-  .field.full{
-    grid-column:auto;
-  }
-
-  .foot{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  h1{
-    font-size:56px;
-  }
-
-  .navin{
-    height:65px;
-  }
-}
-
-@media(max-width:480px){
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-card{
-    min-height:270px;
-  }
-
-  .phone{
-    transform:scale(.78);
-  }
-
-  section{
-    padding:55px 0;
-  }
-
-  .formbox{
+  .form-box{
     padding:20px;
   }
 
-  .cta{
-    padding:32px 20px;
+  .section-title{
+    font-size:28px;
   }
 
-  .wa{
-    bottom:14px;
-    left:14px;
+}
+
+@media(max-width:430px){
+
+  .price-grid{
+    grid-template-columns:1fr;
   }
+
+  .hero h1{
+    font-size:42px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="top">
-🎀 الطلبات حاليًا تستغرق تقريبًا 2–3 أسابيع • الشحن يُحسب حسب المنطقة
+<!-- =========================
+     BACKGROUND STARS
+========================= -->
+
+<div class="sky">
+
+  <span class="star" style="top:8%;right:15%;animation-delay:.2s"></span>
+  <span class="star" style="top:15%;right:35%;animation-delay:1.1s"></span>
+  <span class="star big" style="top:25%;right:80%;animation-delay:.5s"></span>
+  <span class="star" style="top:32%;right:50%;animation-delay:1.8s"></span>
+  <span class="star" style="top:42%;right:10%;animation-delay:.9s"></span>
+  <span class="star big" style="top:52%;right:65%;animation-delay:1.5s"></span>
+  <span class="star" style="top:63%;right:25%;animation-delay:2s"></span>
+  <span class="star" style="top:72%;right:88%;animation-delay:.7s"></span>
+  <span class="star" style="top:83%;right:45%;animation-delay:1.4s"></span>
+  <span class="star big" style="top:90%;right:75%;animation-delay:2.2s"></span>
+
+  <span class="shooting-star s1"></span>
+  <span class="shooting-star s2"></span>
+  <span class="shooting-star s3"></span>
+
 </div>
+
+
+<!-- =========================
+     NAV
+========================= -->
 
 <nav>
-<div class="wrap navin">
 
-<a class="logo" href="#">
-K <span>Store</span> 🎀
-</a>
+  <div class="logo">
+    K.Store 🎀
+  </div>
 
-<div class="links">
-<a href="#prices">الأسعار</a>
-<a href="#order">اطلبي</a>
-<a href="#reviews">آراء العملاء</a>
-<a href="#faq">FAQ</a>
-</div>
+  <div class="links">
+    <a href="#prices">الأسعار</a>
+    <a href="#how">إزاي تطلبي؟</a>
+    <a href="#order">اطلبي دلوقتي</a>
+  </div>
 
-<div class="nav-actions">
+  <button class="mode-btn" id="modeBtn">
+    🌙
+  </button>
 
-<button class="mode-btn" id="modeBtn" aria-label="تغيير الوضع">
-🌙
-</button>
-
-<a class="btn pink" href="#order">
-اعملي جرابك
-</a>
-
-</div>
-
-</div>
 </nav>
 
 
-<header class="hero">
+<!-- =========================
+     HERO
+========================= -->
 
-<div class="wrap hero-grid">
+<section class="hero">
 
-<div>
+  <div class="container">
 
-<span class="badge">
-CUSTOM • CUTE • MADE FOR YOU
-</span>
+    <div class="hero-content">
 
-<h1>
-Your phone,<br>
-<em>your vibe.</em>
-</h1>
+      <span class="badge">
+        ✨ Make it yours
+      </span>
 
-<p>
-جرابك مش مجرد حماية للموبايل…
-خليه قطعة شبهك. اختاري موديلك، اختاري فكرتك، وسيبي الباقي علينا 🎀
-</p>
+      <h1>
+        Your phone,<br>
+        your vibe. 🎀
+      </h1>
 
-<div class="actions">
+      <p>
+        خلي موبايلك يعبر عنك بجراب معمول مخصوص ليكي 💗
+        اختاري التصميم اللي بتحبيه وسيبي الباقي علينا ✨
+      </p>
 
-<a class="btn" href="#order">
-ابدئي طلبك ✨
-</a>
+      <a href="#order" class="btn">
+        اطلبي جرابك 💗
+      </a>
 
-<a class="btn light" href="https://linktr.ee/K.store188" target="_blank">
-كل حساباتنا ↗
-</a>
+      <div class="hero-hearts">
+        🎀 ✨ 💗 ✨ 🎀
+      </div>
 
-</div>
+    </div>
 
-</div>
+  </div>
+
+</section>
 
 
-<div class="hero-card">
-
-<span class="spark s1">✦</span>
-<span class="spark s2">♡</span>
-<span class="spark s3">✧</span>
-
-<div class="phone"></div>
-
-</div>
-
-</div>
-
-</header>
-
+<!-- =========================
+     PRICES
+========================= -->
 
 <section id="prices">
 
-<div class="wrap">
+  <div class="container">
 
-<div class="section-head">
+    <h2 class="section-title">
+      الأسعار 💗
+    </h2>
 
-<div class="eyebrow">
-SIMPLE & PRETTY
-</div>
+    <div class="price-grid">
 
-<h2>
-الأسعار 🎀
-</h2>
+      <div class="price-card">
+        <h3>جراب واحد</h3>
+        <div class="price">160 ج</div>
+        <p>اختيارك المفضل 🎀</p>
+      </div>
 
-<p>
-اختاري الباكدج اللي يناسبك — والشحن حسب منطقتك.
-</p>
+      <div class="price-card">
+        <h3>جرابين</h3>
+        <div class="price">305 ج</div>
+        <p>واحد ليكي وواحد لحد بتحبيه 💗</p>
+      </div>
 
-</div>
+      <div class="price-card">
+        <h3>3 جرابات</h3>
+        <div class="price">460 ج</div>
+        <p>غيري ستايلك ✨</p>
+      </div>
 
+      <div class="price-card">
+        <h3>4 جرابات</h3>
+        <div class="price">610 ج</div>
+        <p>أكبر باكدج 🎀</p>
+      </div>
 
-<div class="grid">
+    </div>
 
-<div class="price featured">
+    <br>
 
-<h3>
-جراب واحد
-</h3>
+    <p style="text-align:center;opacity:.75;">
+      📱 Motorola +15 ج لكل جراب
+      &nbsp; | &nbsp;
+      🎨 Custom +20 ج
+      <br>
+      🚚 الشحن بيتحدد حسب المحافظة والمنطقة
+    </p>
 
-<div class="num">
-160 ج
-</div>
-
-<small>
-تصميم عادي
-</small>
-
-</div>
-
-
-<div class="price">
-
-<h3>
-جرابين
-</h3>
-
-<div class="num">
-305 ج
-</div>
-
-<small>
-<span class="old">320 ج</span>
-عرض
-</small>
-
-</div>
-
-
-<div class="price">
-
-<h3>
-3 جرابات
-</h3>
-
-<div class="num">
-460 ج
-</div>
-
-<small>
-<span class="old">480 ج</span>
-عرض
-</small>
-
-</div>
-
-
-<div class="price">
-
-<h3>
-4 جرابات
-</h3>
-
-<div class="num">
-610 ج
-</div>
-
-<small>
-<span class="old">640 ج</span>
-عرض
-</small>
-
-</div>
-
-</div>
-
-
-<p class="hint" style="text-align:center;margin-top:18px">
-Motorola: 175 ج للجراب • تصميم مخصص/يحتاج تعديل: +20 ج
-</p>
-
-</div>
+  </div>
 
 </section>
 
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section id="how">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      تطلبي إزاي؟ 🎀
+    </h2>
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="step-number">
+          1
+        </div>
+
+        <h3>
+          اختاري
+        </h3>
+
+        <p>
+          اختاري الباكدج والتصميم اللي عايزاه 💗
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">
+          2
+        </div>
+
+        <h3>
+          اكتبي بياناتك
+        </h3>
+
+        <p>
+          اكتبي بيانات التوصيل والموبايل 📱
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="step-number">
+          3
+        </div>
+
+        <h3>
+          أكدي الطلب
+        </h3>
+
+        <p>
+          الطلب هيفتح على واتساب بالبيانات جاهزة 💚
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ORDER FORM
+========================= -->
+
+<section id="order" class="order-section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      اطلبي جرابك 🎀
+    </h2>
+
+    <div class="form-box">
+
+      <form id="orderForm">
+
+        <div class="form-group">
+          <label>
+            الاسم *
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="اكتبي اسمك"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label>
+            رقم الموبايل *
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="01xxxxxxxxx"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label>
+            موديل الموبايل *
+          </label>
+
+          <input
+            type="text"
+            id="model"
+            placeholder="مثال: iPhone 13 / Redmi Note 11"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            الباكدج *
+          </label>
+
+          <select id="package" required>
+
+            <option value="">
+              اختاري الباكدج
+            </option>
+
+            <option value="1">
+              جراب واحد - 160 ج
+            </option>
+
+            <option value="2">
+              جرابين - 305 ج
+            </option>
+
+            <option value="3">
+              3 جرابات - 460 ج
+            </option>
+
+            <option value="4">
+              4 جرابات - 610 ج
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            هل الموديل Motorola؟
+          </label>
+
+          <select id="motorola">
+
+            <option value="No">
+              لا
+            </option>
+
+            <option value="Yes">
+              أيوه (+15 ج لكل جراب)
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            هل التصميم Custom أو محتاج تعديل؟
+          </label>
+
+          <select id="custom">
+
+            <option value="No">
+              لا
+            </option>
+
+            <option value="Yes">
+              أيوه (+20 ج)
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            تفاصيل التصميم
+          </label>
+
+          <textarea
+            id="designDetails"
+            placeholder="اكتبي عايزة التصميم يبقى عامل إزاي..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            المحافظة *
+          </label>
+
+          <input
+            type="text"
+            id="governorate"
+            placeholder="مثال: الدقهلية"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            المنطقة *
+          </label>
+
+          <input
+            type="text"
+            id="area"
+            placeholder="مثال: المنصورة"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            العنوان بالتفصيل *
+          </label>
+
+          <textarea
+            id="address"
+            placeholder="اكتبي العنوان بالتفصيل"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            ملاحظات للطلب
+          </label>
+
+          <textarea
+            id="notes"
+            placeholder="أي ملاحظات إضافية..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="price-result">
+
+          السعر قبل الشحن:
+
+          <span id="finalPrice">
+            0
+          </span>
+
+          ج
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="btn"
+          style="width:100%;font-size:17px;"
+        >
+          تأكيد الطلب على واتساب 💚
+        </button>
+
+      </form>
+
+
+      <!-- CONFIRMATION -->
+
+      <div
+        class="confirmation"
+        id="confirmation"
+      >
+
+        <div class="success">
+          🎀✨
+        </div>
+
+        <h3>
+          تمام يا قمر! 💗
+        </h3>
+
+        <p>
+          بيانات طلبك اتجهزت بنجاح.
+          <br>
+          واتساب هيفتح دلوقتي والرسالة هتكون مكتوبة جاهزة.
+          <br>
+          دوسي بس على <b>Send / إرسال</b> 💚
+        </p>
+
+        <a
+          href="#"
+          id="whatsappLink"
+          class="btn"
+          target="_blank"
+        >
+          فتح واتساب 💚
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
 
 <section>
 
-<div class="wrap">
+  <div class="container">
 
-<div class="section-head">
+    <h2 class="section-title">
+      رأيكم يهمنا 💗
+    </h2>
 
-<div class="eyebrow">
-HOW IT WORKS
-</div>
+    <div class="reviews">
 
-<h2>
-طلبك في 3 خطوات
-</h2>
+      <div class="review">
 
-</div>
+        <div class="stars">
+          ★★★★★
+        </div>
 
+        <p>
+          "الجراب طلع تحفة بجد 😭💗
+          أحلى من الصور كمان!"
+        </p>
 
-<div class="steps">
-
-<div class="step">
-
-<div class="numcircle">
-01
-</div>
-
-<h3>
-اختاري الباكدج
-</h3>
-
-<p>
-حددي عدد الجرابات والموديلات اللي عايزاها.
-</p>
-
-</div>
+      </div>
 
 
-<div class="step">
+      <div class="review">
 
-<div class="numcircle">
-02
-</div>
+        <div class="stars">
+          ★★★★★
+        </div>
 
-<h3>
-ابعتي فكرتك
-</h3>
+        <p>
+          "الخامة جميلة جدًا والتصميم
+          طلع زي ما كنت متخيلة بالظبط 🎀"
+        </p>
 
-<p>
-اكتبي تفاصيل التصميم أو ابعتيه على واتساب لو حبيتي.
-</p>
-
-</div>
+      </div>
 
 
-<div class="step">
+      <div class="review">
 
-<div class="numcircle">
-03
-</div>
+        <div class="stars">
+          ★★★★★
+        </div>
 
-<h3>
-إحنا نكمل الباقي
-</h3>
+        <p>
+          "بجد كيوت أوي والناس كلها
+          بتسألني جبته منين 😭✨"
+        </p>
 
-<p>
-نتواصل معاكي لتأكيد التفاصيل قبل تنفيذ الطلب.
-</p>
+      </div>
 
-</div>
+    </div>
 
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<section id="order">
-
-<div class="wrap">
-
-<div class="section-head">
-
-<div class="eyebrow">
-LET'S MAKE IT YOURS
-</div>
-
-<h2>
-اعملي طلبك 💌
-</h2>
-
-<p>
-املئي البيانات، وهنوصلك بتأكيد الطلب.
-</p>
-
-</div>
-
-
-<div class="formbox">
-
-<form id="orderForm">
-
-<div class="formgrid">
-
-
-<div class="field">
-
-<label>
-الاسم *
-</label>
-
-<input
-id="name"
-required
-placeholder="اسمك"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-رقم الموبايل *
-</label>
-
-<input
-id="phone"
-required
-inputmode="tel"
-placeholder="01xxxxxxxxx"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-موديل الموبايل *
-</label>
-
-<input
-id="model"
-required
-placeholder="مثال: iPhone 15 Pro"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-الباكدج *
-</label>
-
-<select id="package" required>
-
-<option value="1">
-جراب واحد — 160 ج
-</option>
-
-<option value="2">
-جرابين — 305 ج
-</option>
-
-<option value="3">
-3 جرابات — 460 ج
-</option>
-
-<option value="4">
-4 جرابات — 610 ج
-</option>
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>
-هل الموديل Motorola؟
-</label>
-
-<select id="motorola">
-
-<option value="No">
-لا
-</option>
-
-<option value="Yes">
-نعم (+15 ج لكل جراب)
-</option>
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>
-هل التصميم Custom أو يحتاج تعديل؟
-</label>
-
-<select id="custom">
-
-<option value="No">
-لا
-</option>
-
-<option value="Yes">
-نعم (+20 ج)
-</option>
-
-</select>
-
-</div>
-
-
-<div class="field full">
-
-<label>
-تفاصيل التصميم
-</label>
-
-<textarea
-id="designDetails"
-placeholder="اكتبي اللون/الاسم/الصورة/أي تعديل عايزاه..."
-></textarea>
-
-</div>
-
-
-<div class="field">
-
-<label>
-المحافظة *
-</label>
-
-<input
-id="governorate"
-required
-placeholder="مثال: الدقهلية"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-المنطقة *
-</label>
-
-<input
-id="area"
-required
-placeholder="مثال: المنصورة"
->
-
-</div>
-
-
-<div class="field full">
-
-<label>
-العنوان بالتفصيل *
-</label>
-
-<textarea
-id="address"
-required
-placeholder="الشارع + رقم العقار + الدور + علامة مميزة"
-></textarea>
-
-</div>
-
-
-<div class="field full">
-
-<label>
-ملاحظات للطلب
-</label>
-
-<textarea
-id="notes"
-placeholder="أي حاجة تحبي تضيفيها..."
-></textarea>
-
-</div>
-
-</div>
-
-
-<div class="total">
-
-<span>
-الإجمالي التقريبي قبل الشحن
-</span>
-
-<span id="total">
-160 ج
-</span>
-
-</div>
-
-
-<p class="hint">
-الشحن غير شامل وسيتم تحديده حسب المنطقة.
-السعر النهائي يتأكد قبل التنفيذ.
-</p>
-
-
-<button
-class="btn pink submit-btn"
-style="width:100%;margin-top:12px"
-type="submit"
-id="submitBtn"
->
-تأكيد وإرسال الطلب ✨
-</button>
-
-</form>
-
-
-<div class="confirm" id="confirm">
-
-<div style="font-size:35px">
-🎀
-</div>
-
-<h3>
-تم إرسال طلبك بنجاح! 💗
-</h3>
-
-<p>
-رقم الطلب الخاص بيكي:
-</p>
-
-<div
-class="orderid"
-id="orderId"
->
-</div>
-
-<p>
-احتفظي بالرقم، ولو حبيتي تتواصلي معانا مباشرة استخدمي واتساب.
-</p>
-
-<a
-class="btn"
-id="waConfirm"
-target="_blank"
->
-التواصل على واتساب 💬
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section id="reviews">
-
-<div class="wrap">
-
-<div class="section-head">
-
-<div class="eyebrow">
-REAL LOVE FROM REAL CUSTOMERS
-</div>
-
-<h2>
-آراء عملائنا ⭐
-</h2>
-
-<p>
-هنضيف هنا تقييمات العملاء الحقيقية وتصاوير الجرابات بعد موافقتهم.
-</p>
-
-</div>
-
-
-<div class="review-grid">
-
-<div class="review">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-“مبسوطة جدًا بالنتيجة! الجراب طلع ألطف من اللي كنت متخيلاه 🎀”
-</p>
-
-<b>
-عميلة K Store
-</b>
-
-</div>
-
-
-<div class="review">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-“التفاصيل والطباعة تحفة، وكل حاجة وصلتني متأكدة قبل التنفيذ.”
-</p>
-
-<b>
-عميلة K Store
-</b>
-
-</div>
-
-
-<div class="review">
-
-<div class="stars">
-★★★★★
-</div>
-
-<p>
-“أحلى حاجة إن التصميم بقى معمول مخصوص ليا.”
-</p>
-
-<b>
-عميلة K Store
-</b>
-
-</div>
-
-</div>
-
-
-<div style="text-align:center;margin-top:22px">
-
-<a
-class="btn light"
-href="https://wa.me/201096056450?text=مرحبًا%20K%20Store%20🎀%20عايزة%20أبعت%20ريفيو%20وصورة%20للجراب"
-target="_blank"
->
-ابعتيلنا ريفيوك 💗
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section id="faq">
-
-<div class="wrap">
-
-<div class="section-head">
-
-<div class="eyebrow">
-NEED TO KNOW
-</div>
-
-<h2>
-أسئلة بتتكرر
-</h2>
-
-</div>
-
-
-<div class="faq">
-
-<details>
-
-<summary>
-الطلب بياخد قد إيه؟
-</summary>
-
-<p>
-المدة المتوقعة حاليًا حوالي 2–3 أسابيع.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-الشحن بكام؟
-</summary>
-
-<p>
-الشحن بيختلف حسب المنطقة، لذلك بيتحدد مع تأكيد الطلب.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-أقدر أعمل تصميم من عندي؟
-</summary>
-
-<p>
-أيوه 💗 اكتبي تفاصيل التصميم في الطلب، ولو محتاج تعديل بيضاف 20 ج.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-هل السعر شامل الشحن؟
-</summary>
-
-<p>
-لا، الأسعار المعروضة للجرابات فقط والشحن حسب المنطقة.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-لو موديل موبايلي مش موجود أعمل إيه؟
-</summary>
-
-<p>
-اكتبيه في خانة الموديل، وهنأكد معاكي إمكانية توفيره قبل التنفيذ.
-</p>
-
-</details>
-
-</div>
-
-</div>
-
-</section>
-
+<!-- =========================
+     FAQ
+========================= -->
 
 <section>
 
-<div class="wrap">
+  <div class="container">
 
-<div class="cta">
+    <h2 class="section-title">
+      أسئلة مهمة 💭
+    </h2>
 
-<h2>
-خلي موبايلك يشبهك 🎀
-</h2>
+    <div class="faq">
 
-<p>
-تصميمك، ذوقك، وجراب معمول مخصوص ليكي.
-</p>
+      <details>
 
-<a
-class="btn"
-href="#order"
->
-اطلبي دلوقتي ✨
-</a>
+        <summary>
+          الشحن بكام؟
+        </summary>
 
-</div>
+        <p>
+          الشحن بيتحدد حسب المحافظة والمنطقة 💗
+        </p>
 
-</div>
+      </details>
+
+
+      <details>
+
+        <summary>
+          أقدر أعمل تصميم Custom؟
+        </summary>
+
+        <p>
+          أيوه طبعًا 🎀
+          ابعتي تفاصيل التصميم في الطلب
+          وهنشوفه معاكي.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          أقدر أطلب أكتر من جراب؟
+        </summary>
+
+        <p>
+          أيوه، عندنا باكدجات من جراب لحد 4 جرابات 💗
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          الطلب بيتأكد إزاي؟
+        </summary>
+
+        <p>
+          بعد ما تضغطي تأكيد الطلب،
+          واتساب هيفتح برسالة فيها كل بياناتك،
+          وكل اللي عليكي تدوسي إرسال 💚
+        </p>
+
+      </details>
+
+    </div>
+
+  </div>
 
 </section>
 
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+      <h2>
+        مستنية إيه؟ 🎀
+      </h2>
+
+      <p>
+        خلي جراب موبايلك شبهك ✨
+      </p>
+
+      <a href="#order" class="btn">
+        اطلبي دلوقتي 💗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-<div class="wrap foot">
+  <div class="logo">
+    K.Store 🎀
+  </div>
 
-<div>
+  <p>
+    Your phone, your vibe. 💗
+  </p>
 
-<div class="logo">
-K <span>Store</span> 🎀
-</div>
+  <br>
 
-<div class="hint">
-Custom phone cases • Made with love
-</div>
+  <a
+    href="https://linktr.ee/K.store188"
+    target="_blank"
+    class="btn"
+  >
+    كل لينكاتنا ✨
+  </a>
 
-</div>
+  <br><br>
 
-
-<div class="social">
-
-<a
-href="https://linktr.ee/K.store188"
-target="_blank"
->
-Instagram • Facebook • Threads • WhatsApp
-</a>
-
-</div>
-
-</div>
+  <p style="opacity:.6;">
+    © 2026 K.Store — All Rights Reserved
+  </p>
 
 </footer>
 
 
+<!-- =========================
+     FLOATING WHATSAPP
+========================= -->
+
 <a
-class="wa"
-href="https://wa.me/201096056450?text=مرحبًا%20K%20Store%20🎀%20عايزة%20أستفسر%20عن%20جراب"
-target="_blank"
+  class="whatsapp"
+  href="https://wa.me/201096056450"
+  target="_blank"
+  aria-label="WhatsApp"
 >
-واتساب 💬
+  💬
 </a>
 
 
 <script>
 
-/* ================= DARK / PINK MODE ================= */
+/* =========================
+   DARK MODE
+========================= */
 
-const modeBtn = document.getElementById("modeBtn");
+const modeBtn =
+  document.getElementById("modeBtn");
 
-const savedMode = localStorage.getItem("kstoreMode");
+const savedMode =
+  localStorage.getItem("kstoreMode");
 
 if(savedMode === "dark"){
+
   document.body.classList.add("dark");
+
   modeBtn.textContent = "☀️";
+
 }
 
-modeBtn.addEventListener("click", () => {
+modeBtn.addEventListener("click",()=>{
 
   document.body.classList.toggle("dark");
 
-  const dark = document.body.classList.contains("dark");
+  const dark =
+    document.body.classList.contains("dark");
 
-  modeBtn.textContent = dark ? "☀️" : "🌙";
+  modeBtn.textContent =
+    dark ? "☀️" : "🌙";
 
   localStorage.setItem(
     "kstoreMode",
@@ -1735,243 +1394,263 @@ modeBtn.addEventListener("click", () => {
 });
 
 
-/* ================= PRICE CALCULATOR ================= */
+/* =========================
+   PRICE CALCULATOR
+========================= */
 
-const pkg = document.getElementById("package");
-const mot = document.getElementById("motorola");
-const custom = document.getElementById("custom");
-const total = document.getElementById("total");
+const packageSelect =
+  document.getElementById("package");
 
-function calc(){
+const motorola =
+  document.getElementById("motorola");
 
-  const n = Number(pkg.value);
+const custom =
+  document.getElementById("custom");
 
-  const base = {
-    1:160,
-    2:305,
-    3:460,
-    4:610
-  }[n];
-
-  const motorolaExtra =
-    mot.value === "Yes"
-      ? 15 * n
-      : 0;
-
-  const customExtra =
-    custom.value === "Yes"
-      ? 20
-      : 0;
-
-  const finalPrice =
-    base + motorolaExtra + customExtra;
-
-  total.textContent =
-    finalPrice + " ج";
-
-}
-
-[pkg,mot,custom].forEach(element => {
-
-  element.addEventListener(
-    "change",
-    calc
-  );
-
-});
-
-calc();
+const finalPrice =
+  document.getElementById("finalPrice");
 
 
-/* ================= GOOGLE SHEETS ================= */
-
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbyG-6w-AItSxHOS1Gd2bE4Ocof6bzpYMbndyaZaGdYd0qrWkAwdur3YZmAqziI-WeXGcg/exec";
-
-
-/* ================= ORDER FORM ================= */
-
-const orderForm =
-document.getElementById("orderForm");
-
-const submitBtn =
-document.getElementById("submitBtn");
-
-const confirmBox =
-document.getElementById("confirm");
-
-
-orderForm.addEventListener(
-"submit",
-async function(event){
-
-  event.preventDefault();
-
-
-  submitBtn.disabled = true;
-
-  submitBtn.textContent =
-  "جاري إرسال الطلب... 💗";
-
+function calculatePrice(){
 
   const n =
-  Number(pkg.value);
+    Number(packageSelect.value);
 
-  const base = {
-    1:160,
-    2:305,
-    3:460,
-    4:610
-  }[n];
+  if(!n){
 
-  const motorolaExtra =
-  mot.value === "Yes"
-    ? 15 * n
-    : 0;
+    finalPrice.textContent = "0";
 
-  const customExtra =
-  custom.value === "Yes"
-    ? 20
-    : 0;
-
-  const finalPrice =
-  base +
-  motorolaExtra +
-  customExtra;
-
-
-  /* رقم الطلب */
-
-  const orderId =
-  "K" +
-  new Date()
-    .getFullYear()
-    .toString()
-    .slice(-2) +
-  Math.random()
-    .toString(36)
-    .slice(2,7)
-    .toUpperCase();
-
-
-  /* البيانات */
-
-  const data = {
-
-    name:
-      document.getElementById("name").value.trim(),
-
-    phone:
-      document.getElementById("phone").value.trim(),
-
-    model:
-      document.getElementById("model").value.trim(),
-
-    package:
-      n,
-
-    motorola:
-      mot.value,
-
-    custom:
-      custom.value,
-
-    designDetails:
-      document.getElementById("designDetails").value.trim(),
-
-    governorate:
-      document.getElementById("governorate").value.trim(),
-
-    area:
-      document.getElementById("area").value.trim(),
-
-    address:
-      document.getElementById("address").value.trim(),
-
-    notes:
-      document.getElementById("notes").value.trim(),
-
-    finalPrice:
-      finalPrice + " ج قبل الشحن"
-
-  };
-
-
-  try{
-
-    await fetch(
-      SCRIPT_URL,
-      {
-        method:"POST",
-
-        mode:"no-cors",
-
-        headers:{
-          "Content-Type":
-          "text/plain;charset=utf-8"
-        },
-
-        body:
-        JSON.stringify(data)
-      }
-    );
-
-
-    /* حفظ رقم الطلب */
-
-    sessionStorage.setItem(
-      "kstoreOrderId",
-      orderId
-    );
-
-
-    /* إظهار التأكيد */
-
-    document.getElementById(
-      "orderId"
-    ).textContent = orderId;
-
-
-    document.getElementById(
-      "waConfirm"
-    ).href =
-      "https://wa.me/201096056450?text=" +
-      encodeURIComponent(
-        "مرحبًا K Store 🎀 عملت أوردر من الموقع، رقم الطلب: " +
-        orderId
-      );
-
-
-    orderForm.style.display =
-      "none";
-
-    confirmBox.classList.add(
-      "show"
-    );
-
-
-    window.scrollTo({
-      top:
-        document.getElementById("order")
-          .offsetTop - 80,
-      behavior:"smooth"
-    });
-
-
-  }catch(error){
-
-    submitBtn.disabled = false;
-
-    submitBtn.textContent =
-      "تأكيد وإرسال الطلب ✨";
-
-    alert(
-      "حصلت مشكلة بسيطة أثناء إرسال الطلب، جربي تاني 💗"
-    );
+    return;
 
   }
 
-});
+  const base = {
+
+    1:160,
+
+    2:305,
+
+    3:460,
+
+    4:610
+
+  }[n];
+
+
+  const motorolaExtra =
+    motorola.value === "Yes"
+    ? 15 * n
+    : 0;
+
+
+  const customExtra =
+    custom.value === "Yes"
+    ? 20
+    : 0;
+
+
+  const total =
+    base +
+    motorolaExtra +
+    customExtra;
+
+
+  finalPrice.textContent =
+    total;
+
+}
+
+
+packageSelect.addEventListener(
+  "change",
+  calculatePrice
+);
+
+motorola.addEventListener(
+  "change",
+  calculatePrice
+);
+
+custom.addEventListener(
+  "change",
+  calculatePrice
+);
+
+
+/* =========================
+   WHATSAPP ORDER
+========================= */
+
+const form =
+  document.getElementById("orderForm");
+
+const confirmation =
+  document.getElementById("confirmation");
+
+const whatsappLink =
+  document.getElementById("whatsappLink");
+
+
+form.addEventListener(
+  "submit",
+  function(event){
+
+    event.preventDefault();
+
+
+    const name =
+      document.getElementById("name")
+      .value.trim();
+
+
+    const phone =
+      document.getElementById("phone")
+      .value.trim();
+
+
+    const model =
+      document.getElementById("model")
+      .value.trim();
+
+
+    const packageValue =
+      packageSelect.value;
+
+
+    const packageNames = {
+
+      1:"جراب واحد",
+
+      2:"جرابين",
+
+      3:"3 جرابات",
+
+      4:"4 جرابات"
+
+    };
+
+
+    const packageName =
+      packageNames[packageValue];
+
+
+    const motorolaText =
+      motorola.value === "Yes"
+      ? "أيوه"
+      : "لا";
+
+
+    const customText =
+      custom.value === "Yes"
+      ? "أيوه"
+      : "لا";
+
+
+    const designDetails =
+      document
+      .getElementById("designDetails")
+      .value.trim();
+
+
+    const governorate =
+      document
+      .getElementById("governorate")
+      .value.trim();
+
+
+    const area =
+      document
+      .getElementById("area")
+      .value.trim();
+
+
+    const address =
+      document
+      .getElementById("address")
+      .value.trim();
+
+
+    const notes =
+      document
+      .getElementById("notes")
+      .value.trim();
+
+
+    const finalPriceValue =
+      finalPrice.textContent;
+
+
+    /* ORDER ID */
+
+    const orderId =
+      "K26" +
+      Math.random()
+      .toString(36)
+      .substring(2,8)
+      .toUpperCase();
+
+
+    /* WHATSAPP MESSAGE */
+
+    const message =
+`🎀 *طلب جديد من K Store*
+
+🧾 *رقم الطلب:* ${orderId}
+
+👤 *الاسم:* ${name}
+
+📱 *رقم الموبايل:* ${phone}
+
+📲 *موديل الموبايل:* ${model}
+
+🎁 *الباكدج:* ${packageName}
+
+📱 *Motorola:* ${motorolaText}
+
+🎨 *Custom / تعديل:* ${customText}
+
+✨ *تفاصيل التصميم:*
+${designDetails || "لا يوجد"}
+
+📍 *المحافظة:* ${governorate}
+
+📍 *المنطقة:* ${area}
+
+🏠 *العنوان بالتفصيل:*
+${address}
+
+📝 *ملاحظات الطلب:*
+${notes || "لا يوجد"}
+
+💰 *السعر قبل الشحن:* ${finalPriceValue} ج
+
+🚚 الشحن يتم تحديده حسب المنطقة.`;
+
+
+    const whatsappURL =
+      "https://wa.me/201096056450?text=" +
+      encodeURIComponent(message);
+
+
+    /* SHOW CONFIRMATION */
+
+    form.style.display = "none";
+
+    confirmation.style.display = "block";
+
+    whatsappLink.href =
+      whatsappURL;
+
+
+    /* OPEN WHATSAPP */
+
+    window.open(
+      whatsappURL,
+      "_blank"
+    );
+
+  }
+);
 
 </script>
 
