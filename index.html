@@ -4,65 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>K.Store | Cute Things Made For You 🎀</title>
+<title>K.Store 🎀</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root{
-  --pink:#e4a0bb;
+  --pink:#e3a0ba;
   --dark-pink:#c96f96;
-  --deep-pink:#b85d83;
+  --deep-pink:#b95b83;
+
   --light-pink:#f8e7ef;
-  --soft-pink:#fff7fa;
+  --soft-pink:#fdf5f8;
   --cream:#fffafd;
 
   --text:#49343e;
-  --muted:#806a74;
+  --muted:#806b75;
 
-  --card:rgba(255,255,255,.88);
-  --form-bg:rgba(255,255,255,.80);
-  --input-bg:rgba(255,255,255,.88);
-  --input-border:#e4c1cf;
+  --card:rgba(255,255,255,.86);
+  --form-bg:rgba(255,255,255,.78);
+  --input-bg:rgba(255,255,255,.85);
 
   --border:rgba(201,111,150,.18);
-  --shadow:0 15px 45px rgba(151,82,111,.12);
+  --input-border:#e3bfd0;
 
-  /* Stars */
-  --star:#c8799b;
-  --star-glow:rgba(200,121,155,.55);
+  --shadow:0 15px 45px rgba(151,82,111,.13);
 
+  --star:#c7799c;
+  --star-glow:rgba(199,121,156,.5);
+
+  --shoot-head:#c96f96;
+  --shoot-mid:rgba(201,111,150,.42);
   --shoot-tail:rgba(201,111,150,0);
-  --shoot-mid:rgba(201,111,150,.35);
-  --shoot-head:#d17a9d;
 }
 
 body.dark{
-  --pink:#d995b3;
-  --dark-pink:#c87899;
+  --pink:#d994b2;
+  --dark-pink:#c87598;
   --deep-pink:#e09ab8;
 
-  --light-pink:#2d2228;
+  --light-pink:#2e2329;
   --soft-pink:#21191e;
   --cream:#171316;
 
   --text:#faedf2;
-  --muted:#d3b7c3;
+  --muted:#d4b9c5;
 
   --card:rgba(43,32,38,.93);
   --form-bg:rgba(45,33,39,.96);
   --input-bg:rgba(25,19,22,.94);
-  --input-border:#654353;
 
   --border:rgba(224,154,184,.18);
-  --shadow:0 15px 45px rgba(0,0,0,.30);
+  --input-border:#654353;
+
+  --shadow:0 15px 45px rgba(0,0,0,.32);
 
   --star:#f7dce8;
-  --star-glow:rgba(247,220,232,.72);
+  --star-glow:rgba(247,220,232,.7);
 
+  --shoot-head:#fff1f7;
+  --shoot-mid:rgba(247,220,232,.48);
   --shoot-tail:rgba(247,220,232,0);
-  --shoot-mid:rgba(247,220,232,.38);
-  --shoot-head:#fff0f7;
 }
 
 *{
@@ -77,50 +79,62 @@ html{
 
 body{
   font-family:'Cairo',sans-serif;
-  background:
-    radial-gradient(circle at 8% 8%,rgba(228,160,187,.18),transparent 27%),
-    radial-gradient(circle at 92% 20%,rgba(201,111,150,.10),transparent 25%),
-    linear-gradient(180deg,var(--soft-pink),var(--cream));
   color:var(--text);
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(227,160,186,.20),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 92% 18%,
+      rgba(201,111,150,.10),
+      transparent 25%
+    ),
+    linear-gradient(
+      180deg,
+      var(--soft-pink),
+      var(--cream)
+    );
   min-height:100vh;
-  transition:.4s ease;
   overflow-x:hidden;
+  transition:.4s ease;
 }
 
-/* =====================================================
+/* =========================================
    STARS
-===================================================== */
+========================================= */
 
 .sky{
   position:fixed;
   inset:0;
-  pointer-events:none;
   z-index:-1;
+  pointer-events:none;
   overflow:hidden;
 }
 
 .star{
   position:absolute;
-  width:3px;
-  height:3px;
+  width:4px;
+  height:4px;
   border-radius:50%;
   background:var(--star);
   box-shadow:
-    0 0 5px var(--star-glow),
-    0 0 10px var(--star-glow);
-  animation:twinkle 3s infinite ease-in-out;
+    0 0 6px var(--star-glow),
+    0 0 13px var(--star-glow);
+  animation:twinkle 3s ease-in-out infinite;
 }
 
 .star:nth-child(1){top:7%;left:8%;animation-delay:.2s}
-.star:nth-child(2){top:15%;left:23%;animation-delay:1s}
-.star:nth-child(3){top:11%;left:48%;animation-delay:1.7s}
-.star:nth-child(4){top:24%;left:74%;animation-delay:.6s}
-.star:nth-child(5){top:8%;left:91%;animation-delay:2s}
-.star:nth-child(6){top:41%;left:12%;animation-delay:1.3s}
-.star:nth-child(7){top:54%;left:87%;animation-delay:.4s}
-.star:nth-child(8){top:71%;left:18%;animation-delay:1.8s}
-.star:nth-child(9){top:79%;left:74%;animation-delay:.8s}
-.star:nth-child(10){top:91%;left:44%;animation-delay:2.2s}
+.star:nth-child(2){top:15%;left:23%;animation-delay:1.2s}
+.star:nth-child(3){top:11%;left:48%;animation-delay:2s}
+.star:nth-child(4){top:23%;left:74%;animation-delay:.5s}
+.star:nth-child(5){top:8%;left:92%;animation-delay:1.8s}
+.star:nth-child(6){top:43%;left:11%;animation-delay:1s}
+.star:nth-child(7){top:51%;left:87%;animation-delay:.3s}
+.star:nth-child(8){top:69%;left:17%;animation-delay:1.6s}
+.star:nth-child(9){top:80%;left:76%;animation-delay:.7s}
+.star:nth-child(10){top:91%;left:44%;animation-delay:2.1s}
 
 @keyframes twinkle{
   0%,100%{
@@ -130,110 +144,114 @@ body{
 
   50%{
     opacity:1;
-    transform:scale(1.45);
+    transform:scale(1.35);
   }
 }
 
-/* شهب جديدة: رأس صغير + ذيل ناعم بدل شكل السهم */
+/* شهاب حقيقي: رأس + ذيل ناعم */
 
 .shooting-star{
   position:absolute;
   width:150px;
-  height:35px;
+  height:3px;
   opacity:0;
-  transform:rotate(-27deg);
-  animation:meteor 7s linear infinite;
-}
 
-.shooting-star::before{
-  content:"";
-  position:absolute;
-  right:0;
-  top:50%;
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  transform:translateY(-50%);
-  background:var(--shoot-head);
-  box-shadow:
-    0 0 5px var(--shoot-head),
-    0 0 14px var(--star-glow),
-    0 0 25px var(--star-glow);
+  background:
+    linear-gradient(
+      90deg,
+      var(--shoot-tail) 0%,
+      var(--shoot-tail) 18%,
+      var(--shoot-mid) 60%,
+      var(--shoot-head) 100%
+    );
+
+  border-radius:999px;
+
+  transform:rotate(-30deg);
+
+  filter:
+    drop-shadow(0 0 5px var(--star-glow))
+    drop-shadow(0 0 9px var(--star-glow));
+
+  animation:shooting 7s ease-in infinite;
 }
 
 .shooting-star::after{
   content:"";
   position:absolute;
-  right:5px;
+  right:-2px;
   top:50%;
-  width:135px;
-  height:2px;
+
+  width:7px;
+  height:7px;
+
   transform:translateY(-50%);
-  background:linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--shoot-tail) 8%,
-    var(--shoot-mid) 65%,
-    var(--shoot-head) 100%
-  );
-  border-radius:100%;
-  filter:blur(.2px);
+
+  border-radius:50%;
+
+  background:var(--shoot-head);
+
+  box-shadow:
+    0 0 7px var(--shoot-head),
+    0 0 15px var(--star-glow);
 }
 
 .shooting-star.one{
   top:13%;
   left:-180px;
-  animation-delay:1s;
+  animation-delay:0s;
 }
 
 .shooting-star.two{
-  top:42%;
+  top:45%;
   left:-180px;
-  animation-delay:3.5s;
+  animation-delay:3s;
 }
 
 .shooting-star.three{
-  top:70%;
+  top:73%;
   left:-180px;
   animation-delay:6s;
 }
 
-@keyframes meteor{
+@keyframes shooting{
 
   0%{
     opacity:0;
-    left:-180px;
+    transform:translate(-50px,-20px) rotate(-30deg);
   }
 
   7%{
-    opacity:.9;
+    opacity:1;
   }
 
   25%{
-    opacity:.9;
+    opacity:.95;
   }
 
   38%{
     opacity:0;
-    left:115%;
+    transform:translate(125vw,70vh) rotate(-30deg);
   }
 
   100%{
     opacity:0;
-    left:115%;
   }
 }
 
-/* =====================================================
+/* =========================================
    NAVBAR
-===================================================== */
+========================================= */
 
 .navbar{
   position:sticky;
   top:0;
   z-index:100;
+
   backdrop-filter:blur(18px);
-  background:rgba(255,250,252,.74);
+
+  background:rgba(255,250,252,.72);
+
   border-bottom:1px solid var(--border);
 }
 
@@ -243,8 +261,9 @@ body.dark .navbar{
 
 .nav-inner{
   width:min(1150px,92%);
-  margin:auto;
   min-height:72px;
+  margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -257,7 +276,6 @@ body.dark .navbar{
   font-weight:700;
   color:var(--dark-pink);
   text-decoration:none;
-  white-space:nowrap;
 }
 
 .nav-links{
@@ -266,23 +284,29 @@ body.dark .navbar{
   gap:8px;
 }
 
-.nav-links button,
-.nav-links a{
+.nav-links a,
+.nav-links button{
   border:0;
   background:none;
+
   color:var(--text);
+
   font-family:inherit;
   font-size:14px;
   font-weight:600;
-  text-decoration:none;
-  cursor:pointer;
+
   padding:9px 12px;
+
   border-radius:20px;
+
+  cursor:pointer;
+  text-decoration:none;
+
   transition:.25s;
 }
 
-.nav-links button:hover,
-.nav-links a:hover{
+.nav-links a:hover,
+.nav-links button:hover{
   background:var(--light-pink);
   color:var(--dark-pink);
 }
@@ -290,17 +314,23 @@ body.dark .navbar{
 .mode-btn{
   width:42px;
   height:42px;
+
   border-radius:50%;
+
   border:1px solid var(--border);
+
   background:var(--card);
+
   color:var(--text);
+
   cursor:pointer;
+
   font-size:18px;
 }
 
-/* =====================================================
+/* =========================================
    GENERAL
-===================================================== */
+========================================= */
 
 .container{
   width:min(1100px,92%);
@@ -326,39 +356,52 @@ section{
   color:var(--muted);
 }
 
-/* =====================================================
+/* =========================================
    HERO
-===================================================== */
+========================================= */
 
 .hero{
   min-height:calc(100vh - 72px);
+
   display:flex;
   align-items:center;
+
   position:relative;
 }
 
 .hero-content{
   width:min(850px,100%);
   margin:auto;
+
   text-align:center;
+
   padding:70px 20px;
 }
 
 .hero-badge{
   display:inline-block;
+
   padding:8px 18px;
+
   border-radius:30px;
+
   background:var(--light-pink);
+
   color:var(--dark-pink);
+
   font-size:14px;
   font-weight:700;
+
   margin-bottom:22px;
 }
 
 .hero h1{
   font-family:'Playfair Display',serif;
+
   font-size:clamp(48px,8vw,82px);
-  line-height:1.08;
+
+  line-height:1.05;
+
   margin-bottom:22px;
 }
 
@@ -369,39 +412,57 @@ section{
 .hero p{
   max-width:650px;
   margin:auto;
+
   font-size:18px;
+
   color:var(--muted);
+
   line-height:2;
 }
 
 .hero-buttons{
   margin-top:32px;
+
   display:flex;
   justify-content:center;
+
   flex-wrap:wrap;
+
   gap:12px;
 }
 
 .btn{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
   min-height:50px;
+
   padding:0 25px;
+
   border-radius:30px;
+
   border:1px solid transparent;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
   font-family:inherit;
   font-weight:700;
+
   cursor:pointer;
+
   text-decoration:none;
+
   transition:.3s;
 }
 
 .btn-primary{
   background:var(--dark-pink);
   color:white;
-  box-shadow:0 10px 25px rgba(201,111,150,.22);
+
+  box-shadow:
+    0 10px 25px
+    rgba(201,111,150,.22);
 }
 
 .btn-primary:hover{
@@ -411,36 +472,48 @@ section{
 
 .btn-soft{
   background:var(--card);
+
   color:var(--dark-pink);
+
   border-color:var(--border);
 }
 
 .btn-soft:hover{
   transform:translateY(-3px);
+
   background:var(--light-pink);
 }
 
-/* =====================================================
-   CASE PRICES
-===================================================== */
+/* =========================================
+   PRICES
+========================================= */
 
 .price-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:18px;
 }
 
-/* الكارت الأساسي */
-
 .price-card{
   position:relative;
+
   background:var(--card);
+
   border:1px solid var(--border);
+
   border-radius:28px;
-  padding:30px 18px 26px;
+
+  padding:30px 20px;
+
   text-align:center;
+
   box-shadow:var(--shadow);
-  transition:.35s;
+
+  transition:.3s;
+
   overflow:hidden;
 }
 
@@ -448,242 +521,285 @@ section{
   transform:translateY(-7px);
 }
 
-/* BEST DEAL */
+/* الديكور */
 
-.price-card.best-deal{
-  border:2px solid var(--dark-pink);
-  transform:translateY(-8px);
-  box-shadow:
-    0 18px 50px rgba(201,111,150,.20);
-}
+.price-decoration{
+  height:70px;
 
-.price-card.best-deal:hover{
-  transform:translateY(-13px);
-}
-
-.badge{
-  position:absolute;
-  top:14px;
-  right:50%;
-  transform:translateX(50%);
-  background:var(--dark-pink);
-  color:white;
-  font-size:11px;
-  font-weight:800;
-  padding:6px 14px;
-  border-radius:20px;
-  white-space:nowrap;
-  box-shadow:0 6px 15px rgba(201,111,150,.20);
-}
-
-.saving-badge{
-  display:inline-block;
-  margin-top:9px;
-  padding:5px 12px;
-  border-radius:20px;
-  background:var(--light-pink);
-  color:var(--dark-pink);
-  font-size:11px;
-  font-weight:800;
-}
-
-/* رسومات التوليب والفيونكة */
-
-.case-decoration{
-  height:95px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-top:8px;
-  margin-bottom:7px;
-}
 
-.tulip{
+  margin-bottom:10px;
+
   position:relative;
-  width:45px;
-  height:70px;
 }
 
-.tulip-flower{
-  position:absolute;
-  top:7px;
-  left:7px;
-  width:32px;
-  height:38px;
-  background:linear-gradient(
-    135deg,
-    #efb2c9,
-    #d8799e
-  );
-  border-radius:55% 55% 45% 45%;
-  clip-path:polygon(
-    0 20%,
-    25% 35%,
-    50% 0,
-    75% 35%,
-    100% 20%,
-    92% 72%,
-    70% 100%,
-    30% 100%,
-    8% 72%
-  );
-}
-
-.tulip-stem{
-  position:absolute;
-  left:21px;
-  top:42px;
-  width:4px;
-  height:30px;
-  border-radius:5px;
-  background:#91aa83;
-}
-
-.tulip-leaf{
-  position:absolute;
-  left:4px;
-  top:54px;
-  width:22px;
-  height:11px;
-  border-radius:100% 0 100% 0;
-  background:#a8bc98;
-  transform:rotate(-25deg);
-}
+/* فيونكة */
 
 .bow{
   position:relative;
-  width:75px;
-  height:65px;
+
+  width:58px;
+  height:35px;
 }
 
-.bow-left,
-.bow-right{
+.bow::before,
+.bow::after{
+  content:"";
+
   position:absolute;
-  top:15px;
-  width:36px;
-  height:30px;
-  background:linear-gradient(
-    135deg,
-    #edb2c9,
-    #cf7197
-  );
+
+  top:4px;
+
+  width:27px;
+  height:27px;
+
+  background:var(--pink);
+
+  border-radius:
+    65% 35% 65% 35%;
+
+  transform:rotate(25deg);
 }
 
-.bow-left{
-  right:36px;
-  border-radius:70% 25% 65% 35%;
-  transform:rotate(-18deg);
+.bow::before{
+  right:25px;
 }
 
-.bow-right{
-  left:36px;
-  border-radius:25% 70% 35% 65%;
-  transform:rotate(18deg);
+.bow::after{
+  left:25px;
+
+  transform:rotate(-25deg);
 }
 
 .bow-center{
   position:absolute;
+
+  top:10px;
   left:50%;
-  top:20px;
+
   transform:translateX(-50%);
-  width:19px;
-  height:24px;
+
+  width:18px;
+  height:18px;
+
   border-radius:50%;
-  background:#c96f96;
+
+  background:var(--dark-pink);
+
   z-index:2;
 }
 
-.bow-tail-left,
-.bow-tail-right{
+/* توليب */
+
+.tulip{
+  position:relative;
+
+  width:42px;
+  height:65px;
+}
+
+.tulip-head{
   position:absolute;
-  top:39px;
-  width:23px;
-  height:27px;
-  background:#d986a6;
+
+  top:2px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:34px;
+  height:38px;
+
+  background:var(--pink);
+
+  border-radius:
+    50% 50% 45% 45%;
+
+  box-shadow:
+    inset 7px 0 0 rgba(255,255,255,.16);
 }
 
-.bow-tail-left{
-  right:28px;
-  clip-path:polygon(0 0,100% 15%,70% 100%,35% 65%);
-  transform:rotate(5deg);
+.tulip-head::before,
+.tulip-head::after{
+  content:"";
+
+  position:absolute;
+
+  bottom:22px;
+
+  width:16px;
+  height:20px;
+
+  background:var(--dark-pink);
+
+  border-radius:50% 50% 0 50%;
 }
 
-.bow-tail-right{
-  left:28px;
-  clip-path:polygon(0 15%,100% 0,65% 65%,30% 100%);
-  transform:rotate(-5deg);
+.tulip-head::before{
+  left:1px;
+  transform:rotate(-20deg);
 }
 
-.price-card:nth-child(1) .case-decoration .tulip-flower{
-  background:linear-gradient(135deg,#f1bfd1,#d982a2);
+.tulip-head::after{
+  right:1px;
+  transform:rotate(20deg) scaleX(-1);
 }
 
-.price-card:nth-child(3) .case-decoration .tulip-flower{
-  background:linear-gradient(135deg,#efabc5,#c96791);
+.tulip-stem{
+  position:absolute;
+
+  top:37px;
+  left:19px;
+
+  width:4px;
+  height:28px;
+
+  background:#8cab78;
+
+  border-radius:10px;
 }
 
-.price-card:nth-child(4) .case-decoration .bow-left,
-.price-card:nth-child(4) .case-decoration .bow-right{
-  background:linear-gradient(135deg,#eeb7cc,#d17a9d);
+.tulip-leaf{
+  position:absolute;
+
+  top:48px;
+  left:3px;
+
+  width:19px;
+  height:10px;
+
+  background:#91ad7c;
+
+  border-radius:100% 0 100% 0;
+
+  transform:rotate(-25deg);
 }
 
 .price-card h3{
-  margin-bottom:5px;
-  font-size:18px;
+  margin-bottom:8px;
 }
 
 .price{
-  font-size:29px;
-  font-weight:800;
-  color:var(--dark-pink);
-}
+  font-size:30px;
 
-.old-price{
-  color:var(--muted);
-  text-decoration:line-through;
-  font-size:13px;
-  margin-top:3px;
+  font-weight:800;
+
+  color:var(--dark-pink);
 }
 
 .price-card small{
   color:var(--muted);
 }
 
-/* كارت الـBEST DEAL */
+.discount{
+  display:inline-block;
 
-.price-card.best-deal .price{
-  font-size:33px;
+  margin-top:10px;
+
+  padding:5px 11px;
+
+  border-radius:20px;
+
+  background:var(--light-pink);
+
+  color:var(--dark-pink);
+
+  font-size:12px;
+
+  font-weight:800;
+}
+
+/* BEST DEAL */
+
+.best-deal{
+  border:2px solid var(--dark-pink);
+
+  transform:translateY(-7px);
+
+  box-shadow:
+    0 18px 45px
+    rgba(201,111,150,.22);
+}
+
+.best-deal:hover{
+  transform:translateY(-12px);
+}
+
+.best-badge{
+  position:absolute;
+
+  top:13px;
+  right:13px;
+
+  padding:6px 12px;
+
+  border-radius:20px;
+
+  background:var(--dark-pink);
+
+  color:white;
+
+  font-size:11px;
+
+  font-weight:800;
+
+  letter-spacing:.3px;
+}
+
+.big-saving{
+  background:
+    rgba(201,111,150,.14);
+
+  color:var(--deep-pink);
 }
 
 .extra-info{
-  margin-top:22px;
+  margin-top:20px;
+
   padding:15px;
+
   background:var(--light-pink);
+
   border-radius:18px;
+
   text-align:center;
+
   color:var(--text);
+
   font-size:14px;
 }
 
-/* =====================================================
+/* =========================================
    STATIONERY
-===================================================== */
+========================================= */
 
 .stationery-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
 .product-card{
   position:relative;
+
   overflow:hidden;
+
   background:var(--card);
+
   border:1px solid var(--border);
+
   border-radius:28px;
+
   padding:30px 22px;
+
   text-align:center;
+
   box-shadow:var(--shadow);
+
   transition:.3s;
 }
 
@@ -694,12 +810,17 @@ section{
 .product-icon{
   width:85px;
   height:85px;
+
   margin:0 auto 18px;
+
   border-radius:25px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:42px;
+
   background:var(--light-pink);
 }
 
@@ -710,49 +831,71 @@ section{
 
 .product-card p{
   color:var(--muted);
+
   font-size:14px;
-  line-height:1.8;
+
   margin-bottom:17px;
+
+  line-height:1.8;
 }
 
 .coming{
   display:inline-block;
+
   padding:6px 14px;
+
   border-radius:20px;
+
   background:var(--light-pink);
+
   color:var(--dark-pink);
+
   font-size:12px;
+
   font-weight:800;
 }
 
-/* =====================================================
+/* =========================================
    HOW
-===================================================== */
+========================================= */
 
 .steps{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
 .step{
   background:var(--card);
+
   border:1px solid var(--border);
+
   border-radius:25px;
+
   padding:28px;
+
   box-shadow:var(--shadow);
 }
 
 .step-number{
   width:45px;
   height:45px;
+
   border-radius:50%;
+
   background:var(--dark-pink);
+
   color:white;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-weight:800;
+
   margin-bottom:18px;
 }
 
@@ -762,37 +905,46 @@ section{
 
 .step p{
   color:var(--muted);
+
   line-height:1.8;
 }
 
-/* =====================================================
-   ORDER FORM
-===================================================== */
-
-.form-section{
-  position:relative;
-}
+/* =========================================
+   FORM
+========================================= */
 
 .form-box{
   max-width:850px;
+
   margin:auto;
+
   background:var(--form-bg);
+
   border:1px solid var(--border);
+
   border-radius:32px;
+
   padding:35px;
+
   box-shadow:var(--shadow);
+
   backdrop-filter:blur(15px);
 }
 
 .form-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:18px;
 }
 
 .form-group{
   display:flex;
+
   flex-direction:column;
+
   gap:7px;
 }
 
@@ -809,13 +961,21 @@ input,
 select,
 textarea{
   width:100%;
+
   border:1px solid var(--input-border);
+
   background:var(--input-bg);
+
   color:var(--text);
+
   border-radius:15px;
+
   padding:13px 15px;
+
   font-family:inherit;
+
   outline:none;
+
   transition:.25s;
 }
 
@@ -828,17 +988,23 @@ input:focus,
 select:focus,
 textarea:focus{
   border-color:var(--dark-pink);
-  box-shadow:0 0 0 3px rgba(201,111,150,.12);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(201,111,150,.12);
 }
 
 select{
   cursor:pointer;
+
   color:var(--text);
+
   color-scheme:light;
 }
 
 select option{
   background:#fff7fa;
+
   color:#49343e;
 }
 
@@ -848,176 +1014,234 @@ body.dark select{
 
 body.dark select option{
   background:#2a2025;
+
   color:#faedf2;
 }
 
 textarea{
   min-height:110px;
+
   resize:vertical;
 }
 
 .price-result{
   margin-top:22px;
+
   padding:18px;
+
   border-radius:18px;
+
   background:var(--light-pink);
+
   text-align:center;
+
   font-size:18px;
+
   font-weight:700;
 }
 
 .price-result span{
   color:var(--dark-pink);
+
   font-size:25px;
 }
 
 .order-btn{
   width:100%;
+
   margin-top:18px;
 }
 
-/* =====================================================
+/* =========================================
    REVIEWS
-===================================================== */
+========================================= */
 
 .review-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:20px;
 }
 
 .review{
   background:var(--card);
+
   border:1px solid var(--border);
+
   border-radius:25px;
+
   padding:25px;
+
   box-shadow:var(--shadow);
 }
 
 .stars{
-  color:#d69a58;
+  color:#d49b58;
+
   margin-bottom:12px;
 }
 
 .review p{
   line-height:1.9;
+
   color:var(--muted);
 }
 
 .review strong{
   display:block;
+
   margin-top:15px;
 }
 
-/* =====================================================
+/* =========================================
    FAQ
-===================================================== */
+========================================= */
 
 .faq{
   max-width:800px;
+
   margin:auto;
 }
 
 details{
   background:var(--card);
+
   border:1px solid var(--border);
+
   border-radius:18px;
+
   padding:18px 20px;
+
   margin-bottom:12px;
+
   box-shadow:var(--shadow);
 }
 
 summary{
   cursor:pointer;
+
   font-weight:700;
 }
 
 details p{
   color:var(--muted);
+
   margin-top:12px;
+
   line-height:1.8;
 }
 
-/* =====================================================
+/* =========================================
    CTA
-===================================================== */
+========================================= */
 
 .cta{
   background:
     linear-gradient(
       135deg,
-      rgba(229,160,187,.27),
+      rgba(227,160,186,.28),
       rgba(201,111,150,.08)
     );
+
   border:1px solid var(--border);
+
   border-radius:35px;
+
   padding:55px 25px;
+
   text-align:center;
 }
 
 .cta h2{
   font-family:'Playfair Display',serif;
+
   font-size:42px;
+
   margin-bottom:12px;
 }
 
 .cta p{
   color:var(--muted);
+
   margin-bottom:25px;
 }
 
-/* =====================================================
+/* =========================================
    FOOTER
-===================================================== */
+========================================= */
 
 footer{
   padding:50px 0 90px;
+
   text-align:center;
 }
 
 .footer-logo{
   font-family:'Playfair Display',serif;
+
   font-size:28px;
+
   color:var(--dark-pink);
 }
 
 footer p{
   color:var(--muted);
+
   margin:8px 0 20px;
 }
 
 .footer-links{
   display:flex;
+
   justify-content:center;
+
   gap:10px;
+
   flex-wrap:wrap;
 }
 
 .footer-links a{
   color:var(--dark-pink);
+
   text-decoration:none;
 }
 
-/* =====================================================
+/* =========================================
    WHATSAPP
-===================================================== */
+========================================= */
 
 .whatsapp-float{
   position:fixed;
+
   bottom:22px;
   left:22px;
+
   z-index:200;
+
   width:58px;
   height:58px;
+
   border-radius:50%;
+
   display:flex;
+
   align-items:center;
   justify-content:center;
+
   background:#25D366;
+
   color:white;
+
   font-size:27px;
+
   text-decoration:none;
-  box-shadow:0 10px 25px rgba(37,211,102,.25);
+
+  box-shadow:
+    0 10px 25px
+    rgba(37,211,102,.25);
+
   transition:.3s;
 }
 
@@ -1025,19 +1249,26 @@ footer p{
   transform:scale(1.08);
 }
 
-/* =====================================================
+/* =========================================
    POPUP
-===================================================== */
+========================================= */
 
 .popup-overlay{
   position:fixed;
+
   inset:0;
+
   background:rgba(0,0,0,.45);
+
   backdrop-filter:blur(5px);
+
   display:none;
+
   align-items:center;
   justify-content:center;
+
   z-index:500;
+
   padding:20px;
 }
 
@@ -1047,13 +1278,23 @@ footer p{
 
 .popup{
   width:min(400px,100%);
+
   background:var(--card);
+
   color:var(--text);
+
   border:1px solid var(--border);
+
   border-radius:30px;
+
   padding:40px 25px;
+
   text-align:center;
-  box-shadow:0 25px 70px rgba(0,0,0,.25);
+
+  box-shadow:
+    0 25px 70px
+    rgba(0,0,0,.25);
+
   animation:popupIn .3s ease;
 }
 
@@ -1071,17 +1312,21 @@ footer p{
 
 .popup-icon{
   font-size:55px;
+
   margin-bottom:15px;
 }
 
 .popup h2{
   font-family:'Playfair Display',serif;
+
   font-size:32px;
+
   margin-bottom:10px;
 }
 
 .popup p{
   color:var(--muted);
+
   line-height:1.8;
 }
 
@@ -1089,11 +1334,11 @@ footer p{
   margin-top:22px;
 }
 
-/* =====================================================
+/* =========================================
    RESPONSIVE
-===================================================== */
+========================================= */
 
-@media(max-width:850px){
+@media(max-width:800px){
 
   .nav-inner{
     min-height:65px;
@@ -1112,7 +1357,8 @@ footer p{
   }
 
   .price-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
   .stationery-grid,
@@ -1133,11 +1379,11 @@ footer p{
     padding:65px 0;
   }
 
-  .price-card.best-deal{
+  .best-deal{
     transform:none;
   }
 
-  .price-card.best-deal:hover{
+  .best-deal:hover{
     transform:translateY(-6px);
   }
 }
@@ -1145,33 +1391,23 @@ footer p{
 @media(max-width:480px){
 
   .price-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+      repeat(2,1fr);
+
     gap:12px;
   }
 
   .price-card{
-    padding:27px 10px 22px;
-    border-radius:23px;
-  }
-
-  .price-card h3{
-    font-size:15px;
+    padding:22px 12px;
   }
 
   .price{
-    font-size:24px;
-  }
-
-  .price-card.best-deal .price{
-    font-size:27px;
-  }
-
-  .case-decoration{
-    height:80px;
+    font-size:25px;
   }
 
   .form-box{
     padding:22px 16px;
+
     border-radius:25px;
   }
 
@@ -1187,8 +1423,10 @@ footer p{
     font-size:34px;
   }
 
-  .shooting-star{
-    width:120px;
+  .best-badge{
+    font-size:9px;
+
+    padding:5px 8px;
   }
 }
 </style>
@@ -1196,9 +1434,7 @@ footer p{
 
 <body>
 
-<!-- =====================================================
-     STARS
-===================================================== -->
+<!-- STARS -->
 
 <div class="sky">
 
@@ -1219,9 +1455,7 @@ footer p{
 
 </div>
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -1237,9 +1471,9 @@ footer p{
         📱 جرابات
       </a>
 
-      <a href="#stationery">
+      <button onclick="showStationery()">
         ✏️ أدوات مكتبية
-      </a>
+      </button>
 
       <a href="#how">
         ✨ إزاي تطلبي؟
@@ -1254,7 +1488,6 @@ footer p{
     <button
       class="mode-btn"
       id="modeBtn"
-      aria-label="تغيير الوضع"
     >
       🌙
     </button>
@@ -1263,9 +1496,7 @@ footer p{
 
 </nav>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -1282,8 +1513,8 @@ footer p{
 
     <p>
       اختاري التصميم اللي يعبر عنك،
-      وخلي كل تفصيلة في موبايلك تحكي عن شخصيتك.
-      وK.Store لسه مخبيلك حاجات كيوت أكتر في الطريق ✨
+      وخلي كل تفصيلة في موبايلك شبه شخصيتك.
+      وكمان استنينا في حاجات كيوت جديدة جاية قريب ✨
     </p>
 
     <div class="hero-buttons">
@@ -1295,12 +1526,12 @@ footer p{
         📱 شوفي الجرابات
       </a>
 
-      <a
-        href="#stationery"
+      <button
         class="btn btn-soft"
+        onclick="showStationery()"
       >
         ✏️ الأدوات المكتبية
-      </a>
+      </button>
 
     </div>
 
@@ -1308,9 +1539,7 @@ footer p{
 
 </header>
 
-<!-- =====================================================
-     CASES
-===================================================== -->
+<!-- CASES -->
 
 <section id="cases">
 
@@ -1323,7 +1552,7 @@ footer p{
       </h2>
 
       <p>
-        كل ما تزودي العدد، التوفير يزيد 💗
+        كل ما تاخدي أكتر، التوفير بيزيد 💗
       </p>
 
     </div>
@@ -1334,13 +1563,11 @@ footer p{
 
       <div class="price-card">
 
-        <div class="case-decoration">
+        <div class="price-decoration">
 
-          <div class="tulip">
+          <div class="bow">
 
-            <div class="tulip-flower"></div>
-            <div class="tulip-stem"></div>
-            <div class="tulip-leaf"></div>
+            <span class="bow-center"></span>
 
           </div>
 
@@ -1364,15 +1591,15 @@ footer p{
 
       <div class="price-card">
 
-        <div class="case-decoration">
+        <div class="price-decoration">
 
-          <div class="bow">
+          <div class="tulip">
 
-            <div class="bow-left"></div>
-            <div class="bow-right"></div>
-            <div class="bow-center"></div>
-            <div class="bow-tail-left"></div>
-            <div class="bow-tail-right"></div>
+            <span class="tulip-head"></span>
+
+            <span class="tulip-stem"></span>
+
+            <span class="tulip-leaf"></span>
 
           </div>
 
@@ -1386,13 +1613,13 @@ footer p{
           305 ج
         </div>
 
-        <div class="old-price">
-          320 ج
-        </div>
+        <small>
+          بدل 320 ج
+        </small>
 
-        <span class="saving-badge">
+        <div class="discount">
           وفري 15 ج 💗
-        </span>
+        </div>
 
       </div>
 
@@ -1400,17 +1627,15 @@ footer p{
 
       <div class="price-card best-deal">
 
-        <span class="badge">
+        <div class="best-badge">
           ⭐ BEST DEAL
-        </span>
+        </div>
 
-        <div class="case-decoration">
+        <div class="price-decoration">
 
-          <div class="tulip">
+          <div class="bow">
 
-            <div class="tulip-flower"></div>
-            <div class="tulip-stem"></div>
-            <div class="tulip-leaf"></div>
+            <span class="bow-center"></span>
 
           </div>
 
@@ -1424,13 +1649,13 @@ footer p{
           460 ج
         </div>
 
-        <div class="old-price">
-          480 ج
-        </div>
+        <small>
+          بدل 480 ج
+        </small>
 
-        <span class="saving-badge">
+        <div class="discount">
           وفري 20 ج ✨
-        </span>
+        </div>
 
       </div>
 
@@ -1438,15 +1663,15 @@ footer p{
 
       <div class="price-card">
 
-        <div class="case-decoration">
+        <div class="price-decoration">
 
-          <div class="bow">
+          <div class="tulip">
 
-            <div class="bow-left"></div>
-            <div class="bow-right"></div>
-            <div class="bow-center"></div>
-            <div class="bow-tail-left"></div>
-            <div class="bow-tail-right"></div>
+            <span class="tulip-head"></span>
+
+            <span class="tulip-stem"></span>
+
+            <span class="tulip-leaf"></span>
 
           </div>
 
@@ -1460,13 +1685,13 @@ footer p{
           610 ج
         </div>
 
-        <div class="old-price">
-          640 ج
-        </div>
+        <small>
+          بدل 640 ج
+        </small>
 
-        <span class="saving-badge">
-          أكبر توفير 💗
-        </span>
+        <div class="discount big-saving">
+          🔥 أكبر توفير — 30 ج
+        </div>
 
       </div>
 
@@ -1486,9 +1711,7 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     STATIONERY
-===================================================== -->
+<!-- STATIONERY -->
 
 <section id="stationery">
 
@@ -1501,7 +1724,7 @@ footer p{
       </h2>
 
       <p>
-        حاجات كيوت للمذاكرة والتنظيم والإبداع... قريبًا جدًا 💗
+        حاجات كيوت للمذاكرة والتنظيم والإبداع... جاية قريب جدًا 💗
       </p>
 
     </div>
@@ -1579,7 +1802,7 @@ footer p{
         </h3>
 
         <p>
-          كتب تلوين تفصلك شوية وتطلعي إبداعك.
+          كتب تلوين عشان تفصلي شوية وتطلعي إبداعك.
         </p>
 
         <span class="coming">
@@ -1634,9 +1857,7 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     HOW TO ORDER
-===================================================== -->
+<!-- HOW -->
 
 <section id="how">
 
@@ -1713,11 +1934,9 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     ORDER FORM
-===================================================== -->
+<!-- ORDER -->
 
-<section id="order" class="form-section">
+<section id="order">
 
   <div class="container">
 
@@ -1808,11 +2027,11 @@ footer p{
               </option>
 
               <option value="3">
-                3 جرابات — 460 ج ⭐ Best Deal
+                3 جرابات — 460 ج ⭐ BEST DEAL
               </option>
 
               <option value="4">
-                4 جرابات — 610 ج
+                4 جرابات — 610 ج 🔥 أكبر توفير
               </option>
 
             </select>
@@ -1934,6 +2153,7 @@ footer p{
         <div class="price-result">
 
           💰 السعر قبل الشحن:
+
           <span id="finalPrice">
             0 ج
           </span>
@@ -1955,9 +2175,7 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     REVIEWS
-===================================================== -->
+<!-- REVIEWS -->
 
 <section>
 
@@ -2033,9 +2251,7 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     FAQ
-===================================================== -->
+<!-- FAQ -->
 
 <section>
 
@@ -2111,9 +2327,7 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     CTA
-===================================================== -->
+<!-- CTA -->
 
 <section>
 
@@ -2143,9 +2357,7 @@ footer p{
 
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -2168,9 +2380,7 @@ footer p{
         🔗 كل لينكاتنا
       </a>
 
-      <span>
-        •
-      </span>
+      <span>•</span>
 
       <a
         href="https://wa.me/201096056450"
@@ -2185,9 +2395,7 @@ footer p{
 
 </footer>
 
-<!-- =====================================================
-     WHATSAPP FLOAT
-===================================================== -->
+<!-- WHATSAPP -->
 
 <a
   class="whatsapp-float"
@@ -2198,9 +2406,7 @@ footer p{
   💬
 </a>
 
-<!-- =====================================================
-     POPUP
-===================================================== -->
+<!-- POPUP -->
 
 <div
   class="popup-overlay"
@@ -2221,9 +2427,11 @@ footer p{
     <p>
       الـStationery collection بتاعت K.Store
       جاية بحاجات كيوت تستاهل تستنيها 💗
+
       <br><br>
 
       Notebooks • Sticky Notes • Pens
+
       <br>
 
       Coloring Books • Stickers • Pouches
@@ -2240,15 +2448,11 @@ footer p{
 
 </div>
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-/* =====================================================
+/* =========================================
    DARK MODE
-===================================================== */
+========================================= */
 
 const modeBtn =
   document.getElementById("modeBtn");
@@ -2264,35 +2468,29 @@ if(savedMode === "dark"){
 
 }
 
-/* لو مفيش وضع محفوظ يبدأ Pink Mode */
+modeBtn.addEventListener(
+  "click",
+  ()=>{
+    
+    document.body.classList.toggle("dark");
 
-else{
+    const dark =
+      document.body.classList.contains("dark");
 
-  modeBtn.textContent = "🌙";
+    modeBtn.textContent =
+      dark ? "☀️" : "🌙";
 
-}
+    localStorage.setItem(
+      "kstoreMode",
+      dark ? "dark" : "pink"
+    );
 
-modeBtn.addEventListener("click",()=>{
+  }
+);
 
-  document.body.classList.toggle("dark");
-
-  const dark =
-    document.body.classList.contains("dark");
-
-  modeBtn.textContent =
-    dark ? "☀️" : "🌙";
-
-  localStorage.setItem(
-    "kstoreMode",
-    dark ? "dark" : "pink"
-  );
-
-});
-
-
-/* =====================================================
+/* =========================================
    STATIONERY POPUP
-===================================================== */
+========================================= */
 
 const popup =
   document.getElementById(
@@ -2321,10 +2519,9 @@ function closePopup(event){
 
 }
 
-
-/* =====================================================
+/* =========================================
    PRICE CALCULATOR
-===================================================== */
+========================================= */
 
 const packageSelect =
   document.getElementById("package");
@@ -2396,10 +2593,9 @@ custom.addEventListener(
   calculatePrice
 );
 
-
-/* =====================================================
+/* =========================================
    ORDER → WHATSAPP
-===================================================== */
+========================================= */
 
 document
   .getElementById("orderForm")
@@ -2438,7 +2634,7 @@ document
 
         3:"3 جرابات — BEST DEAL",
 
-        4:"4 جرابات"
+        4:"4 جرابات — أكبر توفير"
 
       };
 
