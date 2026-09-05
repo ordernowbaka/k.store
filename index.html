@@ -1082,37 +1082,34 @@ textarea{
 
 /* ================= REVIEWS ================= */
 
+/* التقييمات تتحرك تلقائيًا بدل السحب */
+
 .review-slider{
   position:relative;
+
   overflow:hidden;
+
   width:100%;
+
+  max-width:650px;
+
+  margin:auto;
 }
 
 .review-track{
   display:flex;
-  gap:20px;
 
-  overflow-x:auto;
+  direction:ltr;
 
-  scroll-snap-type:x mandatory;
-
-  scrollbar-width:none;
+  transition:transform .6s ease;
 
   padding:5px 2px 15px;
-
-  cursor:grab;
-
-  direction:rtl;
-}
-
-.review-track::-webkit-scrollbar{
-  display:none;
 }
 
 .review{
-  flex:0 0 calc((100% - 40px) / 3);
+  direction:rtl;
 
-  scroll-snap-align:start;
+  flex:0 0 100%;
 
   background:var(--card);
 
@@ -1120,7 +1117,7 @@ textarea{
 
   border-radius:25px;
 
-  padding:25px;
+  padding:30px;
 
   box-shadow:var(--shadow);
 
@@ -1137,12 +1134,90 @@ textarea{
   line-height:1.9;
 
   color:var(--muted);
+
+  font-size:17px;
 }
 
 .review strong{
   display:block;
 
   margin-top:15px;
+
+  color:var(--text);
+}
+
+.review-controls{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:14px;
+
+  margin-top:8px;
+}
+
+.review-arrow{
+  width:38px;
+  height:38px;
+
+  border-radius:50%;
+
+  border:1px solid var(--border);
+
+  background:var(--card);
+
+  color:var(--dark-pink);
+
+  font-size:25px;
+
+  line-height:1;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.review-arrow:hover{
+  background:var(--light-pink);
+
+  transform:scale(1.08);
+}
+
+.review-dots{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:7px;
+}
+
+.review-dot{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  border:0;
+
+  padding:0;
+
+  background:var(--input-border);
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.review-dot.active{
+  width:22px;
+
+  border-radius:10px;
+
+  background:var(--dark-pink);
 }
 
 .review-hint{
@@ -1152,7 +1227,7 @@ textarea{
 
   font-size:13px;
 
-  margin-top:5px;
+  margin-top:13px;
 }
 
 /* ================= FAQ ================= */
@@ -1461,7 +1536,7 @@ footer p{
   }
 
   .review{
-    flex:0 0 85%;
+    padding:25px 20px;
   }
 
   .form-grid{
@@ -1548,6 +1623,10 @@ footer p{
     font-size:9px;
 
     padding:5px 8px;
+  }
+
+  .review p{
+    font-size:15px;
   }
 }
 </style>
@@ -2322,7 +2401,7 @@ footer p{
 
     <div class="review-slider">
 
-      <div class="review-track">
+      <div class="review-track" id="reviewTrack">
 
         <div class="review">
 
@@ -2331,7 +2410,7 @@ footer p{
           </div>
 
           <p>
-            الحاجات تحفهههه I like 😍❤️
+            الحاجات توحفهههه I like😍❤️
           </p>
 
           <strong>
@@ -2347,7 +2426,7 @@ footer p{
           </div>
 
           <p>
-            جميل يا حبيبتي تسلم إيدك ❤️❤️
+            جميل يا حبيبتي تسلم ايدك ❤️❤️
           </p>
 
           <strong>
@@ -2363,7 +2442,7 @@ footer p{
           </div>
 
           <p>
-            تسلم إيديكم والله جميل 😍
+            تسلم ايديكم والله جميل
           </p>
 
           <strong>
@@ -2379,7 +2458,7 @@ footer p{
           </div>
 
           <p>
-            تحفة حبيبة قلبي تسلم إيدك 🥹❤️
+            تحفه حبيبه قلبي تسلم ايدك
           </p>
 
           <strong>
@@ -2390,8 +2469,55 @@ footer p{
 
       </div>
 
+      <div class="review-controls">
+
+        <button
+          class="review-arrow"
+          id="reviewPrev"
+          aria-label="التقييم السابق"
+        >
+          ‹
+        </button>
+
+        <div
+          class="review-dots"
+          id="reviewDots"
+        >
+
+          <button
+            class="review-dot active"
+            aria-label="التقييم 1"
+          ></button>
+
+          <button
+            class="review-dot"
+            aria-label="التقييم 2"
+          ></button>
+
+          <button
+            class="review-dot"
+            aria-label="التقييم 3"
+          ></button>
+
+          <button
+            class="review-dot"
+            aria-label="التقييم 4"
+          ></button>
+
+        </div>
+
+        <button
+          class="review-arrow"
+          id="reviewNext"
+          aria-label="التقييم التالي"
+        >
+          ›
+        </button>
+
+      </div>
+
       <div class="review-hint">
-        اسحب يمين أو شمال عشان تشوف باقي الآراء ← ✨ →
+        آراء حقيقية من عملاء K.Store 💗✨
       </div>
 
     </div>
@@ -2807,6 +2933,116 @@ custom.addEventListener(
   "change",
   calculatePrice
 );
+
+/* ================= REVIEWS AUTO SLIDER ================= */
+
+const reviewTrack =
+  document.getElementById("reviewTrack");
+
+const reviewSlides =
+  document.querySelectorAll(".review");
+
+const reviewDots =
+  document.querySelectorAll(".review-dot");
+
+const reviewPrev =
+  document.getElementById("reviewPrev");
+
+const reviewNext =
+  document.getElementById("reviewNext");
+
+let currentReview = 0;
+
+let reviewTimer;
+
+function showReview(index){
+
+  currentReview =
+    (index + reviewSlides.length)
+    % reviewSlides.length;
+
+  reviewTrack.style.transform =
+    `translateX(-${currentReview * 100}%)`;
+
+  reviewDots.forEach(
+    (dot,index)=>{
+
+      dot.classList.toggle(
+        "active",
+        index === currentReview
+      );
+
+    }
+  );
+
+}
+
+function nextReview(){
+
+  showReview(currentReview + 1);
+
+}
+
+function prevReview(){
+
+  showReview(currentReview - 1);
+
+}
+
+function startReviewAuto(){
+
+  clearInterval(reviewTimer);
+
+  reviewTimer =
+    setInterval(
+      nextReview,
+      3000
+    );
+
+}
+
+reviewNext.addEventListener(
+  "click",
+  ()=>{
+
+    nextReview();
+
+    startReviewAuto();
+
+  }
+);
+
+reviewPrev.addEventListener(
+  "click",
+  ()=>{
+
+    prevReview();
+
+    startReviewAuto();
+
+  }
+);
+
+reviewDots.forEach(
+  (dot,index)=>{
+
+    dot.addEventListener(
+      "click",
+      ()=>{
+
+        showReview(index);
+
+        startReviewAuto();
+
+      }
+    );
+
+  }
+);
+
+showReview(0);
+
+startReviewAuto();
 
 /* ================= ORDER → WHATSAPP ================= */
 
