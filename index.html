@@ -224,6 +224,16 @@ body{
   animation-delay:6s;
 }
 
+/* الشهاب الرابع */
+.shooting-star.four{
+  top:29%;
+  left:-190px;
+  width:120px;
+  animation-delay:1.5s;
+  animation-duration:9s;
+  transform:rotate(-24deg);
+}
+
 @keyframes shooting{
 
   0%{
@@ -278,6 +288,8 @@ body.dark .navbar{
   justify-content:space-between;
 
   gap:20px;
+
+  position:relative;
 }
 
 .logo{
@@ -324,6 +336,43 @@ body.dark .navbar{
 .nav-links button:hover{
   background:var(--light-pink);
   color:var(--dark-pink);
+}
+
+/* زر الموبايل */
+.menu-btn{
+  display:none;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  border:1px solid var(--border);
+
+  background:var(--card);
+
+  color:var(--text);
+
+  cursor:pointer;
+
+  font-size:22px;
+  line-height:1;
+
+  align-items:center;
+  justify-content:center;
+
+  transition:.25s;
+}
+
+.menu-btn:hover{
+  background:var(--light-pink);
+  color:var(--dark-pink);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:7px;
 }
 
 .mode-btn{
@@ -1479,31 +1528,68 @@ footer p{
     font-size:23px;
   }
 
+  /* الناف بار القديمة تختفي وتتحول لقائمة */
   .nav-links{
-    display:flex;
+    display:none;
 
-    flex:1;
+    position:absolute;
 
-    justify-content:flex-end;
+    top:calc(100% + 8px);
 
-    gap:3px;
+    right:0;
+    left:0;
 
-    overflow-x:auto;
+    flex-direction:column;
 
-    scrollbar-width:none;
+    align-items:stretch;
 
-    white-space:nowrap;
+    gap:6px;
+
+    padding:12px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+    backdrop-filter:blur(18px);
+
+    z-index:150;
   }
 
-  .nav-links::-webkit-scrollbar{
-    display:none;
+  .nav-links.open{
+    display:flex;
   }
 
   .nav-links a,
   .nav-links button{
-    font-size:11px;
+    width:100%;
 
-    padding:7px 7px;
+    text-align:center;
+
+    font-size:14px;
+
+    padding:12px 10px;
+
+    background:var(--light-pink);
+
+    border-radius:15px;
+
+    flex-shrink:0;
+  }
+
+  .nav-links a:hover,
+  .nav-links button:hover{
+    background:var(--dark-pink);
+
+    color:white;
+  }
+
+  .menu-btn{
+    display:flex;
 
     flex-shrink:0;
   }
@@ -1560,6 +1646,13 @@ footer p{
   }
 }
 
+@media(min-width:801px){
+
+  .menu-btn{
+    display:none;
+  }
+}
+
 @media(max-width:480px){
 
   .nav-inner{
@@ -1571,14 +1664,22 @@ footer p{
   }
 
   .nav-links{
-    gap:1px;
+    right:0;
+    left:0;
   }
 
   .nav-links a,
   .nav-links button{
-    font-size:10px;
+    font-size:13px;
 
-    padding:6px 5px;
+    padding:11px 8px;
+  }
+
+  .menu-btn{
+    width:36px;
+    height:36px;
+
+    font-size:20px;
   }
 
   .mode-btn{
@@ -1652,6 +1753,7 @@ footer p{
   <span class="shooting-star one"></span>
   <span class="shooting-star two"></span>
   <span class="shooting-star three"></span>
+  <span class="shooting-star four"></span>
 
 </div>
 
@@ -1665,7 +1767,7 @@ footer p{
       K.Store 🎀
     </a>
 
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
 
       <a href="#cases">
         📱 الجرابات
@@ -1699,12 +1801,25 @@ footer p{
 
     </div>
 
-    <button
-      class="mode-btn"
-      id="modeBtn"
-    >
-      🌙
-    </button>
+    <div class="nav-actions">
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="فتح القائمة"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <button
+        class="mode-btn"
+        id="modeBtn"
+      >
+        🌙
+      </button>
+
+    </div>
 
   </div>
 
@@ -2800,6 +2915,103 @@ modeBtn.addEventListener(
       "kstoreMode",
       dark ? "dark" : "pink"
     );
+
+  }
+);
+
+/* ================= MOBILE NAVBAR ================= */
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const navLinks =
+  document.getElementById("navLinks");
+
+function closeMobileMenu(){
+
+  navLinks.classList.remove("open");
+
+  menuBtn.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  menuBtn.textContent = "☰";
+
+}
+
+menuBtn.addEventListener(
+  "click",
+  (event)=>{
+
+    event.stopPropagation();
+
+    const isOpen =
+      navLinks.classList.toggle("open");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    menuBtn.textContent =
+      isOpen ? "✕" : "☰";
+
+  }
+);
+
+/* قفل القائمة بعد اختيار أي لينك أو زر */
+
+navLinks
+  .querySelectorAll("a, button")
+  .forEach(
+    (item)=>{
+
+      item.addEventListener(
+        "click",
+        ()=>{
+
+          setTimeout(
+            closeMobileMenu,
+            100
+          );
+
+        }
+      );
+
+    }
+  );
+
+/* قفل القائمة لو ضغطنا بره */
+
+document.addEventListener(
+  "click",
+  (event)=>{
+
+    if(
+      window.innerWidth <= 800 &&
+      !navLinks.contains(event.target) &&
+      !menuBtn.contains(event.target)
+    ){
+
+      closeMobileMenu();
+
+    }
+
+  }
+);
+
+/* لو رجعنا للكمبيوتر */
+
+window.addEventListener(
+  "resize",
+  ()=>{
+
+    if(window.innerWidth > 800){
+
+      closeMobileMenu();
+
+    }
 
   }
 );
