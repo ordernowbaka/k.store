@@ -224,14 +224,13 @@ body{
   animation-delay:6s;
 }
 
-/* الشهاب الرابع */
+/* شهاب رابع إضافي */
+
 .shooting-star.four{
-  top:29%;
-  left:-190px;
-  width:120px;
-  animation-delay:1.5s;
-  animation-duration:9s;
-  transform:rotate(-24deg);
+  top:30%;
+  left:-170px;
+  animation-delay:8.5s;
+  transform:scale(.8) rotate(-28deg);
 }
 
 @keyframes shooting{
@@ -288,8 +287,6 @@ body.dark .navbar{
   justify-content:space-between;
 
   gap:20px;
-
-  position:relative;
 }
 
 .logo{
@@ -338,14 +335,47 @@ body.dark .navbar{
   color:var(--dark-pink);
 }
 
-/* زر الموبايل */
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
 .menu-btn{
   display:none;
 
   width:42px;
   height:42px;
 
-  border-radius:50%;
+  border:1px solid var(--border);
+  border-radius:14px;
+
+  background:var(--card);
+  color:var(--text);
+
+  font-size:21px;
+
+  cursor:pointer;
+
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:var(--shadow);
+
+  transition:.25s ease;
+}
+
+.menu-btn:hover{
+  transform:translateY(-2px);
+}
+
+.lang-btn{
+  min-width:78px;
+  height:42px;
+
+  padding:0 12px;
+
+  border-radius:20px;
 
   border:1px solid var(--border);
 
@@ -355,24 +385,19 @@ body.dark .navbar{
 
   cursor:pointer;
 
-  font-size:22px;
-  line-height:1;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:800;
 
-  align-items:center;
-  justify-content:center;
+  box-shadow:var(--shadow);
 
   transition:.25s;
 }
 
-.menu-btn:hover{
+.lang-btn:hover{
+  transform:translateY(-2px);
   background:var(--light-pink);
   color:var(--dark-pink);
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:7px;
 }
 
 .mode-btn{
@@ -1131,8 +1156,6 @@ textarea{
 
 /* ================= REVIEWS ================= */
 
-/* التقييمات تتحرك تلقائيًا بدل السحب */
-
 .review-slider{
   position:relative;
 
@@ -1171,6 +1194,11 @@ textarea{
   box-shadow:var(--shadow);
 
   min-height:190px;
+}
+
+body.english .review{
+  direction:ltr;
+  text-align:left;
 }
 
 .stars{
@@ -1521,14 +1549,25 @@ footer p{
   .nav-inner{
     min-height:65px;
 
-    gap:7px;
+    gap:8px;
+
+    position:relative;
   }
 
   .logo{
     font-size:23px;
   }
 
-  /* الناف بار القديمة تختفي وتتحول لقائمة */
+  .nav-actions{
+    margin-left:auto;
+  }
+
+  .menu-btn{
+    display:flex;
+
+    flex-shrink:0;
+  }
+
   .nav-links{
     display:none;
 
@@ -1536,14 +1575,14 @@ footer p{
 
     top:calc(100% + 8px);
 
-    right:0;
     left:0;
+    right:0;
 
     flex-direction:column;
 
     align-items:stretch;
 
-    gap:6px;
+    gap:7px;
 
     padding:12px;
 
@@ -1557,7 +1596,7 @@ footer p{
 
     backdrop-filter:blur(18px);
 
-    z-index:150;
+    z-index:1000;
   }
 
   .nav-links.open{
@@ -1574,29 +1613,29 @@ footer p{
 
     padding:12px 10px;
 
-    background:var(--light-pink);
-
     border-radius:15px;
 
-    flex-shrink:0;
+    background:var(--light-pink);
+
+    color:var(--text);
   }
 
-  .nav-links a:hover,
-  .nav-links button:hover{
-    background:var(--dark-pink);
+  .lang-btn{
+    min-width:40px;
 
-    color:white;
-  }
+    width:40px;
+    height:40px;
 
-  .menu-btn{
-    display:flex;
+    padding:0;
 
-    flex-shrink:0;
+    border-radius:14px;
+
+    font-size:16px;
   }
 
   .mode-btn{
-    width:38px;
-    height:38px;
+    width:40px;
+    height:40px;
 
     flex-shrink:0;
 
@@ -1663,28 +1702,32 @@ footer p{
     font-size:20px;
   }
 
+  .menu-btn,
+  .mode-btn,
+  .lang-btn{
+    width:36px;
+    height:36px;
+  }
+
+  .menu-btn{
+    font-size:19px;
+  }
+
+  .lang-btn{
+    min-width:36px;
+    font-size:15px;
+    padding:0;
+  }
+
   .nav-links{
-    right:0;
-    left:0;
+    padding:10px;
   }
 
   .nav-links a,
   .nav-links button{
     font-size:13px;
 
-    padding:11px 8px;
-  }
-
-  .menu-btn{
-    width:36px;
-    height:36px;
-
-    font-size:20px;
-  }
-
-  .mode-btn{
-    width:36px;
-    height:36px;
+    padding:11px 9px;
   }
 
   .price-grid{
@@ -1730,6 +1773,57 @@ footer p{
     font-size:15px;
   }
 }
+
+/* ================= ENGLISH MODE ================= */
+
+body.english{
+  direction:ltr;
+  text-align:left;
+}
+
+body.english .navbar,
+body.english .nav-inner{
+  direction:ltr;
+}
+
+body.english .hero-content,
+body.english .section-title,
+body.english .price-card,
+body.english .product-card,
+body.english .step,
+body.english .form-box,
+body.english .cta,
+body.english footer{
+  text-align:center;
+}
+
+body.english .form-group{
+  text-align:left;
+}
+
+body.english .price-result{
+  text-align:center;
+}
+
+body.english .extra-info{
+  text-align:center;
+}
+
+body.english .faq{
+  direction:ltr;
+}
+
+body.english details{
+  text-align:left;
+}
+
+body.english .popup{
+  direction:ltr;
+}
+
+body.english .popup p{
+  text-align:center;
+}
 </style>
 </head>
 
@@ -1767,27 +1861,33 @@ footer p{
       K.Store 🎀
     </a>
 
-    <div class="nav-links" id="navLinks">
+    <div class="nav-links">
 
-      <a href="#cases">
+      <a href="#cases" data-ar="📱 الجرابات" data-en="📱 Phone Cases">
         📱 الجرابات
       </a>
 
-      <button onclick="showStationery()">
+      <button
+        onclick="showStationery()"
+        data-ar="✏️ الأدوات المكتبية"
+        data-en="✏️ Stationery"
+      >
         ✏️ الأدوات المكتبية
       </button>
 
-      <a href="#how">
+      <a href="#how" data-ar="✨ إزاي تطلب؟" data-en="✨ How to Order?">
         ✨ إزاي تطلب؟
       </a>
 
-      <a href="#order">
+      <a href="#order" data-ar="💗 اعمل طلب" data-en="💗 Order Now">
         💗 اعمل طلب
       </a>
 
       <a
         href="https://linktr.ee/K.store188"
         target="_blank"
+        data-ar="🔗 لينكاتنا"
+        data-en="🔗 Our Links"
       >
         🔗 لينكاتنا
       </a>
@@ -1795,6 +1895,8 @@ footer p{
       <a
         href="https://wa.me/201096056450"
         target="_blank"
+        data-ar="💬 WhatsApp"
+        data-en="💬 WhatsApp"
       >
         💬 WhatsApp
       </a>
@@ -1810,6 +1912,14 @@ footer p{
         aria-expanded="false"
       >
         ☰
+      </button>
+
+      <button
+        class="lang-btn"
+        id="langBtn"
+        aria-label="Change language"
+      >
+        🇬🇧
       </button>
 
       <button
@@ -1831,16 +1941,26 @@ footer p{
 
   <div class="hero-content">
 
-    <div class="hero-badge">
+    <div
+      class="hero-badge"
+      data-ar="Cute things made for you ♡"
+      data-en="Cute things made for you ♡"
+    >
       Cute things made for you ♡
     </div>
 
-    <h1>
+    <h1
+      data-ar="خلي جراب موبايلك <span>شبهك 🎀</span>"
+      data-en="Make your phone case <span>just like you 🎀</span>"
+    >
       خلي جراب موبايلك
       <span>شبهك 🎀</span>
     </h1>
 
-    <p>
+    <p
+      data-ar="اختار التصميم اللي يعبر عنك، وخلي كل تفصيلة في موبايلك شبه شخصيتك. وكمان استنى حاجات كيوت جديدة جاية قريب ✨"
+      data-en="Choose a design that represents you and make every detail of your phone match your personality. And stay tuned for more cute things coming soon ✨"
+    >
       اختار التصميم اللي يعبر عنك،
       وخلي كل تفصيلة في موبايلك شبه شخصيتك.
       وكمان استنى حاجات كيوت جديدة جاية قريب ✨
@@ -1851,6 +1971,8 @@ footer p{
       <a
         href="#cases"
         class="btn btn-primary"
+        data-ar="📱 شوف الجرابات"
+        data-en="📱 Shop Phone Cases"
       >
         📱 شوف الجرابات
       </a>
@@ -1858,6 +1980,8 @@ footer p{
       <button
         class="btn btn-soft"
         onclick="showStationery()"
+        data-ar="✏️ الأدوات المكتبية"
+        data-en="✏️ Stationery"
       >
         ✏️ الأدوات المكتبية
       </button>
@@ -1876,11 +2000,17 @@ footer p{
 
     <div class="section-title">
 
-      <h2>
+      <h2
+        data-ar="جرابات K.Store 🎀"
+        data-en="K.Store Phone Cases 🎀"
+      >
         جرابات K.Store 🎀
       </h2>
 
-      <p>
+      <p
+        data-ar="كل ما تاخد أكتر، الباكدج يبقى أوفر 💗"
+        data-en="The more you get, the better the package 💗"
+      >
         كل ما تاخد أكتر، الباكدج يبقى أوفر 💗
       </p>
 
@@ -1900,7 +2030,10 @@ footer p{
 
         </div>
 
-        <h3>
+        <h3
+          data-ar="جراب واحد"
+          data-en="1 Phone Case"
+        >
           جراب واحد
         </h3>
 
@@ -1908,7 +2041,10 @@ footer p{
           160 ج
         </div>
 
-        <small>
+        <small
+          data-ar="قبل الشحن"
+          data-en="Before shipping"
+        >
           قبل الشحن
         </small>
 
@@ -1930,7 +2066,10 @@ footer p{
 
         </div>
 
-        <h3>
+        <h3
+          data-ar="جرابين"
+          data-en="2 Phone Cases"
+        >
           جرابين
         </h3>
 
@@ -1938,11 +2077,18 @@ footer p{
           305 ج
         </div>
 
-        <small>
+        <small
+          data-ar="قبل الشحن"
+          data-en="Before shipping"
+        >
           قبل الشحن
         </small>
 
-        <div class="old-price">
+        <div
+          class="old-price"
+          data-ar="بدل 320 ج"
+          data-en="Instead of 320 EGP"
+        >
           بدل 320 ج
         </div>
 
@@ -1960,7 +2106,10 @@ footer p{
 
         </div>
 
-        <h3>
+        <h3
+          data-ar="3 جرابات"
+          data-en="3 Phone Cases"
+        >
           3 جرابات
         </h3>
 
@@ -1968,11 +2117,18 @@ footer p{
           460 ج
         </div>
 
-        <small>
+        <small
+          data-ar="قبل الشحن"
+          data-en="Before shipping"
+        >
           قبل الشحن
         </small>
 
-        <div class="old-price">
+        <div
+          class="old-price"
+          data-ar="بدل 480 ج"
+          data-en="Instead of 480 EGP"
+        >
           بدل 480 ج
         </div>
 
@@ -1998,7 +2154,10 @@ footer p{
 
         </div>
 
-        <h3>
+        <h3
+          data-ar="4 جرابات"
+          data-en="4 Phone Cases"
+        >
           4 جرابات
         </h3>
 
@@ -2006,11 +2165,18 @@ footer p{
           610 ج
         </div>
 
-        <small>
+        <small
+          data-ar="قبل الشحن"
+          data-en="Before shipping"
+        >
           قبل الشحن
         </small>
 
-        <div class="old-price">
+        <div
+          class="old-price"
+          data-ar="بدل 640 ج"
+          data-en="Instead of 640 EGP"
+        >
           بدل 640 ج
         </div>
 
@@ -2018,14 +2184,16 @@ footer p{
 
     </div>
 
-    <div class="extra-info">
-
+    <div
+      class="extra-info"
+      data-ar="✨ Motorola +15 ج لكل جراب &nbsp; • &nbsp; 🎨 Custom +20 ج &nbsp; • &nbsp; 🚚 الشحن حسب المنطقة"
+      data-en="✨ Motorola +15 EGP per case &nbsp; • &nbsp; 🎨 Custom +20 EGP &nbsp; • &nbsp; 🚚 Shipping depends on location"
+    >
       ✨ Motorola +15 ج لكل جراب
       &nbsp; • &nbsp;
       🎨 Custom +20 ج
       &nbsp; • &nbsp;
       🚚 الشحن حسب المنطقة
-
     </div>
 
   </div>
@@ -2040,11 +2208,17 @@ footer p{
 
     <div class="section-title">
 
-      <h2>
+      <h2
+        data-ar="✏️ K.Store Stationery"
+        data-en="✏️ K.Store Stationery"
+      >
         ✏️ K.Store Stationery
       </h2>
 
-      <p>
+      <p
+        data-ar="حاجات كيوت للمذاكرة والتنظيم والإبداع... جاية قريب جدًا 💗"
+        data-en="Cute things for studying, organizing and creating... coming very soon 💗"
+      >
         حاجات كيوت للمذاكرة والتنظيم والإبداع... جاية قريب جدًا 💗
       </p>
 
@@ -2058,15 +2232,20 @@ footer p{
           📓
         </div>
 
-        <h3>
-          Notebooks
-        </h3>
+        <h3>Notebooks</h3>
 
-        <p>
+        <p
+          data-ar="نوتبوكس كيوت للملاحظات والمذاكرة واليوميات."
+          data-en="Cute notebooks for notes, studying and journaling."
+        >
           نوتبوكس كيوت للملاحظات والمذاكرة واليوميات.
         </p>
 
-        <span class="coming">
+        <span
+          class="coming"
+          data-ar="قريبًا جدًا ✨"
+          data-en="Coming very soon ✨"
+        >
           قريبًا جدًا ✨
         </span>
 
@@ -2078,15 +2257,20 @@ footer p{
           📝
         </div>
 
-        <h3>
-          Sticky Notes
-        </h3>
+        <h3>Sticky Notes</h3>
 
-        <p>
+        <p
+          data-ar="ستيكي نوت لكل فكرة وملاحظة مهمة."
+          data-en="Sticky notes for every idea and important reminder."
+        >
           ستيكي نوت لكل فكرة وملاحظة مهمة.
         </p>
 
-        <span class="coming">
+        <span
+          class="coming"
+          data-ar="قريبًا جدًا ✨"
+          data-en="Coming very soon ✨"
+        >
           قريبًا جدًا ✨
         </span>
 
@@ -2098,15 +2282,20 @@ footer p{
           🖊️
         </div>
 
-        <h3>
-          Pens
-        </h3>
+        <h3>Pens</h3>
 
-        <p>
+        <p
+          data-ar="أقلام لطيفة تكمل الـ stationery collection."
+          data-en="Cute pens to complete your stationery collection."
+        >
           أقلام لطيفة تكمل الـ stationery collection.
         </p>
 
-        <span class="coming">
+        <span
+          class="coming"
+          data-ar="قريبًا جدًا ✨"
+          data-en="Coming very soon ✨"
+        >
           قريبًا جدًا ✨
         </span>
 
@@ -2118,15 +2307,20 @@ footer p{
           🎨
         </div>
 
-        <h3>
-          Coloring Books
-        </h3>
+        <h3>Coloring Books</h3>
 
-        <p>
+        <p
+          data-ar="كتب تلوين عشان تفصل شوية وتطلع إبداعك."
+          data-en="Coloring books to relax, unwind and bring out your creativity."
+        >
           كتب تلوين عشان تفصل شوية وتطلع إبداعك.
         </p>
 
-        <span class="coming">
+        <span
+          class="coming"
+          data-ar="قريبًا جدًا ✨"
+          data-en="Coming very soon ✨"
+        >
           قريبًا جدًا ✨
         </span>
 
@@ -2138,15 +2332,20 @@ footer p{
           🎀
         </div>
 
-        <h3>
-          Stickers
-        </h3>
+        <h3>Stickers</h3>
 
-        <p>
+        <p
+          data-ar="استيكرات تضيف لمستك الخاصة لكل حاجة."
+          data-en="Stickers to add your own personal touch to everything."
+        >
           استيكرات تضيف لمستك الخاصة لكل حاجة.
         </p>
 
-        <span class="coming">
+        <span
+          class="coming"
+          data-ar="قريبًا جدًا ✨"
+          data-en="Coming very soon ✨"
+        >
           قريبًا جدًا ✨
         </span>
 
@@ -2158,15 +2357,20 @@ footer p{
           🧸
         </div>
 
-        <h3>
-          Pouches
-        </h3>
+        <h3>Pouches</h3>
 
-        <p>
+        <p
+          data-ar="بوتش كيوت يشيل حاجتك ويكمل الـK.Store vibe."
+          data-en="Cute pouches to carry your things and complete the K.Store vibe."
+        >
           بوتش كيوت يشيل حاجتك ويكمل الـK.Store vibe.
         </p>
 
-        <span class="coming">
+        <span
+          class="coming"
+          data-ar="قريبًا جدًا ✨"
+          data-en="Coming very soon ✨"
+        >
           قريبًا جدًا ✨
         </span>
 
@@ -2186,11 +2390,17 @@ footer p{
 
     <div class="section-title">
 
-      <h2>
+      <h2
+        data-ar="✨ إزاي تطلب؟"
+        data-en="✨ How to Order?"
+      >
         ✨ إزاي تطلب؟
       </h2>
 
-      <p>
+      <p
+        data-ar="الموضوع أسهل مما تتخيل 💗"
+        data-en="It's easier than you think 💗"
+      >
         الموضوع أسهل مما تتخيل 💗
       </p>
 
@@ -2204,11 +2414,17 @@ footer p{
           1
         </div>
 
-        <h3>
+        <h3
+          data-ar="اختار الباكدج"
+          data-en="Choose Your Package"
+        >
           اختار الباكدج
         </h3>
 
-        <p>
+        <p
+          data-ar="اختار عدد الجرابات اللي عايزها وحدد لو الموديل Motorola أو التصميم Custom."
+          data-en="Choose how many phone cases you want and select whether the model is Motorola or the design is Custom."
+        >
           اختار عدد الجرابات اللي عايزها
           وحدد لو الموديل Motorola أو التصميم Custom.
         </p>
@@ -2221,11 +2437,17 @@ footer p{
           2
         </div>
 
-        <h3>
+        <h3
+          data-ar="اكتب التفاصيل"
+          data-en="Add Your Details"
+        >
           اكتب التفاصيل
         </h3>
 
-        <p>
+        <p
+          data-ar="اكتب بياناتك وموديل موبايلك وتفاصيل التصميم والعنوان."
+          data-en="Enter your information, phone model, design details and address."
+        >
           اكتب بياناتك وموديل موبايلك
           وتفاصيل التصميم والعنوان.
         </p>
@@ -2238,11 +2460,17 @@ footer p{
           3
         </div>
 
-        <h3>
+        <h3
+          data-ar="ابعت الطلب 💗"
+          data-en="Send Your Order 💗"
+        >
           ابعت الطلب 💗
         </h3>
 
-        <p>
+        <p
+          data-ar="دوس على إرسال الطلب، وهيفتح WhatsApp برسالة الطلب جاهزة."
+          data-en="Click send order and WhatsApp will open with your order message ready."
+        >
           دوس على إرسال الطلب،
           وهيفتح WhatsApp برسالة الطلب جاهزة.
         </p>
@@ -2263,11 +2491,17 @@ footer p{
 
     <div class="section-title">
 
-      <h2>
+      <h2
+        data-ar="💗 اعمل طلبك"
+        data-en="💗 Place Your Order"
+      >
         💗 اعمل طلبك
       </h2>
 
-      <p>
+      <p
+        data-ar="املأ البيانات وهنكلمك على WhatsApp"
+        data-en="Fill in the details and we'll contact you on WhatsApp"
+      >
         املأ البيانات وهنكلمك على WhatsApp
       </p>
 
@@ -2281,7 +2515,10 @@ footer p{
 
           <div class="form-group">
 
-            <label>
+            <label
+              data-ar="👤 الاسم"
+              data-en="👤 Name"
+            >
               👤 الاسم
             </label>
 
@@ -2289,6 +2526,8 @@ footer p{
               type="text"
               id="name"
               placeholder="اكتب اسمك"
+              data-placeholder-ar="اكتب اسمك"
+              data-placeholder-en="Enter your name"
               required
             >
 
@@ -2296,7 +2535,10 @@ footer p{
 
           <div class="form-group">
 
-            <label>
+            <label
+              data-ar="📱 رقم الموبايل"
+              data-en="📱 Phone Number"
+            >
               📱 رقم الموبايل
             </label>
 
@@ -2304,6 +2546,8 @@ footer p{
               type="tel"
               id="phone"
               placeholder="01xxxxxxxxx"
+              data-placeholder-ar="01xxxxxxxxx"
+              data-placeholder-en="01xxxxxxxxx"
               required
             >
 
@@ -2311,7 +2555,10 @@ footer p{
 
           <div class="form-group full">
 
-            <label>
+            <label
+              data-ar="📲 موديل الموبايل"
+              data-en="📲 Phone Model"
+            >
               📲 موديل الموبايل
             </label>
 
@@ -2319,6 +2566,8 @@ footer p{
               type="text"
               id="model"
               placeholder="مثال: iPhone 13 / Redmi Note 11 Pro"
+              data-placeholder-ar="مثال: iPhone 13 / Redmi Note 11 Pro"
+              data-placeholder-en="Example: iPhone 13 / Redmi Note 11 Pro"
               required
             >
 
@@ -2326,32 +2575,52 @@ footer p{
 
           <div class="form-group">
 
-            <label>
+            <label
+              data-ar="🎁 الباكدج"
+              data-en="🎁 Package"
+            >
               🎁 الباكدج
             </label>
 
-            <select
-              id="package"
-              required
-            >
+            <select id="package" required>
 
-              <option value="">
+              <option
+                value=""
+                data-ar="اختار الباكدج"
+                data-en="Choose a package"
+              >
                 اختار الباكدج
               </option>
 
-              <option value="1">
+              <option
+                value="1"
+                data-ar="جراب واحد — 160 ج"
+                data-en="1 Phone Case — 160 EGP"
+              >
                 جراب واحد — 160 ج
               </option>
 
-              <option value="2">
+              <option
+                value="2"
+                data-ar="جرابين — 305 ج"
+                data-en="2 Phone Cases — 305 EGP"
+              >
                 جرابين — 305 ج
               </option>
 
-              <option value="3">
+              <option
+                value="3"
+                data-ar="3 جرابات — 460 ج"
+                data-en="3 Phone Cases — 460 EGP"
+              >
                 3 جرابات — 460 ج
               </option>
 
-              <option value="4">
+              <option
+                value="4"
+                data-ar="4 جرابات — 610 ج ⭐ BEST DEAL"
+                data-en="4 Phone Cases — 610 EGP ⭐ BEST DEAL"
+              >
                 4 جرابات — 610 ج ⭐ BEST DEAL
               </option>
 
@@ -2361,17 +2630,28 @@ footer p{
 
           <div class="form-group">
 
-            <label>
+            <label
+              data-ar="📱 هل الموديل Motorola؟"
+              data-en="📱 Is the model Motorola?"
+            >
               📱 هل الموديل Motorola؟
             </label>
 
             <select id="motorola">
 
-              <option value="No">
+              <option
+                value="No"
+                data-ar="لا"
+                data-en="No"
+              >
                 لا
               </option>
 
-              <option value="Yes">
+              <option
+                value="Yes"
+                data-ar="أيوه (+15 ج لكل جراب)"
+                data-en="Yes (+15 EGP per case)"
+              >
                 أيوه (+15 ج لكل جراب)
               </option>
 
@@ -2381,17 +2661,28 @@ footer p{
 
           <div class="form-group full">
 
-            <label>
+            <label
+              data-ar="🎨 هل التصميم Custom أو محتاج تعديل؟"
+              data-en="🎨 Is the design Custom or does it need editing?"
+            >
               🎨 هل التصميم Custom أو محتاج تعديل؟
             </label>
 
             <select id="custom">
 
-              <option value="No">
+              <option
+                value="No"
+                data-ar="لا"
+                data-en="No"
+              >
                 لا
               </option>
 
-              <option value="Yes">
+              <option
+                value="Yes"
+                data-ar="أيوه (+20 ج)"
+                data-en="Yes (+20 EGP)"
+              >
                 أيوه (+20 ج)
               </option>
 
@@ -2401,20 +2692,28 @@ footer p{
 
           <div class="form-group full">
 
-            <label>
+            <label
+              data-ar="✨ تفاصيل التصميم"
+              data-en="✨ Design Details"
+            >
               ✨ تفاصيل التصميم
             </label>
 
             <textarea
               id="designDetails"
               placeholder="اكتب عايز التصميم يكون عامل إزاي..."
+              data-placeholder-ar="اكتب عايز التصميم يكون عامل إزاي..."
+              data-placeholder-en="Tell us how you want the design to look..."
             ></textarea>
 
           </div>
 
           <div class="form-group">
 
-            <label>
+            <label
+              data-ar="📍 المحافظة"
+              data-en="📍 Governorate"
+            >
               📍 المحافظة
             </label>
 
@@ -2422,6 +2721,8 @@ footer p{
               type="text"
               id="governorate"
               placeholder="مثال: الدقهلية"
+              data-placeholder-ar="مثال: الدقهلية"
+              data-placeholder-en="Example: Dakahlia"
               required
             >
 
@@ -2429,7 +2730,10 @@ footer p{
 
           <div class="form-group">
 
-            <label>
+            <label
+              data-ar="📍 المنطقة"
+              data-en="📍 Area"
+            >
               📍 المنطقة
             </label>
 
@@ -2437,6 +2741,8 @@ footer p{
               type="text"
               id="area"
               placeholder="المنطقة / المركز"
+              data-placeholder-ar="المنطقة / المركز"
+              data-placeholder-en="Area / District"
               required
             >
 
@@ -2444,13 +2750,18 @@ footer p{
 
           <div class="form-group full">
 
-            <label>
+            <label
+              data-ar="🏠 العنوان بالتفصيل"
+              data-en="🏠 Full Address"
+            >
               🏠 العنوان بالتفصيل
             </label>
 
             <textarea
               id="address"
               placeholder="اكتب العنوان بالتفصيل"
+              data-placeholder-ar="اكتب العنوان بالتفصيل"
+              data-placeholder-en="Enter your full address"
               required
             ></textarea>
 
@@ -2458,13 +2769,18 @@ footer p{
 
           <div class="form-group full">
 
-            <label>
+            <label
+              data-ar="📝 ملاحظات الطلب"
+              data-en="📝 Order Notes"
+            >
               📝 ملاحظات الطلب
             </label>
 
             <textarea
               id="notes"
               placeholder="أي ملاحظات إضافية؟"
+              data-placeholder-ar="أي ملاحظات إضافية؟"
+              data-placeholder-en="Any additional notes?"
             ></textarea>
 
           </div>
@@ -2473,7 +2789,12 @@ footer p{
 
         <div class="price-result">
 
-          💰 السعر قبل الشحن:
+          <span
+            data-ar="💰 السعر قبل الشحن:"
+            data-en="💰 Price before shipping:"
+          >
+            💰 السعر قبل الشحن:
+          </span>
 
           <span id="finalPrice">
             0 ج
@@ -2484,6 +2805,8 @@ footer p{
         <button
           type="submit"
           class="btn btn-primary order-btn"
+          data-ar="💬 إرسال الطلب على WhatsApp"
+          data-en="💬 Send Order on WhatsApp"
         >
           💬 إرسال الطلب على WhatsApp
         </button>
@@ -2504,11 +2827,17 @@ footer p{
 
     <div class="section-title">
 
-      <h2>
+      <h2
+        data-ar="💗 قالوا إيه عن K.Store؟"
+        data-en="💗 What do K.Store customers say?"
+      >
         💗 قالوا إيه عن K.Store؟
       </h2>
 
-      <p>
+      <p
+        data-ar="كلهم من K.Store 🎀"
+        data-en="Real K.Store customers 🎀"
+      >
         كلهم من K.Store 🎀
       </p>
 
@@ -2524,7 +2853,10 @@ footer p{
             ★★★★★
           </div>
 
-          <p>
+          <p
+            data-ar="الحاجات توحفهههه I like😍❤️"
+            data-en="Everything is sooo cute! I like it 😍❤️"
+          >
             الحاجات توحفهههه I like😍❤️
           </p>
 
@@ -2540,7 +2872,10 @@ footer p{
             ★★★★★
           </div>
 
-          <p>
+          <p
+            data-ar="جميل يا حبيبتي تسلم ايدك ❤️❤️"
+            data-en="It's beautiful! Thank you so much ❤️❤️"
+          >
             جميل يا حبيبتي تسلم ايدك ❤️❤️
           </p>
 
@@ -2556,7 +2891,10 @@ footer p{
             ★★★★★
           </div>
 
-          <p>
+          <p
+            data-ar="تسلم ايديكم والله جميل"
+            data-en="It's really beautiful, thank you so much!"
+          >
             تسلم ايديكم والله جميل
           </p>
 
@@ -2572,7 +2910,10 @@ footer p{
             ★★★★★
           </div>
 
-          <p>
+          <p
+            data-ar="تحفه حبيبه قلبي تسلم ايدك"
+            data-en="It's gorgeous! Thank you so much!"
+          >
             تحفه حبيبه قلبي تسلم ايدك
           </p>
 
@@ -2589,7 +2930,7 @@ footer p{
         <button
           class="review-arrow"
           id="reviewPrev"
-          aria-label="التقييم السابق"
+          aria-label="Previous review"
         >
           ‹
         </button>
@@ -2601,22 +2942,22 @@ footer p{
 
           <button
             class="review-dot active"
-            aria-label="التقييم 1"
+            aria-label="Review 1"
           ></button>
 
           <button
             class="review-dot"
-            aria-label="التقييم 2"
+            aria-label="Review 2"
           ></button>
 
           <button
             class="review-dot"
-            aria-label="التقييم 3"
+            aria-label="Review 3"
           ></button>
 
           <button
             class="review-dot"
-            aria-label="التقييم 4"
+            aria-label="Review 4"
           ></button>
 
         </div>
@@ -2624,14 +2965,18 @@ footer p{
         <button
           class="review-arrow"
           id="reviewNext"
-          aria-label="التقييم التالي"
+          aria-label="Next review"
         >
           ›
         </button>
 
       </div>
 
-      <div class="review-hint">
+      <div
+        class="review-hint"
+        data-ar="آراء حقيقية من عملاء K.Store 💗✨"
+        data-en="Real reviews from K.Store customers 💗✨"
+      >
         آراء حقيقية من عملاء K.Store 💗✨
       </div>
 
@@ -2649,7 +2994,10 @@ footer p{
 
     <div class="section-title">
 
-      <h2>
+      <h2
+        data-ar="❓ أسئلة مهمة"
+        data-en="❓ Frequently Asked Questions"
+      >
         ❓ أسئلة مهمة
       </h2>
 
@@ -2659,11 +3007,17 @@ footer p{
 
       <details>
 
-        <summary>
+        <summary
+          data-ar="🚚 الشحن بكام؟"
+          data-en="🚚 How much is shipping?"
+        >
           🚚 الشحن بكام؟
         </summary>
 
-        <p>
+        <p
+          data-ar="الشحن بيتحدد حسب المحافظة والمنطقة، ومش داخل في السعر الظاهر في الموقع."
+          data-en="Shipping is calculated based on the governorate and area, and is not included in the prices shown on the website."
+        >
           الشحن بيتحدد حسب المحافظة والمنطقة،
           ومش داخل في السعر الظاهر في الموقع.
         </p>
@@ -2672,11 +3026,17 @@ footer p{
 
       <details>
 
-        <summary>
+        <summary
+          data-ar="🎨 ينفع أعمل تصميم Custom؟"
+          data-en="🎨 Can I make a Custom design?"
+        >
           🎨 ينفع أعمل تصميم Custom؟
         </summary>
 
-        <p>
+        <p
+          data-ar="أيوه طبعًا 💗 اكتب تفاصيل التصميم في الفورم وهنراجع معاك التفاصيل."
+          data-en="Of course! 💗 Write the design details in the form and we'll review them with you."
+        >
           أيوه طبعًا 💗 اكتب تفاصيل التصميم
           في الفورم وهنراجع معاك التفاصيل.
         </p>
@@ -2685,11 +3045,17 @@ footer p{
 
       <details>
 
-        <summary>
+        <summary
+          data-ar="📱 هل كل موديلات الموبايلات متاحة؟"
+          data-en="📱 Are all phone models available?"
+        >
           📱 هل كل موديلات الموبايلات متاحة؟
         </summary>
 
-        <p>
+        <p
+          data-ar="التوفر بيختلف حسب الموديل، اكتب موديل موبايلك في الطلب وهنتأكد منه."
+          data-en="Availability depends on the model. Write your phone model in the order and we'll check it for you."
+        >
           التوفر بيختلف حسب الموديل،
           اكتب موديل موبايلك في الطلب وهنتأكد منه.
         </p>
@@ -2698,11 +3064,17 @@ footer p{
 
       <details>
 
-        <summary>
+        <summary
+          data-ar="✏️ إمتى الأدوات المكتبية هتنزل؟"
+          data-en="✏️ When will the stationery collection launch?"
+        >
           ✏️ إمتى الأدوات المكتبية هتنزل؟
         </summary>
 
-        <p>
+        <p
+          data-ar="قريب جدًا 👀🎀 الـNotebooks والـSticky Notes والأقلام وكتب التلوين والاستيكرات والـPouches في الطريق."
+          data-en="Very soon 👀🎀 Notebooks, Sticky Notes, Pens, Coloring Books, Stickers and Pouches are on the way."
+        >
           قريب جدًا 👀🎀
           الـNotebooks والـSticky Notes والأقلام
           وكتب التلوين والاستيكرات والـPouches
@@ -2725,11 +3097,17 @@ footer p{
 
     <div class="cta">
 
-      <h2>
+      <h2
+        data-ar="خلي حاجتك شبهك 🎀"
+        data-en="Make Your Things Just Like You 🎀"
+      >
         خلي حاجتك شبهك 🎀
       </h2>
 
-      <p>
+      <p
+        data-ar="جرابك، نوتبوكسك، استيكراتك... كل تفصيلة ممكن تكون على ذوقك."
+        data-en="Your phone case, notebook, stickers... every detail can be made your way."
+      >
         جرابك، نوتبوكسك، استيكراتك...
         كل تفصيلة ممكن تكون على ذوقك.
       </p>
@@ -2737,6 +3115,8 @@ footer p{
       <a
         href="#order"
         class="btn btn-primary"
+        data-ar="💗 اطلب دلوقتي"
+        data-en="💗 Order Now"
       >
         💗 اطلب دلوقتي
       </a>
@@ -2766,6 +3146,8 @@ footer p{
       <a
         href="https://linktr.ee/K.store188"
         target="_blank"
+        data-ar="🔗 كل لينكاتنا"
+        data-en="🔗 All Our Links"
       >
         🔗 كل لينكاتنا
       </a>
@@ -2775,6 +3157,8 @@ footer p{
       <a
         href="https://wa.me/201096056450"
         target="_blank"
+        data-ar="💬 WhatsApp"
+        data-en="💬 WhatsApp"
       >
         💬 WhatsApp
       </a>
@@ -2810,12 +3194,17 @@ footer p{
       ✏️🎀
     </div>
 
-    <h2>
+    <h2
+      data-ar="قريبًا جدًا!"
+      data-en="Coming Very Soon!"
+    >
       قريبًا جدًا!
     </h2>
 
-    <p>
-
+    <p
+      data-ar="الـStationery collection بتاعت K.Store جاية بحاجات كيوت تستاهل تستنيها 💗"
+      data-en="K.Store's Stationery Collection is coming with lots of cute things worth waiting for 💗"
+    >
       الـStationery collection
       بتاعت K.Store جاية بحاجات كيوت
       تستاهل تستنيها 💗
@@ -2827,12 +3216,13 @@ footer p{
       <br>
 
       Coloring Books • Stickers • Pouches
-
     </p>
 
     <button
       class="btn btn-primary close-popup"
       onclick="hideStationery()"
+      data-ar="تمام 🎀"
+      data-en="Got it 🎀"
     >
       تمام 🎀
     </button>
@@ -2855,11 +3245,17 @@ footer p{
       💗🎀✨
     </div>
 
-    <h2>
+    <h2
+      data-ar="شكرًا لطلبك! 🥹"
+      data-en="Thank You for Your Order! 🥹"
+    >
       شكرًا لطلبك! 🥹
     </h2>
 
-    <p>
+    <p
+      data-ar="طلبك اتبعت بنجاح لـ K.Store 💗<br><br>نورتنا جدًا، ومستنيين نجهزهولك بحب عشان يوصل ليك زي ما تتمنى 🎀✨<br><br><strong>شكرًا إنك اخترت K.Store 🤍</strong>"
+      data-en="Your order was successfully sent to K.Store 💗<br><br>We're so happy to have you! We'll prepare your order with love so it arrives just the way you want 🎀✨<br><br><strong>Thank you for choosing K.Store 🤍</strong>"
+    >
       طلبك اتبعت بنجاح لـ K.Store 💗
       <br><br>
       نورتنا جدًا، ومستنيين نجهزهولك
@@ -2873,6 +3269,8 @@ footer p{
     <button
       class="btn btn-primary close-popup"
       onclick="hideSuccessPopup()"
+      data-ar="تمام يا K.Store 🎀"
+      data-en="Okay K.Store 🎀"
     >
       تمام يا K.Store 🎀
     </button>
@@ -2919,15 +3317,17 @@ modeBtn.addEventListener(
   }
 );
 
-/* ================= MOBILE NAVBAR ================= */
+/* ================= MOBILE MENU ================= */
 
 const menuBtn =
   document.getElementById("menuBtn");
 
 const navLinks =
-  document.getElementById("navLinks");
+  document.querySelector(".nav-links");
 
 function closeMobileMenu(){
+
+  if(!menuBtn || !navLinks) return;
 
   navLinks.classList.remove("open");
 
@@ -2940,81 +3340,172 @@ function closeMobileMenu(){
 
 }
 
-menuBtn.addEventListener(
-  "click",
-  (event)=>{
+if(menuBtn && navLinks){
 
-    event.stopPropagation();
+  menuBtn.addEventListener(
+    "click",
+    (event)=>{
 
-    const isOpen =
-      navLinks.classList.toggle("open");
+      event.stopPropagation();
 
-    menuBtn.setAttribute(
-      "aria-expanded",
-      isOpen ? "true" : "false"
-    );
+      const isOpen =
+        navLinks.classList.toggle("open");
 
-    menuBtn.textContent =
-      isOpen ? "✕" : "☰";
-
-  }
-);
-
-/* قفل القائمة بعد اختيار أي لينك أو زر */
-
-navLinks
-  .querySelectorAll("a, button")
-  .forEach(
-    (item)=>{
-
-      item.addEventListener(
-        "click",
-        ()=>{
-
-          setTimeout(
-            closeMobileMenu,
-            100
-          );
-
-        }
+      menuBtn.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
       );
+
+      menuBtn.textContent =
+        isOpen ? "✕" : "☰";
 
     }
   );
 
-/* قفل القائمة لو ضغطنا بره */
+  navLinks
+    .querySelectorAll("a, button")
+    .forEach(item=>{
 
-document.addEventListener(
-  "click",
-  (event)=>{
+      item.addEventListener(
+        "click",
+        ()=>{
+          closeMobileMenu();
+        }
+      );
 
-    if(
-      window.innerWidth <= 800 &&
-      !navLinks.contains(event.target) &&
-      !menuBtn.contains(event.target)
-    ){
+    });
 
-      closeMobileMenu();
+  document.addEventListener(
+    "click",
+    (event)=>{
+
+      if(
+        window.innerWidth <= 800 &&
+        !navLinks.contains(event.target) &&
+        !menuBtn.contains(event.target)
+      ){
+
+        closeMobileMenu();
+
+      }
 
     }
+  );
+
+  window.addEventListener(
+    "resize",
+    ()=>{
+
+      if(window.innerWidth > 800){
+
+        closeMobileMenu();
+
+      }
+
+    }
+  );
+
+}
+
+/* ================= LANGUAGE ================= */
+
+const langBtn =
+  document.getElementById("langBtn");
+
+const savedLanguage =
+  localStorage.getItem("kstoreLanguage");
+
+let currentLanguage =
+  savedLanguage === "en"
+  ? "en"
+  : "ar";
+
+function applyLanguage(language){
+
+  currentLanguage = language;
+
+  const isEnglish =
+    language === "en";
+
+  document.documentElement.lang =
+    isEnglish ? "en" : "ar";
+
+  document.documentElement.dir =
+    isEnglish ? "ltr" : "rtl";
+
+  document.body.classList.toggle(
+    "english",
+    isEnglish
+  );
+
+  document.querySelectorAll(
+    "[data-ar][data-en]"
+  ).forEach(element=>{
+
+    element.innerHTML =
+      isEnglish
+      ? element.getAttribute("data-en")
+      : element.getAttribute("data-ar");
+
+  });
+
+  document.querySelectorAll(
+    "[data-placeholder-ar][data-placeholder-en]"
+  ).forEach(input=>{
+
+    input.placeholder =
+      isEnglish
+      ? input.getAttribute("data-placeholder-en")
+      : input.getAttribute("data-placeholder-ar");
+
+  });
+
+  document.querySelectorAll(
+    "option[data-ar][data-en]"
+  ).forEach(option=>{
+
+    option.textContent =
+      isEnglish
+      ? option.getAttribute("data-en")
+      : option.getAttribute("data-ar");
+
+  });
+
+  if(langBtn){
+
+    langBtn.textContent =
+      isEnglish ? "🇪🇬" : "🇬🇧";
+
+    langBtn.setAttribute(
+      "aria-label",
+      isEnglish
+      ? "التبديل للعربية"
+      : "Switch to English"
+    );
 
   }
-);
 
-/* لو رجعنا للكمبيوتر */
+  localStorage.setItem(
+    "kstoreLanguage",
+    language
+  );
 
-window.addEventListener(
-  "resize",
+}
+
+langBtn.addEventListener(
+  "click",
   ()=>{
 
-    if(window.innerWidth > 800){
-
-      closeMobileMenu();
-
-    }
+    applyLanguage(
+      currentLanguage === "ar"
+      ? "en"
+      : "ar"
+    );
 
   }
 );
+
+applyLanguage(currentLanguage);
 
 /* ================= STATIONERY POPUP ================= */
 
@@ -3096,7 +3587,9 @@ function calculatePrice(){
   if(!n){
 
     finalPrice.textContent =
-      "0 ج";
+      currentLanguage === "en"
+      ? "0 EGP"
+      : "0 ج";
 
     return;
 
@@ -3127,7 +3620,9 @@ function calculatePrice(){
     customExtra;
 
   finalPrice.textContent =
-    total + " ج";
+    currentLanguage === "en"
+    ? total + " EGP"
+    : total + " ج";
 
 }
 
@@ -3145,6 +3640,11 @@ custom.addEventListener(
   "change",
   calculatePrice
 );
+
+/* إعادة حساب السعر بعد تغيير اللغة */
+
+const originalApplyLanguage =
+  applyLanguage;
 
 /* ================= REVIEWS AUTO SLIDER ================= */
 
@@ -3287,7 +3787,7 @@ document
       const packageValue =
         packageSelect.value;
 
-      const packageNames = {
+      const packageNamesAr = {
 
         1:"جراب واحد",
 
@@ -3299,18 +3799,48 @@ document
 
       };
 
+      const packageNamesEn = {
+
+        1:"1 Phone Case",
+
+        2:"2 Phone Cases",
+
+        3:"3 Phone Cases",
+
+        4:"4 Phone Cases — BEST DEAL"
+
+      };
+
       const packageName =
-        packageNames[packageValue];
+        currentLanguage === "en"
+        ? packageNamesEn[packageValue]
+        : packageNamesAr[packageValue];
 
       const motorolaText =
         motorola.value === "Yes"
-        ? "أيوه"
-        : "لا";
+        ? (
+            currentLanguage === "en"
+            ? "Yes"
+            : "أيوه"
+          )
+        : (
+            currentLanguage === "en"
+            ? "No"
+            : "لا"
+          );
 
       const customText =
         custom.value === "Yes"
-        ? "أيوه"
-        : "لا";
+        ? (
+            currentLanguage === "en"
+            ? "Yes"
+            : "أيوه"
+          )
+        : (
+            currentLanguage === "en"
+            ? "No"
+            : "لا"
+          );
 
       const designDetails =
         document
@@ -3343,8 +3873,7 @@ document
           .trim();
 
       const finalPriceValue =
-        finalPrice.textContent
-          .replace(" ج","");
+        finalPrice.textContent;
 
       const random =
         Math.floor(
@@ -3355,7 +3884,47 @@ document
       const orderId =
         "K26" + random;
 
-      const message =
+      let message;
+
+      if(currentLanguage === "en"){
+
+        message =
+`🎀 *New Order from K.Store*
+
+🧾 *Order ID:* ${orderId}
+
+👤 *Name:* ${name}
+
+📱 *Phone Number:* ${phone}
+
+📲 *Phone Model:* ${model}
+
+🎁 *Package:* ${packageName}
+
+📱 *Motorola:* ${motorolaText}
+
+🎨 *Custom / Editing:* ${customText}
+
+✨ *Design Details:*
+${designDetails || "None"}
+
+📍 *Governorate:* ${governorate}
+
+📍 *Area:* ${area}
+
+🏠 *Full Address:*
+${address}
+
+📝 *Order Notes:*
+${notes || "None"}
+
+💰 *Price before shipping:* ${finalPriceValue}
+
+🚚 Shipping is calculated based on the area.`;
+
+      }else{
+
+        message =
 `🎀 *طلب جديد من K Store*
 
 🧾 *رقم الطلب:* ${orderId}
@@ -3385,9 +3954,11 @@ ${address}
 📝 *ملاحظات الطلب:*
 ${notes || "لا يوجد"}
 
-💰 *السعر قبل الشحن:* ${finalPriceValue} ج
+💰 *السعر قبل الشحن:* ${finalPriceValue}
 
 🚚 الشحن يتم تحديده حسب المنطقة.`;
+
+      }
 
       const whatsappURL =
         "https://wa.me/201096056450?text=" +
