@@ -885,11 +885,68 @@ section{
 
 .stationery-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:20px;
+}
+
+.product-image{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  display:block;
+  border-radius:20px;
+  background:var(--light-pink);
+  margin-bottom:18px;
+}
+
+.cute-category-title{
+  margin:38px 0 18px;
+  font-size:24px;
+  font-weight:800;
+  color:var(--deep-pink);
+  text-align:center;
+}
+
+.price{
+  font-size:18px;
+  font-weight:800;
+  color:var(--deep-pink);
+  margin:8px 0 14px;
+}
+
+.product-image-placeholder{
+  width:100%;
+  height:220px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:20px;
+  background:var(--light-pink);
+  color:var(--deep-pink);
+  font-size:52px;
+  margin-bottom:18px;
+}
+
+.product-image-placeholder small{
+  font-size:11px;
+  font-weight:700;
+  opacity:.7;
+}
+
+.available{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:20px;
+  background:var(--dark-pink);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+}
+
+@media(max-width:900px){
+  .stationery-grid{grid-template-columns:repeat(2,1fr);}
 }
 
 .product-card{
@@ -1874,13 +1931,9 @@ body.english .popup p{
         📱 الجرابات
       </a>
 
-      <button
-        onclick="showStationery()"
-        data-ar="✏️ الأدوات المكتبية"
-        data-en="✏️ Stationery"
-      >
-        ✏️ الأدوات المكتبية
-      </button>
+      <a href="cute-finds.html" data-ar="🎀 الحاجات الكيوت" data-en="🎀 Cute Collection">
+        🎀 الحاجات الكيوت
+      </a>
 
       <a href="#how" data-ar="✨ إزاي تطلب؟" data-en="✨ How to Order?">
         ✨ إزاي تطلب؟
@@ -1965,12 +2018,12 @@ body.english .popup p{
     </h1>
 
     <p
-      data-ar="اختار التصميم اللي يعبر عنك، وخلي كل تفصيلة في موبايلك شبه شخصيتك. وكمان استنى حاجات كيوت جديدة جاية قريب ✨"
-      data-en="Choose a design that represents you and make every detail of your phone match your personality. And stay tuned for more cute things coming soon ✨"
+      data-ar="اختار التصميم اللي يعبر عنك، وخلي كل تفصيلة في موبايلك شبه شخصيتك. وكمان عندنا حاجات كيوت متاحة دلوقتي ✨"
+      data-en="Choose a design that represents you and make every detail of your phone match your personality. And check out our cute finds available now ✨"
     >
       اختار التصميم اللي يعبر عنك،
       وخلي كل تفصيلة في موبايلك شبه شخصيتك.
-      وكمان استنى حاجات كيوت جديدة جاية قريب ✨
+      وكمان عندنا حاجات كيوت متاحة دلوقتي ✨
     </p>
 
     <div class="hero-buttons">
@@ -1986,9 +2039,9 @@ body.english .popup p{
 
       <button
         class="btn btn-soft"
-        onclick="showStationery()"
-        data-ar="✏️ الأدوات المكتبية"
-        data-en="✏️ Stationery"
+        onclick="window.location.href='cute-finds.html'"
+        data-ar="🎀 الحاجات الكيوت"
+        data-en="🎀 Cute Collection"
       >
         ✏️ الأدوات المكتبية
       </button>
@@ -2201,188 +2254,6 @@ body.english .popup p{
       🎨 Custom +20 ج
       &nbsp; • &nbsp;
       🚚 الشحن حسب المنطقة
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ================= STATIONERY ================= -->
-
-<section id="stationery">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2
-        data-ar="✏️ K.Store Stationery"
-        data-en="✏️ K.Store Stationery"
-      >
-        ✏️ K.Store Stationery
-      </h2>
-
-      <p
-        data-ar="حاجات كيوت للمذاكرة والتنظيم والإبداع... جاية قريب جدًا 💗"
-        data-en="Cute things for studying, organizing and creating... coming very soon 💗"
-      >
-        حاجات كيوت للمذاكرة والتنظيم والإبداع... جاية قريب جدًا 💗
-      </p>
-
-    </div>
-
-    <div class="stationery-grid">
-
-      <div class="product-card">
-
-        <div class="product-icon">
-          📓
-        </div>
-
-        <h3>Notebooks</h3>
-
-        <p
-          data-ar="نوتبوكس كيوت للملاحظات والمذاكرة واليوميات."
-          data-en="Cute notebooks for notes, studying and journaling."
-        >
-          نوتبوكس كيوت للملاحظات والمذاكرة واليوميات.
-        </p>
-
-        <span
-          class="coming"
-          data-ar="قريبًا جدًا ✨"
-          data-en="Coming very soon ✨"
-        >
-          قريبًا جدًا ✨
-        </span>
-
-      </div>
-
-      <div class="product-card">
-
-        <div class="product-icon">
-          📝
-        </div>
-
-        <h3>Sticky Notes</h3>
-
-        <p
-          data-ar="ستيكي نوت لكل فكرة وملاحظة مهمة."
-          data-en="Sticky notes for every idea and important reminder."
-        >
-          ستيكي نوت لكل فكرة وملاحظة مهمة.
-        </p>
-
-        <span
-          class="coming"
-          data-ar="قريبًا جدًا ✨"
-          data-en="Coming very soon ✨"
-        >
-          قريبًا جدًا ✨
-        </span>
-
-      </div>
-
-      <div class="product-card">
-
-        <div class="product-icon">
-          🖊️
-        </div>
-
-        <h3>Pens</h3>
-
-        <p
-          data-ar="أقلام لطيفة تكمل الـ stationery collection."
-          data-en="Cute pens to complete your stationery collection."
-        >
-          أقلام لطيفة تكمل الـ stationery collection.
-        </p>
-
-        <span
-          class="coming"
-          data-ar="قريبًا جدًا ✨"
-          data-en="Coming very soon ✨"
-        >
-          قريبًا جدًا ✨
-        </span>
-
-      </div>
-
-      <div class="product-card">
-
-        <div class="product-icon">
-          🎨
-        </div>
-
-        <h3>Coloring Books</h3>
-
-        <p
-          data-ar="كتب تلوين عشان تفصل شوية وتطلع إبداعك."
-          data-en="Coloring books to relax, unwind and bring out your creativity."
-        >
-          كتب تلوين عشان تفصل شوية وتطلع إبداعك.
-        </p>
-
-        <span
-          class="coming"
-          data-ar="قريبًا جدًا ✨"
-          data-en="Coming very soon ✨"
-        >
-          قريبًا جدًا ✨
-        </span>
-
-      </div>
-
-      <div class="product-card">
-
-        <div class="product-icon">
-          🎀
-        </div>
-
-        <h3>Stickers</h3>
-
-        <p
-          data-ar="استيكرات تضيف لمستك الخاصة لكل حاجة."
-          data-en="Stickers to add your own personal touch to everything."
-        >
-          استيكرات تضيف لمستك الخاصة لكل حاجة.
-        </p>
-
-        <span
-          class="coming"
-          data-ar="قريبًا جدًا ✨"
-          data-en="Coming very soon ✨"
-        >
-          قريبًا جدًا ✨
-        </span>
-
-      </div>
-
-      <div class="product-card">
-
-        <div class="product-icon">
-          🧸
-        </div>
-
-        <h3>Pouches</h3>
-
-        <p
-          data-ar="بوتش كيوت يشيل حاجتك ويكمل الـK.Store vibe."
-          data-en="Cute pouches to carry your things and complete the K.Store vibe."
-        >
-          بوتش كيوت يشيل حاجتك ويكمل الـK.Store vibe.
-        </p>
-
-        <span
-          class="coming"
-          data-ar="قريبًا جدًا ✨"
-          data-en="Coming very soon ✨"
-        >
-          قريبًا جدًا ✨
-        </span>
-
-      </div>
-
     </div>
 
   </div>
@@ -3079,13 +2950,11 @@ body.english .popup p{
         </summary>
 
         <p
-          data-ar="قريب جدًا 👀🎀 الـNotebooks والـSticky Notes والأقلام وكتب التلوين والاستيكرات والـPouches في الطريق."
-          data-en="Very soon 👀🎀 Notebooks, Sticky Notes, Pens, Coloring Books, Stickers and Pouches are on the way."
+          data-ar="أيوه 🎀 بعض الحاجات الكيوت متاحة دلوقتي، والتشكيلة هتكبر مع الوقت."
+          data-en="Yes 🎀 Some cute goodies are available now, and the collection will grow over time."
         >
-          قريب جدًا 👀🎀
-          الـNotebooks والـSticky Notes والأقلام
-          وكتب التلوين والاستيكرات والـPouches
-          في الطريق.
+          أيوه 🎀 بعض الحاجات الكيوت متاحة دلوقتي،
+          والتشكيلة هتكبر مع الوقت.
         </p>
 
       </details>
@@ -3186,57 +3055,6 @@ body.english .popup p{
 >
   💬
 </a>
-
-<!-- ================= STATIONERY POPUP ================= -->
-
-<div
-  class="popup-overlay"
-  id="stationeryPopup"
-  onclick="closePopup(event)"
->
-
-  <div class="popup">
-
-    <div class="popup-icon">
-      ✏️🎀
-    </div>
-
-    <h2
-      data-ar="قريبًا جدًا!"
-      data-en="Coming Very Soon!"
-    >
-      قريبًا جدًا!
-    </h2>
-
-    <p
-      data-ar="الـStationery collection بتاعت K.Store جاية بحاجات كيوت تستاهل تستنيها 💗"
-      data-en="K.Store's Stationery Collection is coming with lots of cute things worth waiting for 💗"
-    >
-      الـStationery collection
-      بتاعت K.Store جاية بحاجات كيوت
-      تستاهل تستنيها 💗
-
-      <br><br>
-
-      Notebooks • Sticky Notes • Pens
-
-      <br>
-
-      Coloring Books • Stickers • Pouches
-    </p>
-
-    <button
-      class="btn btn-primary close-popup"
-      onclick="hideStationery()"
-      data-ar="تمام 🎀"
-      data-en="Got it 🎀"
-    >
-      تمام 🎀
-    </button>
-
-  </div>
-
-</div>
 
 <!-- ================= ORDER SUCCESS POPUP ================= -->
 
@@ -3513,35 +3331,6 @@ langBtn.addEventListener(
 );
 
 applyLanguage(currentLanguage);
-
-/* ================= STATIONERY POPUP ================= */
-
-const popup =
-  document.getElementById(
-    "stationeryPopup"
-  );
-
-function showStationery(){
-
-  popup.classList.add("show");
-
-}
-
-function hideStationery(){
-
-  popup.classList.remove("show");
-
-}
-
-function closePopup(event){
-
-  if(event.target === popup){
-
-    hideStationery();
-
-  }
-
-}
 
 /* ================= SUCCESS POPUP ================= */
 
