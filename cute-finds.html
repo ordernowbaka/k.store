@@ -11,13 +11,27 @@
 
 <style>
 :root{
- --bg:#fff5fa; --bg2:#ffe9f3; --pink:#ff77ad; --pink2:#ff4f98; --deep:#9e3d72;
- --ink:#4c3040; --muted:#876879; --white:rgba(255,255,255,.88);
- --line:rgba(255,91,155,.18); --shadow:0 18px 55px rgba(180,70,125,.14);
+ --bg:#fff5fa;
+ --bg2:#ffe9f3;
+ --pink:#ff77ad;
+ --pink2:#ff4f98;
+ --deep:#9e3d72;
+ --ink:#4c3040;
+ --muted:#876879;
+ --white:rgba(255,255,255,.88);
+ --line:rgba(255,91,155,.18);
+ --shadow:0 18px 55px rgba(180,70,125,.14);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0
+}
+
+html{
+ scroll-behavior:smooth
+}
 
 body{
  font-family:Cairo,sans-serif;
@@ -64,7 +78,8 @@ body:before{
  animation:twinkle 2.6s ease-in-out infinite
 }
 
-.star:before,.star:after{
+.star:before,
+.star:after{
  content:"";
  position:absolute;
  background:#fff;
@@ -95,8 +110,14 @@ body:before{
 .star:nth-child(8){top:86%;left:82%;animation-delay:1.7s}
 
 @keyframes twinkle{
- 0%,100%{opacity:.25;transform:scale(.7)}
- 50%{opacity:1;transform:scale(1.2)}
+ 0%,100%{
+  opacity:.25;
+  transform:scale(.7)
+ }
+ 50%{
+  opacity:1;
+  transform:scale(1.2)
+ }
 }
 
 .content{
@@ -228,7 +249,9 @@ h1 span{
 }
 
 @keyframes float{
- 50%{transform:translateY(-5px)}
+ 50%{
+  transform:translateY(-5px)
+ }
 }
 
 .collection{
@@ -243,7 +266,8 @@ h1 span{
  gap:15px
 }
 
-.category:before,.category:after{
+.category:before,
+.category:after{
  content:"";
  height:1px;
  flex:1;
@@ -399,24 +423,54 @@ h1 span{
 }
 
 @media(max-width:1000px){
- .grid{grid-template-columns:repeat(3,1fr)}
- .links a{padding:8px}
+
+ .grid{
+  grid-template-columns:repeat(3,1fr)
+ }
+
+ .links a{
+  padding:8px
+ }
 }
 
 @media(max-width:760px){
 
- .navin{min-height:66px}
- .links{display:none}
+ .navin{
+  min-height:66px
+ }
+
+ .links{
+  display:none
+ }
+
  .grid{
   grid-template-columns:repeat(2,1fr);
   gap:14px
  }
- .media{height:205px}
- .hero{margin-top:30px}
- .category h2{font-size:23px}
- .name{font-size:15px}
- .price{font-size:20px}
- .logo{font-size:23px}
+
+ .media{
+  height:205px
+ }
+
+ .hero{
+  margin-top:30px
+ }
+
+ .category h2{
+  font-size:23px
+ }
+
+ .name{
+  font-size:15px
+ }
+
+ .price{
+  font-size:20px
+ }
+
+ .logo{
+  font-size:23px
+ }
 }
 
 @media(max-width:470px){
@@ -425,7 +479,9 @@ h1 span{
   grid-template-columns:1fr 1fr
  }
 
- .media{height:180px}
+ .media{
+  height:180px
+ }
 
  .card{
   border-radius:24px;
@@ -446,7 +502,9 @@ h1 span{
   padding:10px 6px
  }
 
- .actions{gap:5px}
+ .actions{
+  gap:5px
+ }
 
  .action{
   padding:0 9px
@@ -660,6 +718,7 @@ body.dark-mode:before{
 </style>
 </head>
 
+
 <body>
 
 <div class="sky" aria-hidden="true">
@@ -675,100 +734,160 @@ body.dark-mode:before{
 
 <div class="content">
 
+
+<!-- ================= NAV ================= -->
+
 <nav class="nav">
+
 <div class="navin">
 
- <a class="logo" href="index.html">K.Store 🎀</a>
+ <a class="logo" href="index.html">
+  K.Store 🎀
+ </a>
 
  <div class="links">
-  <a href="index.html" data-ar="📱 الجرابات" data-en="📱 Cases">📱 الجرابات</a>
-  <a href="#collection" data-ar="🎀 الحاجات الكيوت" data-en="🎀 Cute Finds">🎀 الحاجات الكيوت</a>
+
+  <a
+   href="index.html"
+   data-ar="📱 الجرابات"
+   data-en="📱 Cases"
+  >
+   📱 الجرابات
+  </a>
+
+  <a
+   href="#collection"
+   data-ar="🎀 الحاجات الكيوت"
+   data-en="🎀 Cute Finds"
+  >
+   🎀 الحاجات الكيوت
+  </a>
+
  </div>
 
  <div class="actions">
 
-  <button class="action" id="langBtn">ENG</button>
+  <button
+   class="action"
+   id="langBtn"
+  >
+   ENG
+  </button>
 
   <button
-    class="action"
-    id="modeBtn"
-    aria-label="Toggle dark mode"
-    title="Dark mode"
-  >🌙</button>
+   class="action"
+   id="modeBtn"
+   aria-label="Toggle dark mode"
+   title="Dark mode"
+  >
+   🌙
+  </button>
 
   <a
-    class="action wa-desktop"
-    href="https://wa.me/201096056450"
-    target="_blank"
-    style="display:flex;align-items:center;text-decoration:none"
-  >💬 WhatsApp</a>
+   class="action wa-desktop"
+   href="https://wa.me/201096056450"
+   target="_blank"
+   style="display:flex;align-items:center;text-decoration:none"
+  >
+   💬 WhatsApp
+  </a>
 
   <button
-    class="menu-btn"
-    id="menuBtn"
-    aria-label="Open menu"
-  >☰</button>
+   class="menu-btn"
+   id="menuBtn"
+   aria-label="Open menu"
+  >
+   ☰
+  </button>
 
  </div>
 
- <div class="mobile-menu" id="mobileMenu">
 
-  <a href="index.html"
-     data-ar="📱 الجرابات"
-     data-en="📱 Cases">
-     📱 الجرابات
+ <div
+  class="mobile-menu"
+  id="mobileMenu"
+ >
+
+  <a
+   href="index.html"
+   data-ar="📱 الجرابات"
+   data-en="📱 Cases"
+  >
+   📱 الجرابات
   </a>
 
-  <a href="#collection"
-     data-ar="🎀 الحاجات الكيوت"
-     data-en="🎀 Cute Finds">
-     🎀 الحاجات الكيوت
+  <a
+   href="#collection"
+   data-ar="🎀 الحاجات الكيوت"
+   data-en="🎀 Cute Finds"
+  >
+   🎀 الحاجات الكيوت
   </a>
 
-  <button id="mobileLangBtn">🌐 English</button>
+  <button id="mobileLangBtn">
+   🌐 English
+  </button>
 
-  <button id="mobileModeBtn">🌙 Dark Mode</button>
+  <button id="mobileModeBtn">
+   🌙 Dark Mode
+  </button>
 
-  <a href="https://wa.me/201096056450" target="_blank">
-    💬 WhatsApp
+  <a
+   href="https://wa.me/201096056450"
+   target="_blank"
+  >
+   💬 WhatsApp
   </a>
 
  </div>
 
 </div>
+
 </nav>
 
+
+<!-- ================= HERO ================= -->
 
 <header class="hero">
 
  <div
-   class="eyebrow"
-   data-ar="✨ حاجات كيوت مختارة من K.Store"
-   data-en="✨ Cute little finds by K.Store"
+  class="eyebrow"
+  data-ar="✮⋆˙ حاجات كيوت مختارة by K.Store"
+  data-en="✮⋆˙ Cute little finds by K.Store"
  >
-   ✨ حاجات كيوت مختارة من K.Store
+  ✮⋆˙ حاجات كيوت مختارة by K.Store
  </div>
 
+
  <h1
-   data-ar="الحاجات الكيوت <span>لـ K.Store 🎀</span>"
-   data-en="Cute Finds <span>by K.Store 🎀</span>"
+  data-ar="الحاجات الكيوت <span>by K.Store 🎀ྀིྀི</span>"
+  data-en="Cute Finds <span>by K.Store 🎀ྀིྀི</span>"
  >
-   Cute Finds <span>by K.Store 🎀</span>
+  Cute Finds <span>by K.Store 🎀ྀིྀི</span>
  </h1>
 
+
  <p
-   data-ar="مش بس جرابات! ✮⋆˙ حاجات كيوت للمكتب، للمذاكرة، ولما تحبي تضيفي حاجة صغيرة تفرّح يومك."
-   data-en="Not just phone cases! ✮⋆˙ Cute little things for your desk, study time, and those tiny things that make your day happier."
+  data-ar="مش بس جرابات! 🥹💗 حاجات كيوت للمكتب، للمذاكرة، ولما تحبي تضيفي حاجة صغيرة تفرّح يومك."
+  data-en="Not just phone cases! 🥹💗 Cute little things for your desk, study time, and those tiny things that make your day happier."
  >
-   مش بس جرابات!✮⋆˙حاجات كيوت للمكتب، للمذاكرة، ولما تحبي تضيفي حاجة صغيرة تفرّح يومك.
+  مش بس جرابات! 🥹💗 حاجات كيوت للمكتب، للمذاكرة، ولما تحبي تضيفي حاجة صغيرة تفرّح يومك.
  </p>
 
- <div class="sparkle-row">✦ ✧ ♡ ✧ ✦</div>
+
+ <div class="sparkle-row">
+  ✮⋆˙  ♡  ✮⋆˙
+ </div>
 
 </header>
 
 
-<main id="collection" class="collection">
+<!-- ================= COLLECTION ================= -->
+
+<main
+ id="collection"
+ class="collection"
+>
 
 
 <!-- ================= BUBBLE GUNS ================= -->
@@ -776,13 +895,16 @@ body.dark-mode:before{
 <section>
 
  <div class="category">
+
   <h2
-    data-en="🫧 Bubble Guns"
-    data-ar="🫧 مسدسات الفقاعات"
+   data-en="🫧 Bubble Guns"
+   data-ar="🫧 مسدسات الفقاعات"
   >
-    🫧 Bubble Guns
+   🫧 Bubble Guns
   </h2>
+
  </div>
+
 
  <div class="grid">
 
@@ -813,8 +935,8 @@ const products = [
 
  [
   'bubble159.png',
-  'Bubble Gun — Blue 🩵',
-  'مسدس فقاعات — أزرق 🩵',
+  'Bubble Gun — Blue ✮⋆˙',
+  'مسدس فقاعات — أزرق ✮⋆˙',
   '159 EGP'
  ],
 
@@ -849,16 +971,13 @@ const products = [
 ];
 
 
-/* مسار الصور الصحيح */
-
 function asset(filename){
  return './assets/' + filename;
 }
 
 
-/* عرض المنتجات */
-
 document.write(
+
  products.map(p => `
 
  <article class="card">
@@ -883,7 +1002,9 @@ document.write(
     ${p[1]}
    </div>
 
-   <div class="price">${p[3]}</div>
+   <div class="price">
+    ${p[3]}
+   </div>
 
    <span
     class="stock"
@@ -907,11 +1028,13 @@ document.write(
  </article>
 
  `).join('')
+
 );
 
 </script>
 
  </div>
+
 </section>
 
 
@@ -929,6 +1052,7 @@ document.write(
   </h2>
 
  </div>
+
 
  <div class="grid">
 
@@ -951,6 +1075,7 @@ const squish = [
  ]
 
 ];
+
 
 document.write(
 
@@ -978,7 +1103,9 @@ document.write(
     ${p[1]}
    </div>
 
-   <div class="price">${p[3]}</div>
+   <div class="price">
+    ${p[3]}
+   </div>
 
    <span
     class="stock"
@@ -1008,6 +1135,7 @@ document.write(
 </script>
 
  </div>
+
 </section>
 
 
@@ -1025,6 +1153,7 @@ document.write(
   </h2>
 
  </div>
+
 
  <div class="grid">
 
@@ -1055,6 +1184,7 @@ const station = [
 
 ];
 
+
 document.write(
 
  station.map(p => `
@@ -1081,7 +1211,9 @@ document.write(
     ${p[1]}
    </div>
 
-   <div class="price">${p[3]}</div>
+   <div class="price">
+    ${p[3]}
+   </div>
 
    <span
     class="stock"
@@ -1111,6 +1243,7 @@ document.write(
 </script>
 
  </div>
+
 </section>
 
 
@@ -1128,6 +1261,7 @@ document.write(
   </h2>
 
  </div>
+
 
  <div class="grid">
 
@@ -1149,11 +1283,12 @@ const books = [
   'Random Design Notebook 🎀',
   'نوت بوك بتصميم عشوائي 🎀',
   '95 EGP',
-  'Random design ✨',
-  'الاختيار عشوائي ✨'
+  'Random design ✮⋆˙',
+  'الاختيار عشوائي ✮⋆˙'
  ]
 
 ];
+
 
 document.write(
 
@@ -1181,7 +1316,9 @@ document.write(
     ${p[1]}
    </div>
 
-   <div class="price">${p[3]}</div>
+   <div class="price">
+    ${p[3]}
+   </div>
 
    <span
     class="stock"
@@ -1211,6 +1348,7 @@ document.write(
 </script>
 
  </div>
+
 </section>
 
 
@@ -1229,6 +1367,7 @@ document.write(
 
  </div>
 
+
  <div class="grid">
 
   <article class="card">
@@ -1239,10 +1378,11 @@ document.write(
       font-size:86px;
       filter:drop-shadow(0 12px 10px rgba(120,60,90,.12))
     ">
-      🐥
+     🐥
     </div>
 
    </div>
+
 
    <div class="info">
 
@@ -1280,17 +1420,20 @@ document.write(
   </article>
 
  </div>
+
 </section>
 
 
 </main>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer class="footer">
 
  <span
   data-en="Made with 💗 by <strong>K.Store</strong> · Cute things, happy little finds ✨"
-  data-ar="معمول بحب 💗من <strong>K.Store</strong> · حاجات كيوت تفرّحك ✨"
+  data-ar="معمول بحب 💗 by <strong>K.Store</strong> · حاجات كيوت تفرّحك ✨"
  >
   Made with 💗 by <strong>K.Store</strong> · Cute things, happy little finds ✨
  </span>
@@ -1304,12 +1447,23 @@ document.write(
 
 /* ================= ELEMENTS ================= */
 
-const langBtn = document.getElementById('langBtn');
-const modeBtn = document.getElementById('modeBtn');
-const mobileLangBtn = document.getElementById('mobileLangBtn');
-const mobileModeBtn = document.getElementById('mobileModeBtn');
-const menuBtn = document.getElementById('menuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
+const langBtn =
+ document.getElementById('langBtn');
+
+const modeBtn =
+ document.getElementById('modeBtn');
+
+const mobileLangBtn =
+ document.getElementById('mobileLangBtn');
+
+const mobileModeBtn =
+ document.getElementById('mobileModeBtn');
+
+const menuBtn =
+ document.getElementById('menuBtn');
+
+const mobileMenu =
+ document.getElementById('mobileMenu');
 
 
 /* ================= SAVED SETTINGS ================= */
@@ -1338,6 +1492,7 @@ function applyLanguage(l){
   ? 'rtl'
   : 'ltr';
 
+
  document
   .querySelectorAll('[data-ar][data-en]')
   .forEach(el => {
@@ -1349,10 +1504,12 @@ function applyLanguage(l){
 
   });
 
+
  langBtn.textContent =
   l === 'ar'
   ? 'ENG'
   : 'عربي';
+
 
  if(mobileLangBtn){
 
@@ -1362,6 +1519,7 @@ function applyLanguage(l){
    : '🌐 عربي';
 
  }
+
 
  localStorage.setItem(
   'kstoreCuteLanguage',
@@ -1395,6 +1553,7 @@ function applyMode(m){
   ? 'Light mode'
   : 'Dark mode';
 
+
  if(mobileModeBtn){
 
   mobileModeBtn.textContent =
@@ -1403,6 +1562,7 @@ function applyMode(m){
    : '🌙 Dark Mode';
 
  }
+
 
  localStorage.setItem(
   'kstoreCuteMode',
@@ -1423,6 +1583,7 @@ function toggleLanguage(){
  );
 
 }
+
 
 function toggleMode(){
 
@@ -1447,6 +1608,7 @@ modeBtn.addEventListener(
  toggleMode
 );
 
+
 mobileLangBtn?.addEventListener(
  'click',
  () => {
@@ -1455,10 +1617,11 @@ mobileLangBtn?.addEventListener(
 
   mobileMenu.classList.remove('open');
 
-  menuBtn.textContent = '☰';
+  menuBtn.textContent='☰';
 
  }
 );
+
 
 mobileModeBtn?.addEventListener(
  'click',
@@ -1468,7 +1631,7 @@ mobileModeBtn?.addEventListener(
 
   mobileMenu.classList.remove('open');
 
-  menuBtn.textContent = '☰';
+  menuBtn.textContent='☰';
 
  }
 );
@@ -1490,6 +1653,7 @@ menuBtn?.addEventListener(
  }
 );
 
+
 document
  .querySelectorAll('.mobile-menu a')
  .forEach(a => {
@@ -1500,7 +1664,7 @@ document
 
     mobileMenu.classList.remove('open');
 
-    menuBtn.textContent = '☰';
+    menuBtn.textContent='☰';
 
    }
   );
@@ -1523,8 +1687,8 @@ function order(product){
   'Bubble Gun — Pink 🎀':
    'مسدس فقاعات — بينك 🎀',
 
-  'Bubble Gun — Blue 🎀ྀིྀི':
-   'مسدس فقاعات — أزرق 🎀ྀིྀི',
+  'Bubble Gun — Blue ✮⋆˙':
+   'مسدس فقاعات — أزرق ✮⋆˙',
 
   'Bubble Gun — PREMIUM PINK ✨':
    'مسدس فقاعات — بينك PREMIUM ✨',
@@ -1564,13 +1728,16 @@ function order(product){
 
  };
 
+
  const productName =
   lang === 'ar'
   ? (arabicNames[product] || product)
   : product;
 
+
  const msg =
   encodeURIComponent(
+
    `${
     lang === 'ar'
     ? 'أهلاً K.Store 💗'
@@ -1580,7 +1747,9 @@ function order(product){
     ? 'عايزة أطلب:'
     : 'I want to order:'
    } ${productName}`
+
   );
+
 
  window.open(
   `https://wa.me/201096056450?text=${msg}`,
