@@ -253,6 +253,17 @@ nav{
   display:block;
 }
 
+.product-placeholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  font-size:48px;
+}
+
 .product-info{
   padding:14px 5px 4px;
   display:flex;
@@ -522,6 +533,8 @@ body.dark .mode-btn{
 
 <main class="collection" id="collection">
 
+  <!-- ================= BUBBLE GUNS ================= -->
+
   <div class="section-title">
     <h2 id="bubbleTitle">Bubble Guns 🫧</h2>
     <p id="bubbleSub">
@@ -531,6 +544,8 @@ body.dark .mode-btn{
 
   <div class="products" id="bubbleProducts"></div>
 
+
+  <!-- ================= SQUISHIES ================= -->
 
   <div class="section-title">
     <h2 id="squishTitle">Squishies 🧸</h2>
@@ -542,6 +557,8 @@ body.dark .mode-btn{
   <div class="products" id="squishProducts"></div>
 
 
+  <!-- ================= STATIONERY ================= -->
+
   <div class="section-title">
     <h2 id="stationTitle">Cute Stationery ✏️</h2>
     <p id="stationSub">
@@ -551,6 +568,8 @@ body.dark .mode-btn{
 
   <div class="products" id="stationProducts"></div>
 
+
+  <!-- ================= NOTEBOOKS ================= -->
 
   <div class="section-title">
     <h2 id="booksTitle">Notebooks 📚</h2>
@@ -572,14 +591,8 @@ body.dark .mode-btn{
 <script>
 
 /* =========================================================
-   IMPORTANT IMAGE PATH FIX
-   =========================================================
-
-   All images are inside:
-   ./assets/
-
-   We keep the exact filenames you provided.
-*/
+   IMAGE PATH
+   ========================================================= */
 
 const ASSET_BASE = './assets/';
 
@@ -592,31 +605,33 @@ function asset(filename){
    PRODUCTS
    ========================================================= */
 
+/* ================= BUBBLE GUNS ================= */
+
 const products = [
 
   [
-    'bubble1mouse.png',
+    'bubble2duck.png',
     'Bubble Gun Mini — Duck 🐥',
     'مسدس فقاعات ميني — بطة 🐥',
     '149 EGP'
   ],
 
   [
-    'bubble2duck.png',
+    'bubble1mouse.png',
     'Bubble Gun Mini — Mouse 🐭',
     'مسدس فقاعات ميني — فأر 🐭',
     '149 EGP'
   ],
 
   [
-    'bubble159.png',
+    'bubble159(2).png',
     'Bubble Gun — Pink 🎀',
     'مسدس فقاعات — بينك 🎀',
     '159 EGP'
   ],
 
   [
-    'bubble159(2).png',
+    'bubble159.png',
     'Bubble Gun — Blue 🩵',
     'مسدس فقاعات — أزرق 🩵',
     '159 EGP'
@@ -653,6 +668,8 @@ const products = [
 ];
 
 
+/* ================= SQUISHIES ================= */
+
 const squish = [
 
   [
@@ -672,10 +689,12 @@ const squish = [
 ];
 
 
+/* ================= STATIONERY ================= */
+
 const station = [
 
   [
-    'pen1.png',
+    'colorpen1.png',
     '6-Color Liner Curler 🖊️',
     'قلم تحديد 6 ألوان 🖊️',
     '69 EGP'
@@ -689,14 +708,26 @@ const station = [
   ],
 
   [
-    'colorpen1.png',
+    'pen1.png',
     'Kuromi Multi-Color Pen 🖊️',
     'قلم كيرومي متعدد الألوان 🖊️',
     '35 EGP'
+  ],
+
+  [
+    null,
+    'Duck Mini Dispenser 🐥',
+    'موزع صغير على شكل بطة 🐥',
+    '69 EGP',
+    'Cute desk dispenser ✨',
+    'ديسبنسر مكتب كيوت ✨',
+    '🐥'
   ]
 
 ];
 
+
+/* ================= NOTEBOOKS ================= */
 
 const books = [
 
@@ -704,9 +735,7 @@ const books = [
     'notebook1.png',
     'Teddy Bear Notebook + Bookmark 🧸',
     'نوت بوك دب + فاصل كتاب 🧸',
-    '79 EGP',
-    '2 Available ✨',
-    'متاح 2 ✨'
+    '79 EGP'
   ],
 
   [
@@ -714,8 +743,8 @@ const books = [
     'Random Design Notebook 🎀',
     'نوت بوك بتصميم عشوائي 🎀',
     '95 EGP',
-    '1 Available ✨',
-    'متاح 1 ✨'
+    'Random design — design is selected randomly ✨',
+    'التصميم عشوائي — الاختيار بيكون عشوائي ✨'
   ]
 
 ];
@@ -754,17 +783,39 @@ function renderProducts(list, containerId){
 
     card.className = 'product-card';
 
-    card.innerHTML = `
 
-      <div class="product-image">
+    /* ================= IMAGE ================= */
 
+    let imageHTML = '';
+
+    if(p[0]){
+
+      imageHTML = `
         <img
           src="${asset(p[0])}"
           alt="${name}"
           loading="lazy"
           onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=&quot;color:#9e3d72;font-weight:800;text-align:center;padding:20px&quot;>Image not found:<br>${p[0]}</span>';"
         >
+      `;
 
+    }else{
+
+      imageHTML = `
+        <div class="product-placeholder">
+          ${p[6] || '🐥'}
+        </div>
+      `;
+
+    }
+
+
+    /* ================= CARD ================= */
+
+    card.innerHTML = `
+
+      <div class="product-image">
+        ${imageHTML}
       </div>
 
       <div class="product-info">
@@ -795,6 +846,7 @@ function renderProducts(list, containerId){
         </button>
 
       </div>
+
     `;
 
     container.appendChild(card);
@@ -810,13 +862,25 @@ function renderProducts(list, containerId){
 
 function renderAll(){
 
-  renderProducts(products,'bubbleProducts');
+  renderProducts(
+    products,
+    'bubbleProducts'
+  );
 
-  renderProducts(squish,'squishProducts');
+  renderProducts(
+    squish,
+    'squishProducts'
+  );
 
-  renderProducts(station,'stationProducts');
+  renderProducts(
+    station,
+    'stationProducts'
+  );
 
-  renderProducts(books,'bookProducts');
+  renderProducts(
+    books,
+    'bookProducts'
+  );
 
 }
 
@@ -868,6 +932,9 @@ function order(product){
     'Kuromi Multi-Color Pen 🖊️':
       'قلم كيرومي متعدد الألوان 🖊️',
 
+    'Duck Mini Dispenser 🐥':
+      'موزع صغير على شكل بطة 🐥',
+
     'Teddy Bear Notebook + Bookmark 🧸':
       'نوت بوك دب + فاصل كتاب 🧸',
 
@@ -899,57 +966,70 @@ function updateLanguage(){
   document.documentElement.lang = language;
 
   document.getElementById('langBtn').textContent =
-    language === 'en' ? 'عربي' : 'English';
+    language === 'en'
+      ? 'عربي'
+      : 'English';
+
 
   document.getElementById('heroTitle').innerHTML =
     language === 'en'
       ? 'Cute things you\\'ll <span>love</span> 🧸'
       : 'حاجات كيوت هتحبوها <span>أوي</span> 🧸';
 
+
   document.getElementById('heroText').textContent =
     language === 'en'
       ? 'Little cute finds for your desk, room, and everyday life. Limited quantities available ✨'
       : 'حاجات كيوت صغيرة لمكتبك وأوضتك ويومك. الكميات محدودة ✨';
+
 
   document.getElementById('bubbleTitle').textContent =
     language === 'en'
       ? 'Bubble Guns 🫧'
       : 'مسدسات الفقاعات 🫧';
 
+
   document.getElementById('bubbleSub').textContent =
     language === 'en'
       ? 'Fun little bubble toys for extra cute moments ✨'
       : 'ألعاب فقاعات لطيفة للحظات كيوت أكتر ✨';
+
 
   document.getElementById('squishTitle').textContent =
     language === 'en'
       ? 'Squishies 🧸'
       : 'سكويشي 🧸';
 
+
   document.getElementById('squishSub').textContent =
     language === 'en'
       ? 'Soft, cute and satisfying to squeeze 💗'
       : 'ناعمة وكيوت ولذيذة في الضغط عليها 💗';
+
 
   document.getElementById('stationTitle').textContent =
     language === 'en'
       ? 'Cute Stationery ✏️'
       : 'أدوات مكتبية كيوت ✏️';
 
+
   document.getElementById('stationSub').textContent =
     language === 'en'
       ? 'Cute little things to make studying more fun 🎀'
       : 'حاجات مكتبية كيوت تخلي المذاكرة ألطف 🎀';
+
 
   document.getElementById('booksTitle').textContent =
     language === 'en'
       ? 'Notebooks 📚'
       : 'نوت بوك 📚';
 
+
   document.getElementById('booksSub').textContent =
     language === 'en'
       ? 'Cute notebooks for notes, journaling and doodles ✨'
       : 'نوت بوك كيوت للملاحظات والكتابة والرسم ✨';
+
 
   document.querySelectorAll('[data-en][data-ar]')
     .forEach(el => {
@@ -961,7 +1041,9 @@ function updateLanguage(){
 
     });
 
+
   renderAll();
+
 
   localStorage.setItem(
     'kstoreCuteLanguage',
@@ -1003,12 +1085,18 @@ function updateMode(){
     darkMode
   );
 
+
   document.getElementById('modeBtn').textContent =
-    darkMode ? '☀' : '☾';
+    darkMode
+      ? '☀'
+      : '☾';
+
 
   localStorage.setItem(
     'kstoreCuteMode',
-    darkMode ? 'dark' : 'light'
+    darkMode
+      ? 'dark'
+      : 'light'
   );
 
 }
