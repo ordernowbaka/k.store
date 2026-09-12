@@ -342,6 +342,60 @@ body.dark .navbar{
   color:var(--dark-pink);
 }
 
+/* ✨ Glow + glitter ONLY on the Cute Collection navbar link */
+.cute-nav-link{
+  position:relative;
+  overflow:visible;
+  color:var(--dark-pink) !important;
+  text-shadow:0 0 6px var(--star-glow), 0 0 13px var(--star-glow);
+  animation:cuteNavGlow 2s ease-in-out infinite;
+  transition:transform .25s ease, color .25s ease, text-shadow .25s ease, background .25s ease;
+}
+
+.cute-nav-link::before,
+.cute-nav-link::after{
+  position:absolute;
+  pointer-events:none;
+  opacity:.85;
+  color:var(--dark-pink);
+  text-shadow:0 0 7px var(--dark-pink), 0 0 14px var(--star-glow);
+  animation:navSparkle 1.5s ease-in-out infinite;
+}
+
+.cute-nav-link::before{
+  content:"✦";
+  left:-7px;
+  top:-7px;
+  font-size:10px;
+}
+
+.cute-nav-link::after{
+  content:"✧";
+  right:-7px;
+  bottom:-7px;
+  font-size:11px;
+  animation-delay:.7s;
+}
+
+.cute-nav-link:hover,
+.cute-nav-link:focus-visible{
+  background:var(--light-pink);
+  color:var(--dark-pink) !important;
+  transform:translateY(-1px) scale(1.02);
+  text-shadow:0 0 8px var(--star-glow), 0 0 18px var(--star-glow);
+  box-shadow:0 0 14px rgba(227,160,186,.3);
+}
+
+@keyframes navSparkle{
+  0%,100%{opacity:.3; transform:scale(.75) rotate(0deg);}
+  50%{opacity:1; transform:scale(1.35) rotate(12deg);}
+}
+
+@keyframes cuteNavGlow{
+  0%,100%{text-shadow:0 0 5px var(--star-glow), 0 0 10px var(--star-glow);}
+  50%{text-shadow:0 0 8px var(--star-glow), 0 0 18px var(--star-glow);}
+}
+
 .nav-actions{
   display:flex;
   align-items:center;
@@ -1517,6 +1571,78 @@ footer p{
   transform:scale(1.08);
 }
 
+
+/* ================= NEW PRODUCTS WELCOME POPUP ================= */
+
+.new-products-popup{
+  width:min(460px,100%);
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:34px;
+  padding:38px 25px 28px;
+  text-align:center;
+  box-shadow:0 25px 80px rgba(0,0,0,.25),0 0 45px rgba(227,160,186,.22);
+  animation:popupIn .35s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.new-products-popup::before,
+.new-products-popup::after{
+  content:"✦";
+  position:absolute;
+  color:var(--dark-pink);
+  text-shadow:0 0 10px var(--star-glow);
+  animation:twinkle 2s ease-in-out infinite;
+}
+.new-products-popup::before{top:18px;left:25px;font-size:20px}
+.new-products-popup::after{bottom:20px;right:28px;font-size:15px;animation-delay:.8s}
+
+.new-products-popup .new-icon{
+  font-size:46px;
+  margin-bottom:10px;
+  filter:drop-shadow(0 0 12px rgba(227,160,186,.35));
+}
+
+.new-products-popup h2{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.new-products-popup p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:22px;
+}
+
+.new-popup-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.new-popup-actions .btn{
+  min-width:150px;
+}
+
+.new-popup-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:var(--light-pink);
+  color:var(--dark-pink);
+  cursor:pointer;
+  font-size:18px;
+  font-family:inherit;
+}
+
 /* ================= POPUP ================= */
 
 .popup-overlay{
@@ -1604,6 +1730,113 @@ footer p{
 
 .close-popup{
   margin-top:22px;
+}
+
+
+/* ================= CUTE GLOW + GLITTER ================= */
+
+.hero-content,
+.section-title,
+.price-card,
+.product-card,
+.step,
+.form-box,
+.review,
+details,
+.cta{
+  position:relative;
+}
+
+.hero-content::before,
+.section-title::before,
+.price-card::before,
+.product-card::before,
+.step::before,
+.form-box::before,
+.review::before,
+details::before,
+.cta::before{
+  content:"";
+  position:absolute;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(227,160,186,.24),transparent 68%);
+  filter:blur(4px);
+  pointer-events:none;
+  opacity:.8;
+  animation:softGlow 4s ease-in-out infinite;
+}
+
+.hero-content::before{top:0;left:4%;}
+.section-title::before{top:-20px;left:10%;}
+.price-card::before,.product-card::before{top:-45px;right:-35px;}
+.step::before{bottom:-45px;left:-35px;}
+.form-box::before{top:-45px;right:-35px;}
+.review::before{bottom:-45px;left:-35px;}
+details::before{top:-35px;right:-35px;}
+.cta::before{top:-50px;left:50%;transform:translateX(-50%);}
+
+.price-card:hover,
+.product-card:hover,
+.step:hover,
+.review:hover,
+details:hover{
+  box-shadow:
+    0 18px 48px rgba(151,82,111,.16),
+    0 0 28px rgba(227,160,186,.16);
+}
+
+.btn-primary,
+.lang-btn,
+.mode-btn,
+.order-btn{
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-primary::after,
+.lang-btn::after,
+.mode-btn::after,
+.order-btn::after{
+  content:"";
+  position:absolute;
+  top:-80%;
+  left:-45%;
+  width:35%;
+  height:260%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:rotate(22deg);
+  animation:shimmer 4.5s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.glitter-dot{
+  position:fixed;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--star);
+  box-shadow:0 0 7px var(--star-glow),0 0 15px var(--star-glow);
+  pointer-events:none;
+  z-index:0;
+  animation:glitterFloat 5s ease-in-out infinite;
+}
+
+@keyframes softGlow{
+  0%,100%{opacity:.35;transform:scale(.85)}
+  50%{opacity:.9;transform:scale(1.12)}
+}
+
+@keyframes shimmer{
+  0%,55%{left:-45%;opacity:0}
+  65%{opacity:1}
+  82%,100%{left:125%;opacity:0}
+}
+
+@keyframes glitterFloat{
+  0%,100%{opacity:.2;transform:translateY(0) scale(.7)}
+  50%{opacity:1;transform:translateY(-12px) scale(1.2)}
 }
 
 /* ================= RESPONSIVE ================= */
@@ -1913,6 +2146,12 @@ body.english .popup p{
   <span class="shooting-star three"></span>
   <span class="shooting-star four"></span>
 
+  <span class="glitter-dot" style="top:18%;left:15%;animation-delay:.4s"></span>
+  <span class="glitter-dot" style="top:31%;left:35%;animation-delay:1.3s"></span>
+  <span class="glitter-dot" style="top:52%;left:79%;animation-delay:2.1s"></span>
+  <span class="glitter-dot" style="top:66%;left:28%;animation-delay:3s"></span>
+  <span class="glitter-dot" style="top:84%;left:91%;animation-delay:1.8s"></span>
+
 </div>
 
 <!-- ================= NAVBAR ================= -->
@@ -1931,7 +2170,7 @@ body.english .popup p{
         📱 الجرابات
       </a>
 
-      <a href="cute-finds.html" data-ar="🎀 الحاجات الكيوت" data-en="🎀 Cute Collection">
+      <a href="cute-finds.html" class="cute-nav-link" data-ar="🎀 الحاجات الكيوت" data-en="🎀 Cute Collection">
         🎀 الحاجات الكيوت
       </a>
 
@@ -3056,6 +3295,61 @@ body.english .popup p{
   💬
 </a>
 
+<!-- ================= NEW PRODUCTS WELCOME POPUP ================= -->
+
+<div
+  class="popup-overlay"
+  id="newProductsPopup"
+>
+  <div class="new-products-popup">
+    <button
+      class="new-popup-close"
+      type="button"
+      onclick="closeNewProductsPopup()"
+      aria-label="Close"
+    >
+      ✕
+    </button>
+
+    <div class="new-icon">🎀ྀིྀི</div>
+
+    <h2
+      data-ar="استني! شوفت منتجاتنا الجديدة؟ ✮⋆˙"
+      data-en="Wait! Have you seen our new products? ✮⋆˙"
+    >
+      استني! شوفت منتجاتنا الجديدة؟ ✮⋆˙
+    </h2>
+
+    <p
+      data-ar="نزلنا حاجات كيوت جديدة في K.Store، تعالي شوفيها يمكن تلاقي حاجة تحبيها 🎀"
+      data-en="We just added new cute finds to K.Store. Come take a look — you might find something you love 🎀"
+    >
+      نزلنا حاجات كيوت جديدة في K.Store، تعالي شوفيها يمكن تلاقي حاجة تحبيها 🎀
+    </p>
+
+    <div class="new-popup-actions">
+      <a
+        href="cute-finds.html"
+        class="btn btn-primary"
+        data-ar="🎀 شوفي الجديد"
+        data-en="🎀 See What's New"
+      >
+        🎀 شوفي الجديد
+      </a>
+
+      <button
+        type="button"
+        class="btn btn-soft"
+        onclick="closeNewProductsPopup()"
+        data-ar="يمكن بعدين ♡"
+        data-en="Maybe later ♡"
+      >
+        يمكن بعدين ♡
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- ================= ORDER SUCCESS POPUP ================= -->
 
 <div
@@ -3112,7 +3406,7 @@ const modeBtn =
   document.getElementById("modeBtn");
 
 const savedMode =
-  localStorage.getItem("kstoreMode");
+  localStorage.getItem("kstoreMode") || localStorage.getItem("kstoreCuteMode");
 
 if(savedMode === "dark"){
 
@@ -3137,6 +3431,10 @@ modeBtn.addEventListener(
     localStorage.setItem(
       "kstoreMode",
       dark ? "dark" : "pink"
+    );
+    localStorage.setItem(
+      "kstoreCuteMode",
+      dark ? "dark" : "light"
     );
 
   }
@@ -3238,7 +3536,7 @@ const langBtn =
   document.getElementById("langBtn");
 
 const savedLanguage =
-  localStorage.getItem("kstoreLanguage");
+  localStorage.getItem("kstoreLanguage") || localStorage.getItem("kstoreCuteLanguage");
 
 let currentLanguage =
   savedLanguage === "en"
@@ -3314,6 +3612,10 @@ function applyLanguage(language){
     "kstoreLanguage",
     language
   );
+  localStorage.setItem(
+    "kstoreCuteLanguage",
+    language
+  );
 
 }
 
@@ -3360,6 +3662,27 @@ function closeSuccessPopup(event){
   }
 
 }
+
+/* ================= NEW PRODUCTS WELCOME POPUP ================= */
+
+const newProductsPopup =
+  document.getElementById("newProductsPopup");
+
+function closeNewProductsPopup(){
+  if(!newProductsPopup) return;
+  newProductsPopup.classList.remove("show");
+}
+
+function showNewProductsPopup(){
+  if(!newProductsPopup) return;
+  setTimeout(()=>{
+    newProductsPopup.classList.add("show");
+  },500);
+}
+
+// Show the welcome popup when the home page finishes opening.
+window.addEventListener("load", showNewProductsPopup);
+
 
 /* ================= PRICE CALCULATOR ================= */
 
