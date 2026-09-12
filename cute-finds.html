@@ -715,6 +715,43 @@ body.dark-mode:before{
  radial-gradient(circle,#b874c8 1px,transparent 1.5px);
  background-size:30px 30px,50px 50px
 }
+
+/* ===== CUTE FINDS NAVBAR GLOW + GLITTER ===== */
+.links a.cute-finds-nav{
+  position:relative;
+  color:var(--deep);
+  text-shadow:0 0 7px rgba(255,105,180,.45), 0 0 16px rgba(255,155,205,.35);
+  animation:cuteNavGlow 2s ease-in-out infinite;
+}
+.links a.cute-finds-nav:before,
+.links a.cute-finds-nav:after{
+  position:absolute;
+  pointer-events:none;
+  font-size:11px;
+  color:#ff72ad;
+  text-shadow:0 0 7px #fff, 0 0 12px #ff72ad;
+  animation:cuteNavSparkle 1.5s ease-in-out infinite;
+}
+.links a.cute-finds-nav:before{
+  content:"✦";
+  top:1px;
+  right:2px;
+}
+.links a.cute-finds-nav:after{
+  content:"✧";
+  bottom:0;
+  left:3px;
+  animation-delay:.7s;
+}
+@keyframes cuteNavGlow{
+  0%,100%{filter:drop-shadow(0 0 2px rgba(255,105,180,.15))}
+  50%{filter:drop-shadow(0 0 8px rgba(255,105,180,.55))}
+}
+@keyframes cuteNavSparkle{
+  0%,100%{opacity:.35;transform:scale(.7) rotate(0deg)}
+  50%{opacity:1;transform:scale(1.25) rotate(12deg)}
+}
+
 </style>
 </head>
 
@@ -1468,14 +1505,13 @@ const mobileMenu =
 /* ================= SAVED SETTINGS ================= */
 
 let lang =
- localStorage.getItem('kstoreCuteLanguage') === 'en'
- ? 'en'
- : 'ar';
+ localStorage.getItem('kstoreLanguage') ||
+ localStorage.getItem('kstoreCuteLanguage') ||
+ 'ar';
 
 let mode =
- localStorage.getItem('kstoreCuteMode') === 'dark'
- ? 'dark'
- : 'light';
+ localStorage.getItem('kstoreMode') ||
+ (localStorage.getItem('kstoreCuteMode') === 'dark' ? 'dark' : 'light');
 
 
 /* ================= LANGUAGE ================= */
