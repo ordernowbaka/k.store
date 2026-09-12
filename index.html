@@ -342,6 +342,31 @@ body.dark .navbar{
   color:var(--dark-pink);
 }
 
+
+
+/* Compact Egyptian Arabic navbar */
+body:not(.english) .nav-links{
+  gap:4px;
+}
+
+body:not(.english) .nav-links a{
+  padding:9px 10px;
+  font-size:14px;
+  white-space:nowrap;
+}
+
+/* Compact English navbar */
+body.english .nav-links{
+  gap:4px;
+}
+
+body.english .nav-links a,
+body.english .nav-links button{
+  padding:9px 9px;
+  font-size:14px;
+  white-space:nowrap;
+}
+
 /* ✨ Glow + glitter ONLY on the Cute Collection navbar link */
 .cute-nav-link{
   position:relative;
@@ -2166,27 +2191,27 @@ body.english .popup p{
 
     <div class="nav-links">
 
-      <a href="#cases" data-ar="📱 الجرابات" data-en="📱 Phone Cases">
+      <a href="#cases" data-ar="📱 الجرابات" data-en="📱 Cases">
         📱 الجرابات
       </a>
 
-      <a href="cute-finds.html" class="cute-nav-link" data-ar="🎀 الحاجات الكيوت" data-en="🎀 Cute Collection">
+      <a href="cute-finds.html" class="cute-nav-link" data-ar="🎀 الحاجات الكيوت" data-en="🎀 Cute Finds">
         🎀 الحاجات الكيوت
       </a>
 
-      <a href="#how" data-ar="✨ إزاي تطلب؟" data-en="✨ How to Order?">
+      <a href="#how" data-ar="✨ إزاي تطلب؟" data-en="✨ How to Order">
         ✨ إزاي تطلب؟
       </a>
 
-      <a href="#order" data-ar="💗 اعمل طلب" data-en="💗 Order Now">
-        💗 اعمل طلب
+      <a href="#order" data-ar="💗 اطلب" data-en="💗 Order">
+        💗 اطلب
       </a>
 
       <a
         href="https://linktr.ee/K.store188"
         target="_blank"
         data-ar="🔗 لينكاتنا"
-        data-en="🔗 Our Links"
+        data-en="🔗 Links"
       >
         🔗 لينكاتنا
       </a>
@@ -2194,10 +2219,10 @@ body.english .popup p{
       <a
         href="https://wa.me/201096056450"
         target="_blank"
-        data-ar="💬 WhatsApp"
+        data-ar="💬 واتساب"
         data-en="💬 WhatsApp"
       >
-        💬 WhatsApp
+        💬 واتساب
       </a>
 
     </div>
@@ -2280,7 +2305,7 @@ body.english .popup p{
         class="btn btn-soft"
         onclick="window.location.href='cute-finds.html'"
         data-ar="🎀 الحاجات الكيوت"
-        data-en="🎀 Cute Collection"
+        data-en="🎀 Cute Finds"
       >
         ✏️ الأدوات المكتبية
       </button>
@@ -2509,7 +2534,7 @@ body.english .popup p{
 
       <h2
         data-ar="✨ إزاي تطلب؟"
-        data-en="✨ How to Order?"
+        data-en="✨ How to Order"
       >
         ✨ إزاي تطلب؟
       </h2>
@@ -2612,7 +2637,7 @@ body.english .popup p{
         data-ar="💗 اعمل طلبك"
         data-en="💗 Place Your Order"
       >
-        💗 اعمل طلبك
+        💗 اطلبك
       </h2>
 
       <p
@@ -3231,7 +3256,7 @@ body.english .popup p{
         href="#order"
         class="btn btn-primary"
         data-ar="💗 اطلب دلوقتي"
-        data-en="💗 Order Now"
+        data-en="💗 Order"
       >
         💗 اطلب دلوقتي
       </a>
@@ -3272,10 +3297,10 @@ body.english .popup p{
       <a
         href="https://wa.me/201096056450"
         target="_blank"
-        data-ar="💬 WhatsApp"
+        data-ar="💬 واتساب"
         data-en="💬 WhatsApp"
       >
-        💬 WhatsApp
+        💬 واتساب
       </a>
 
     </div>
