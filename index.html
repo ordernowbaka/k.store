@@ -2146,6 +2146,204 @@ body.english .popup{
 body.english .popup p{
   text-align:center;
 }
+
+/* ================= PERFORMANCE + MOBILE FIX ================= */
+
+/* Keep the cute look without expensive blur layers. */
+.navbar,
+.form-box,
+.nav-links{
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+}
+
+/* The decorative background should stay subtle and cheap to render. */
+@media (max-width:800px){
+  .sky .shooting-star,
+  .sky .glitter-dot{
+    display:none;
+  }
+
+  .sky .star{
+    width:3px;
+    height:3px;
+    box-shadow:0 0 5px var(--star-glow);
+    animation-duration:4.5s;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:28px 0 45px;
+  }
+
+  .hero-content{
+    padding:38px 10px;
+  }
+
+  .hero h1{
+    font-size:clamp(36px,11vw,48px);
+    line-height:1.12;
+  }
+
+  .hero p{
+    font-size:15px;
+    line-height:1.8;
+    max-width:95%;
+  }
+
+  section{
+    padding:48px 0;
+  }
+
+  .section-title{
+    margin-bottom:28px;
+  }
+
+  .section-title h2{
+    font-size:30px;
+  }
+
+  .price-grid{
+    gap:10px;
+  }
+
+  .price-card{
+    border-radius:22px;
+    padding:20px 10px;
+    box-shadow:0 8px 25px rgba(151,82,111,.10);
+  }
+
+  .price-card::before,
+  .product-card::before,
+  .step::before,
+  .form-box::before,
+  .review::before,
+  details::before,
+  .cta::before,
+  .hero-content::before,
+  .section-title::before{
+    display:none;
+  }
+
+  .price-card:hover,
+  .product-card:hover,
+  .step:hover,
+  .review:hover,
+  details:hover{
+    transform:none;
+    box-shadow:0 8px 25px rgba(151,82,111,.10);
+  }
+
+  .product-card{
+    border-radius:22px;
+    padding:22px 16px;
+    box-shadow:0 8px 25px rgba(151,82,111,.10);
+  }
+
+  .step{
+    padding:22px;
+    border-radius:22px;
+    box-shadow:0 8px 25px rgba(151,82,111,.10);
+  }
+
+  .form-box{
+    padding:20px 14px;
+    border-radius:24px;
+    box-shadow:0 8px 25px rgba(151,82,111,.10);
+  }
+
+  .review{
+    border-radius:22px;
+    padding:22px 16px;
+    box-shadow:0 8px 25px rgba(151,82,111,.10);
+  }
+
+  details{
+    box-shadow:0 6px 20px rgba(151,82,111,.08);
+  }
+
+  .cta{
+    border-radius:26px;
+    padding:38px 18px;
+  }
+
+  .btn-primary::after,
+  .lang-btn::after,
+  .mode-btn::after,
+  .order-btn::after{
+    display:none;
+  }
+
+  .cute-nav-link{
+    text-shadow:0 0 5px var(--star-glow);
+    animation:none;
+  }
+
+  .cute-nav-link::before,
+  .cute-nav-link::after{
+    animation:none;
+  }
+
+  .new-products-popup{
+    max-width:calc(100vw - 28px);
+    padding:32px 18px 22px;
+    box-shadow:0 18px 45px rgba(0,0,0,.22);
+  }
+
+  .new-products-popup::before,
+  .new-products-popup::after{
+    animation:none;
+  }
+
+  .new-products-popup h2{
+    font-size:26px;
+  }
+}
+
+/* Prevent the mobile menu from becoming wider than the screen. */
+@media (max-width:480px){
+  .nav-inner{
+    width:94%;
+    gap:6px;
+  }
+
+  .nav-actions{
+    gap:5px;
+  }
+
+  .nav-links{
+    left:2%;
+    right:2%;
+    width:auto;
+  }
+
+  .hero-buttons{
+    width:100%;
+    padding:0 8px;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+
+  .new-popup-actions .btn{
+    width:100%;
+    min-width:0;
+  }
+}
+
+/* Respect phones that request reduced motion. */
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
+  }
+}
+
 </style>
 </head>
 
@@ -3561,7 +3759,9 @@ const langBtn =
   document.getElementById("langBtn");
 
 const savedLanguage =
-  localStorage.getItem("kstoreLanguage") || localStorage.getItem("kstoreCuteLanguage");
+  localStorage.getItem("kstoreLanguage") ||
+  localStorage.getItem("kstoreCuteLanguage") ||
+  "ar";
 
 let currentLanguage =
   savedLanguage === "en"
@@ -3700,12 +3900,18 @@ function closeNewProductsPopup(){
 
 function showNewProductsPopup(){
   if(!newProductsPopup) return;
+
+  // Show it once only, so refreshing the page won't bring it back.
+  if(localStorage.getItem("kstoreNewProductsPopupSeen") === "yes"){
+    return;
+  }
+
   setTimeout(()=>{
     newProductsPopup.classList.add("show");
+    localStorage.setItem("kstoreNewProductsPopupSeen","yes");
   },500);
 }
 
-// Show the welcome popup when the home page finishes opening.
 window.addEventListener("load", showNewProductsPopup);
 
 
